@@ -593,7 +593,7 @@ span.menu-bar {
     position: absolute;
     top: 70px;
     right: 0px;
-    background-color: #000;
+    background-color: #cc3333; /* #000; */
     border-top: 1px solid #ccc;
     display: none;
     text-align: center;
