@@ -1,0 +1,77 @@
+/* Demo3 pizza order custom css */
+.bgImage {
+    background: url('../images/pizza-demo-bg.jpg') no-repeat right bottom;
+    background-size: cover;
+    width: 100%;
+}
+header, footer {
+	 background-color: #dd8256 !important;
+	 color: #ffe3bd !important;
+}
+footer {
+	border-top: solid 2px #ffe3bd;
+}
+header img {
+	padding: 1em 25% 0;
+}
+h1 {
+  color: #B8860B;
+}
+header h1 {
+    font-size: 48px;
+    color: #ffe3bd;
+    letter-spacing: 0.1em;
+}
+.galWrapper {
+	margin-top: 60px;
+    background-color: rgba(255,255,255,.75);
+}
+#formWrapper {
+    margin-top: 70px;
+    background-color: rgba(255,255,255,.85);
+}
+form span {
+    color: red;
+    float: right;
+    font-style:italic;
+}
+.results {
+	color: #777;
+    padding: 1em;
+    font-style: italic;
+	outline: none;
+}
+
+/*.card-rounded img {
+	border-radius: 50% !important;
+}*/
+.mt {
+    margin-top: 0.5em;
+}
+.ml {
+    margin-left: 0.5em;
+}
+.mr {
+    margin-right: 0.5em;
+}
+.mb {
+    margin-bottom: 0.5em;
+}
+footer {
+    margin-top: 0;
+	/*background-color: #B8860B !important;*/
+}
+.active {
+  background-color: /*#dd8256;*/ #B8860B; /* #d2c82a; /* orange; */
+  border: none;
+  /*border: solid 2px #ffe3bd;*/
+}
+
+@media screen and (min-width: 750px) {
+    header img {
+        padding: 5px;
+}
+@media screen and (min-width: 960px) {
+    #menu {
+        width: 100%;
+}
