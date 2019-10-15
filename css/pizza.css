@@ -64,6 +64,17 @@ form span {
 	margin: 2% 10%;
 	background-color: #cc3333;
 }
+#home h4 {
+	font-family: Arial, sans-serif;
+	text-align: center;
+	background-color: #cc3333;
+	padding: 15px;
+
+}
+#home3 img, #home4 > article {
+	border: 5px solid #d2c82a;
+	margin: 10px;
+}
 footer {
     margin-top: 0;
 	/*background-color: #B8860B !important;*/
