@@ -941,6 +941,7 @@ li.nav-item{
             .column2-md {
 				grid-template-columns: repeat(2, 49%);
 			}
+
 		}
 		/* large */
 		@media screen and (min-width:960px) {
