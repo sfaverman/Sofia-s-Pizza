@@ -70,10 +70,26 @@ form span {
 	background-color: #cc3333;
 	padding: 15px;
 
+
 }
 #home3 img, #home4 > article {
 	border: 5px solid #d2c82a;
+	/*margin: 10px;*/
+}
+#home3 h4 {
+	margin-bottom: 0;
+}
+#home4 > article {
 	margin: 10px;
+	position: relative;
+}
+#home4 .btn, #home4 article a {
+	min-width: 120px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	margin-right: 15px;
+	padding: 5px;
 }
 footer {
     margin-top: 0;
