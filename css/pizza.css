@@ -4,13 +4,14 @@
     background-size: cover;
     width: 100%;
 }
-header, footer {
+header, footer, footer label {
 	 background-color: #dd8256 !important;
 	 color: #ffe3bd !important;
 }
 footer {
 	border-top: solid 2px #ffe3bd;
 }
+
 header img {
 	padding: 1em 25% 0;
 }
@@ -45,7 +46,9 @@ form span {
     font-style: italic;
 	outline: none;
 }
-
+div#menu {
+	background-color: black !important;
+}
 
 /*.card-rounded img {
 	border-radius: 50% !important;
@@ -141,6 +144,11 @@ ul.tabs li {
 	color: #000 !important;
 	background-color: #ffe3bd !important;
 	border: solid 1px  #B8860B;
+}
+ul.tabs li.current {
+	color: #fff !important;
+	background-color: #B8860B !important;
+
 }
 .price {
 	color: #cc3333;
