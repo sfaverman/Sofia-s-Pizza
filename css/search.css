@@ -6,8 +6,13 @@
 	min-height: 500px;
 	padding-top: 10px;
 }
+.withinPage {
+	min-height: 0px !important;
+	margin: 0 auto !important;
+	padding: 0 !important;
+}
 #searchArea {
-    margin: 0 auto;
+    margin: 10px auto 30px;
     text-align: center;
     background-color: #ffe3bd; /* #B8860B; /* #cc3333; */
     padding: 10px;
@@ -36,7 +41,7 @@
     font-family: Georgia, Times, Serif;
     width: 70%;
     margin: 0 auto;
-    border-top: 1px dotted #ccc;
+    border-top: 1px dotted #ededed;
 }
 #update ul {
     list-style: none;
@@ -46,12 +51,12 @@
 #update li {
     width: 100%;
     padding: 0 20px 10px;
-    background-color: #eee;
+    background-color: #fff;
     overflow: hidden;
     border-bottom: 1px dotted #ccc;
 }
 #update li:hover {
-    background-color: #fffce5;
+    background-color: #ffe3bd; /*#fffce5; */
     min-height: 100px;
    /* height: 300px;*/
     overflow: visible;
