@@ -1,0 +1,78 @@
+.galWrapper {
+	margin-top: 45px;
+    background-color: rgba(255,255,255,.5);
+}
+#containerSearch {
+	min-height: 500px;
+	padding-top: 10px;
+}
+#searchArea {
+    margin: 0 auto;
+    text-align: center;
+    background-color: #ffe3bd; /* #B8860B; /* #cc3333; */
+    padding: 10px;
+	border: solid 2px #cc3333;
+    border-radius: 10px 10px 0 0;
+    width: 50%; /* 30% */
+}
+#searchArea label {
+    font: bold 1.3em Arial;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+    color: #cc3333; /* #069; */
+}
+#searchArea p {
+    margin: 0;
+    line-height: 1em;
+    padding-bottom: 5px;
+}
+#searchArea input {
+    width: 80%;
+	padding: .2em;
+    text-align: center;
+    background-color: white;
+}
+#update {
+    font-family: Georgia, Times, Serif;
+    width: 70%;
+    margin: 0 auto;
+    border-top: 1px dotted #ccc;
+}
+#update ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#update li {
+    width: 100%;
+    padding: 0 20px 10px;
+    background-color: #eee;
+    overflow: hidden;
+    border-bottom: 1px dotted #ccc;
+}
+#update li:hover {
+    background-color: #fffce5;
+    min-height: 100px;
+   /* height: 300px;*/
+    overflow: visible;
+}
+#update h2 {
+    margin: 0 0 10px;
+    padding: 20px 0 0;
+    font-size: 1.2em;
+    font-family: Arial,sans-serif;
+    color: #bf5841;
+    border-bottom: 1px dotted #ccc;
+}
+#update img {
+    width: 80px;
+    margin-right: 10px;
+    border-radius: 10px;
+    float: left;
+}
+#update li:after {
+    clear: both;
+    display: block;
+    content: "";
+}
+}

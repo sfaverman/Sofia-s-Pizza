@@ -1,0 +1,31 @@
+[
+  {
+    "product":"San Diego Deli Pizza",
+    "category":"pizza",
+    "price":"$14.99",
+    "description":"A traditional pan pizza baked to perfection and topped with freshly sliced pepperoni and salami, spicy Italian sausage, savory Canadian bacon, lean ground beef and our signature gourmet cheese blend.Every year, at the same place and time, thousands of female Kemp's ridley sea turtles come ashore to nest and lay their eggs on the beach. This mass nesting event is known as an arribada, meaning “arrival by sea” in Spanish.",
+	"image":"pi-1"
+  },
+  {
+    "product":"Chicken Supreme Pizza",
+    "category":"pizza",
+    "price":"$15.99",
+    "description":"A traditional pan pizza baked to perfection and topped with tender grilled chicken strips, artichoke hearts, vine-ripened tomatoes, roasted garlic, ricotta cheese, sharp Parmesan, our signature gourmet cheese blend and sprinkled with fresh basil.",
+	"image":"pi-2"
+  },
+  {
+    "product":"Hot Ham Sandwitch",
+    "category":"sandwitch",
+    "price":"$14.99",
+    "description":"A ham and cheese sandwich is made with buttered bred,  es ilike lettuce, tomato, onion or pickle slices. Various kinds of mustard and mayonnaise are offered.",
+	"image":"san-1"
+  },
+  {
+    "product":"Chicken Sandwitch",
+    "category":"sandwitch",
+    "price":"$7.99",
+    "description":"A breaded chicken filet on a brioche bun, with pickles and either mayo or spicy Cajun spread.",
+	"image":"san-2"
+  }
+
+]
