@@ -2,6 +2,12 @@
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
 */
 
+/*php - create json file from mySql
+
+	$singlearray = $sql->fetch();
+	var_dump($singlearray);
+	echo json_encode($singlearray);*/
+
 //alert ("You are on a search page");
 
 $('#search').keyup(function(){
