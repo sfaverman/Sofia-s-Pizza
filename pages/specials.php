@@ -20,7 +20,7 @@ $dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
     <link rel="stylesheet" href="../css/hsm.css" type="text/css">
     <!--custom css-->
     <link rel="stylesheet" href="../css/pizza.css">
-    <link rel="stylesheet" href="../css/search.css">
+   <!-- <link rel="stylesheet" href="../css/search.css">-->
 
 </head>
 <body id="home">
@@ -45,13 +45,13 @@ $dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
                     <a href="../index.html" class="nav-title">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="specials.php" class="nav-title">Specials</a>
+                    <a href="specials.php" class="nav-title active">Specials</a>
                 </li>
                 <li class="nav-item">
                     <a href="menu.html" class="nav-title">Menu</a>
                 </li>
                <li class="nav-item">
-                    <a href="order.html" class="nav-title active">Order</a>
+                    <a href="order.php" class="nav-title">Order</a>
                 </li>
 
                 <li class="nav-item">
@@ -66,71 +66,44 @@ $dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
 
 <main class="galWrapper">
 
-	<section class="grid doubleSides">
-		<article class="mt">
-			<a href="customOrder.html" class="btn button">Build Custom Pizza</a>
-		</article>
-		<article class="gallery">
-			<h2 class="text-alignCenter">Order Online for Pickup or Delivery</h2>
-		</article>
-		<article class="mt">
-			<a href="pizza-Cost.html" class="btn button">Pizza Cost Calculator</a>
-		</article>
-	</section>
-
-   <div id="containerSearch" class="withinPage">
-		<section id="searchArea">
-		        <label for="search">Live Search</label>
-		        <p>Enter the name or info about a product</p>
-		        <input type="search" name="search" id="search" placeholder="name or info">
-		 </section>
-		 <section>
-		        <article id="update"></article>
-		 </section>
-   </div>
-
-  <!---    TABS BY CATEGORIES   ----------------------------->
+   <section class="menuWeekly">
+    <h2 class="text-alignCenter">Weekly Specials</h2>
 
     <div class="tab-container">
 
 		<ul class="tabs">
-		   <?php
-			 /* insert li tabs dynamicaly */
-			 $cat_sql = $dbh->prepare("SELECT * FROM sp19_categories");
-			 $cat_sql->execute();
-		   		$i = 1;
-				while ($cat_row = $cat_sql->fetch()){
-				   $cat_id = $cat_row['catid'];
-				   $cat_name = $cat_row['catname'];
-
-				   //echo "$cat_id - $cat_name <br>";
-					if ($i == 1) {
-					    echo '<li class="current" data-tab="tab-'.$cat_id.'">'.$cat_name.'</li>';
-					} else {
-						 echo '<li data-tab="tab-'.$cat_id.'">'.$cat_name.'</li>';
-					}
-					$i++;
+  			<?php
+				$weekDayArray = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+				$today = date("Y-m-d");
+				$weekDayNum = date('N', strtotime($today));
+				//echo "Today: " . $today . " weekday: " . $weekDayNum . "<br>";
+				$weekDay = date('l', strtotime($today));
+				echo "Today: " . $today . ' - ' .$weekDay . "<br>";
+				for ($i = 0; $i < count($weekDayArray); $i++) {
+				   if ($i == $weekDayNum - 1) {
+					 echo '<li class="current" data-tab="tab-'.$i.'">'.$weekDayArray[$i].'</li>';
+				   } else {
+					 echo '<li data-tab="tab-'.$i.'">'.$weekDayArray[$i].'</li>';
+				   }
 				}
 			?>
 		</ul>
 
 	 <?php
-			$cat_sql = $dbh->prepare("SELECT * FROM sp19_categories");
-			$cat_sql->execute();
-				$i = 1;
-				while ($cat_row = $cat_sql->fetch()){
-				   $cat_id = $cat_row['catid'];
-				   $cat_name = $cat_row['catname'];
+		    $weekDayArray = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
 
-				   //echo "$cat_id - $cat_name <br>";
-					if ($i == 1) {
-						echo '<div id="tab-'.$cat_id.'" class="tab-content current clearfloat">';
+				$i = 0;
+				while ($i < count($weekDayArray)) {
+				   	if ($i == 0) {
+						echo '<div id="tab-'.$i.'" class="tab-content current clearfloat">';
 					} else {
-						echo '<div id="tab-'.$cat_id.'" class="tab-content clearfloat">';
+						echo '<div id="tab-'.$i.'" class="tab-content clearfloat">';
 					}
 					echo '<section class="gallery text-alignCenter">';
 
-					$prod_sql = $dbh->prepare("SELECT * FROM sp19_products WHERE catid = $cat_id;");
+					//echo "$weekDayArray[$i]";
+
+					$prod_sql = $dbh->prepare("SELECT * FROM sp19_products WHERE weeklyspecial = '$weekDayArray[$i]';");
 					$prod_sql->execute();
 
 						while ($row = $prod_sql->fetch()){
@@ -147,8 +120,10 @@ $dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
 						   echo '</div>';
 						   echo '<div>';
 								echo '<h3>'.$prod_name.'</h3>';
-								echo '<h3 class="price">'.$prod_price.'</h3>';
-								echo '<p>$'.$prod_desc.'</p>
+							    $disPrice = $prod_price / 100 * 80;
+							    $disPrice = round($disPrice,2);
+								echo '<p> reg $'.$prod_price.', '.$weekDayArray[$i].'<span class="price">$'.$disPrice.'</span></p>';
+								echo '<p>'.$prod_desc.'</p>
 								<a href="#" class="btn button ">Add to Cart!</a>';
 							echo '</div>';
 						echo '</div>';
@@ -163,7 +138,7 @@ $dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
 
 </div> <!-- end div tab-container -->
 
-
+</section>   <!-- end weekly specials section -->
 
  <a href="customOrder.html" class="btn button">Build your own Custom Pizza</a>
 
@@ -229,7 +204,7 @@ $dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
 <!--Scripts-->
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 	 <script src="../scripts/hsm.js"></script>
-     <script src="../scripts/search.js"></script>
+   <!--  <script src="../scripts/search.js"></script>-->
 
 </body>
 </html>
