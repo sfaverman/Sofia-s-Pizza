@@ -94,17 +94,30 @@ $dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
     <div class="tab-container">
 
 		<ul class="tabs">
-			<li class="current" data-tab="tab-2">Pizzas</li>
-			<li data-tab="tab-3">Sandwiches</li>
-			<li data-tab="tab-4">Salads</li>
-			<li data-tab="tab-5">Desserts</li>
+		   <?php
+			 /* insert li tabs dynamicaly */
+			 $cat_sql = $dbh->prepare("SELECT * FROM sp19_categories");
+			 $cat_sql->execute();
+		   		$i = 1;
+				while ($cat_row = $cat_sql->fetch()){
+				   $cat_id = $cat_row['catid'];
+				   $cat_name = $cat_row['catname'];
+
+				   //echo "$cat_id - $cat_name <br>";
+					if ($i == 1) {
+					    echo '<li class="current" data-tab="tab-'.$cat_id.'">'.$cat_name.'</li>';
+					} else {
+						 echo '<li data-tab="tab-'.$cat_id.'">'.$cat_name.'</li>';
+					}
+					$i++;
+				}
+			?>
 		</ul>
 
 	 <?php
-
 			$cat_sql = $dbh->prepare("SELECT * FROM sp19_categories");
 			$cat_sql->execute();
-		   		$i = 1;
+				$i = 1;
 				while ($cat_row = $cat_sql->fetch()){
 				   $cat_id = $cat_row['catid'];
 				   $cat_name = $cat_row['catname'];
