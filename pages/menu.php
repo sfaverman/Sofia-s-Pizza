@@ -23,7 +23,7 @@ $dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
     <link rel="stylesheet" href="../css/search.css">
 
 </head>
-<body id="home">
+<body id="menuPage">
          <header class="grid asideLeft">
                <div>
                     <img src="../images/pizza-demo-logo.png" class="img-responsive mt" alt="company logo">  </div>
@@ -172,9 +172,9 @@ $dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
 </div> <!-- end div tab-container -->
 
 
- <a href="customOrder.html" class="btn button">Build your own Custom Pizza</a>
+<a href="customOrder.html" class="btn button">Build your own Custom Pizza</a>
 
-
+<a id="bttBtn" href="#menuPage"><img src="../images/back-to-top-arrow.png" alt="back to top arrow"></a>
 
 <footer class="footer styleAccord">
    <section class="grid column3">
@@ -237,5 +237,6 @@ $dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 	 <script src="../scripts/hsm.js"></script>
      <script src="../scripts/search.js"></script>
+     <script src="../scripts/backtotop.js"></script>
 </body>
 </html>

@@ -146,8 +146,8 @@ $(document).ready(function(){
         });
 
 
-/*Sticky nav on scroll*/
-       window.onscroll = function() {myFunction()};
+/*Sticky nav on scroll*/ /* removed not working SXF 11/7/19 */
+    /*   window.onscroll = function() {myFunction()};
 
 var header = document.getElementById("stickNavScroll");
 var sticky = header.offsetTop;
@@ -159,3 +159,4 @@ function myFunction() {
     header.classList.remove("stickyNav-onScroll");
   }
 };
+*/
