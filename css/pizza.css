@@ -193,6 +193,11 @@ ul.tabs li.current {
 	bottom: 5px;
 	right: 15px;
 }
+.noMin {
+	display: none;
+}
+
+
 @media screen and (min-width: 570px) {
 	#contact section {
 		min-height: 750px;
@@ -206,6 +211,7 @@ ul.tabs li.current {
 	#bttBtn img {
 		width: 5%;
     }
+
 }
 @media screen and (min-width: 750px) {
     header img {
@@ -213,6 +219,9 @@ ul.tabs li.current {
 	}
 	.pizzaFooter {
 			grid-template-columns: 2fr 2fr 3fr 2fr 3fr;
+	}
+	.noMin {
+		display: flex;
 	}
 }
 

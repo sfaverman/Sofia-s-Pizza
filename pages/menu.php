@@ -67,13 +67,13 @@ $dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
 <main class="galWrapper">
 
 	<section class="grid doubleSides">
-		<article class="mt">
+		<article class="middleText">
 			<a href="specials.php" class="btn button">Weekly Specials</a>
 		</article>
-		<article class="gallery">
+		<article class="gallery noMin">
 			<h2 class="text-alignCenter">What We Offer</h2>
 		</article>
-		<article class="mt">
+		<article class="middleText">
 			<a href="order.php" class="btn button">Order by Category</a>
 		</article>
 	</section>
