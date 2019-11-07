@@ -20,7 +20,7 @@ $dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
     <link rel="stylesheet" href="../css/hsm.css" type="text/css">
     <!--custom css-->
     <link rel="stylesheet" href="../css/pizza.css">
-   <!-- <link rel="stylesheet" href="../css/search.css">-->
+    <link rel="stylesheet" href="../css/search.css">
 
 </head>
 <body id="home">
@@ -45,10 +45,10 @@ $dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
                     <a href="../index.html" class="nav-title">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="specials.php" class="nav-title active">Specials</a>
+                    <a href="specials.php" class="nav-title">Specials</a>
                 </li>
                 <li class="nav-item">
-                    <a href="menu.php" class="nav-title">Menu</a>
+                    <a href="menu.php" class="nav-title active">Menu</a>
                 </li>
                <li class="nav-item">
                     <a href="order.php" class="nav-title">Order</a>
@@ -66,8 +66,30 @@ $dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
 
 <main class="galWrapper">
 
+	<section class="grid doubleSides">
+		<article class="mt">
+			<a href="specials.php" class="btn button">Weekly Specials</a>
+		</article>
+		<article class="gallery">
+			<h2 class="text-alignCenter">What We Offer</h2>
+		</article>
+		<article class="mt">
+			<a href="order.php" class="btn button">Order by Category</a>
+		</article>
+	</section>
    <section>
-    <h2 class="text-alignCenter">What We Offer</h2>
+
+       <div id="containerSearch" class="withinPage">
+			<section id="searchArea">
+					<label for="search">Live Search</label>
+					<p>Enter the name or info about a product</p>
+					<input type="search" name="search" id="search" placeholder="name or info">
+			 </section>
+			 <section>
+					<article id="update"></article>
+			 </section>
+      </div>
+	</section>
 
     <div class="tab-container">
 		<ul class="tabs">
@@ -214,7 +236,6 @@ $dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
 <!--Scripts-->
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 	 <script src="../scripts/hsm.js"></script>
-   <!--  <script src="../scripts/search.js"></script>-->
-
+     <script src="../scripts/search.js"></script>
 </body>
 </html>

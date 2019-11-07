@@ -13,6 +13,7 @@
 }
 #searchArea {
     margin: 10px auto 30px;
+	/*margin: 0 auto;*/
     text-align: center;
     background-color: #ffe3bd; /* #B8860B; /* #cc3333; */
     padding: 10px;
