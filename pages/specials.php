@@ -14,7 +14,7 @@ $dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="CSS Framework" content="Easy framework to build responsive website">
-    <title>Sofia's Pizza - Order Page</title>
+    <title>Sofia's Pizza - Specials Page</title>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
     <link rel="stylesheet" href="../css/hsm.css" type="text/css">
@@ -48,7 +48,7 @@ $dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
                     <a href="specials.php" class="nav-title active">Specials</a>
                 </li>
                 <li class="nav-item">
-                    <a href="menu.html" class="nav-title">Menu</a>
+                    <a href="menu.php" class="nav-title">Menu</a>
                 </li>
                <li class="nav-item">
                     <a href="order.php" class="nav-title">Order</a>
@@ -74,6 +74,7 @@ $dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
 		<ul class="tabs">
   			<?php
 				$weekDayArray = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+			    date_default_timezone_set('US/Pacific');
 				$today = date("Y-m-d");
 				$weekDayNum = date('N', strtotime($today));
 				//echo "Today: " . $today . " weekday: " . $weekDayNum . "<br>";

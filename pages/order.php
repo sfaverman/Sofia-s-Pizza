@@ -48,10 +48,10 @@ $dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
                     <a href="specials.php" class="nav-title">Specials</a>
                 </li>
                 <li class="nav-item">
-                    <a href="menu.html" class="nav-title">Menu</a>
+                    <a href="menu.php" class="nav-title">Menu</a>
                 </li>
                <li class="nav-item">
-                    <a href="order.html" class="nav-title active">Order</a>
+                    <a href="order.php" class="nav-title active">Order</a>
                 </li>
 
                 <li class="nav-item">
@@ -147,8 +147,8 @@ $dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
 						   echo '</div>';
 						   echo '<div>';
 								echo '<h3>'.$prod_name.'</h3>';
-								echo '<h3 class="price">'.$prod_price.'</h3>';
-								echo '<p>$'.$prod_desc.'</p>
+								echo '<h3 class="price">$'.$prod_price.'</h3>';
+								echo '<p>'.$prod_desc.'</p>
 								<a href="#" class="btn button ">Add to Cart!</a>';
 							echo '</div>';
 						echo '</div>';
