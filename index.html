@@ -13,6 +13,7 @@
     <!--Scripts-->
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
      <script src="scripts/hsm.js"></script>
+     <script src="scripts/backtotop.js"></script>
 
 
 </head>
@@ -61,39 +62,48 @@
      	<section id="home1" class="grid column4">
  			<article>
  				<h3>Pizzas</h3>
- 				<img src="images/pizza-h1.jpg" alt="pizza image" class="img-responsive">
+				<a href="pages/order.php?category=Pizzas">
+ 				  <img src="images/pizza-h1.jpg" alt="pizza image" class="img-responsive">
+ 				</a>
  				<p> We make the most Delious Pizzas!
 					You will try once - You will come many more times! </p>
  			</article>
  			<article>
  				<h3>Sandwiches</h3>
- 				<img src="images/sandwich-h1.jpg" alt="sandwich image" class="img-responsive">
+ 				<a href="pages/order.php?category=Sandwiches">
+ 				  <img src="images/sandwich-h1.jpg" alt="sandwich image" class="img-responsive">
+				</a>
  				<p> We take the time and effort to make your sandwich the best you'll ever have. Try our most popular sandwiches.</p>
 
  			</article>
  			<article>
  				<h3>Salads</h3>
- 				<img src="images/salad-h1.jpg" alt="salad image" class="img-responsive">
+ 				<a href="pages/order.php?category=Salads">
+ 				   <img src="images/salad-h1.jpg" alt="salad image" class="img-responsive">
+				</a>
  				<p> Straight from the garden, fresh, delicious, made just for you. Our salads make eating greens more fun. </p>
  			</article>
  			<article>
  				<h3>Desserts</h3>
- 				<img src="images/pancake-h1.jpg" alt="pancakes image" class="img-responsive">
+ 				<a href="pages/order.php?category=Desserts">
+ 				   <img src="images/pancake-h1.jpg" alt="pancakes image" class="img-responsive">
+				</a>
  				<p> Treat yourself with Sofia's Pizza  desserts and beverages. Whether in the mood for ... Come by Today!</p>
  			</article>
  		</section>
 
       	<section id="home2" class="grid doubleSides">
-      		<article>
+      		<article class="middleText">
       			<a href="pages/menu.php" class="btn button">Our Menu</a>
       		</article>
  			<article class="gallery">
  				<h3>ORDER ONLINE FOR PICKUP OR DELIVERY</h3>
- 			</article>
- 			<article>
+ 			</article >
+ 			<article class="middleText">
       			<a href="pages/order.php" class="btn button">Start Order</a>
       		</article>
  		</section>
+
  		<section id="home3" class="grid column4">
 
  			<article>
@@ -148,8 +158,11 @@
 
  			</article>
  		</section>
+
+ 	 <a id="bttBtn" href="#home"><img src="images/back-to-top-arrow.png" alt="back to top arrow"></a>
+
 <footer class="footer styleAccord">
-   <section class="grid column3">
+   <section class="grid column4">
    	<article>
 		<p>VISIT US</p>
   		<form action="" id="location">
@@ -169,24 +182,66 @@
    	</article>
    	<article>
    		<ul>
-   			<li><a href="#" class="btn button">Download our app</a></li>
+   		<!--	<li><a href="#" class="btn button">Download our app</a></li>-->
    			<li><a href="#" class="btn button">Buy a gift card</a></li>
    			<li><a href="#" class="btn button">Order Online</a></li>
+   			<li><a href="#" class="btn button">Reservation</a></li>
+   		</ul>
+   		<p class="callMsg mt">Call Now to order<br>
+   		888-999-9999</p>
+
+
+
+   	</article>
+   	<article>
+   		<p>HOURS:</p>
+   		<ul class="displayInline">
+   				<li>Mon - Thu 8AM til 10PM</li>
+   				<li>Sat - Sun 10AM til 9PM</li>
+   		</ul>
+   		<ul class="displayInline mt">
+   				<li><a href="#">Deals</a></li>
+   				<li><a href="#">Parties</a></li>
+   				<li><a href="#">Careers</a></li>
    		</ul>
    		<ul class="displayInline">
-   				<li><a href="#">Careers</a></li>
-   				<li><a href="#">Deals</a></li>
    				<li><a href="#">Menu</a></li>
    				<li><a href="#">About</a></li>
-   				<li><a href="#">Franchise</a></li>
    				<li><a href="#">Contact</a></li>
    		</ul>
 
-   		<p>&copy; 2019 Sofia's Pizza</p>
-
+   	</article>
+   	<article>
+   		<p>Get Pizza Emails!</p>
+		<p>We'll keep you in the loop on the latest deals!
+		</p>
+  	<a href="#" class="btn button">Sign Me Up!</a>
    	</article>
 
-   	<article>
+   <!-- <article>
+              <p>Sign up for our Newsletter! </p>
+              <form action="#" method="post" id="signup">
+                    <ul>
+                          <li>
+                              <label for="name">First Name:*</label>
+                              <input type="text" id="name" name="name" required>
+                          </li>
+
+                          <li>
+                              <label for="email">Email:*</label>
+                              <input type="email" id="email" name="email" required placeholder="name@url.com">
+                          </li>
+
+                          <li>
+                              <input type="submit" value="Sign Up" class="submitBtn">
+                          </li>
+                      </ul>
+               </form>
+            </article>
+   	-->
+
+   </section>
+   <article>
    		<p>Follow Us on Social Media</p>
    		<div class="social mb">
    			<a href="#"><i class="fab fa-facebook"></i></a>
@@ -195,12 +250,9 @@
 		    <a href="#"><i class="fab fa-yelp"></i></a>
 		   	<a href="#"><i class="fab fa-google-plus"></i></a>
    		</div>
-   		<p>Call Now to order</p>
-   		<p>888-999-9999</p>
+   		<p>&copy; 2019 Sofia's Pizza</p>
+
    	</article>
-
-   </section>
-
 
 
 </footer>

@@ -126,11 +126,20 @@ footer ul .btn {
   /*border: solid 2px #ffe3bd;*/
 }
 .social i {
-	 background-color: white;
-     border-radius: 50%;
+	 background-color: rgba(255,255,255,.85);
+	 /*background-color: white;*/
+     border-radius: 25%;
      border: 1x solid green;
-     padding: 6px;
+     padding: 4px;
 	 color: green;
+}
+.social i:hover {
+	color:#d2c82a;
+	background-color: #B8860B;
+}
+.social i:active {
+	color:#B8860B;
+	background-color: #d2c82a;
 }
 /*.navbar-container, ul.main-nav {
 	background-color: #cc3333;

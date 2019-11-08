@@ -7,6 +7,14 @@ session_start();
 $dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
 //echo 'connected to sofia_pizza database<br>';
 
+/* if link from home page section 1 */
+if(isset($_GET['category'])) {
+		$show_categ = $_GET['category'];
+		//echo "Show Category $show_categ";
+} else {
+		$show_categ = 'N';
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -91,10 +99,11 @@ $dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
 
   <!---    TABS BY CATEGORIES   ----------------------------->
 
-    <div class="tab-container">
+    <div id="categories" class="tab-container">
 
 		<ul class="tabs">
 		   <?php
+			 //echo "Show Category $show_categ";
 			 /* insert li tabs dynamicaly */
 			 $cat_sql = $dbh->prepare("SELECT * FROM sp19_categories");
 			 $cat_sql->execute();
@@ -104,7 +113,7 @@ $dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
 				   $cat_name = $cat_row['catname'];
 
 				   //echo "$cat_id - $cat_name <br>";
-					if ($i == 1) {
+					if ((($i == 1) && ($show_categ == 'N')) || ($cat_name == $show_categ)) {
 					    echo '<li class="current" data-tab="tab-'.$cat_id.'">'.$cat_name.'</li>';
 					} else {
 						 echo '<li data-tab="tab-'.$cat_id.'">'.$cat_name.'</li>';
@@ -123,11 +132,13 @@ $dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
 				   $cat_name = $cat_row['catname'];
 
 				   //echo "$cat_id - $cat_name <br>";
-					if ($i == 1) {
+
+					if ((($i == 1) && ($show_categ == 'N')) || ($cat_name == $show_categ)) {
 						echo '<div id="tab-'.$cat_id.'" class="tab-content current clearfloat">';
 					} else {
 						echo '<div id="tab-'.$cat_id.'" class="tab-content clearfloat">';
 					}
+
 					echo '<section class="gallery text-alignCenter">';
 
 					$prod_sql = $dbh->prepare("SELECT * FROM sp19_products WHERE catid = $cat_id;");
