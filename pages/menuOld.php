@@ -17,7 +17,7 @@ $dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
     <title>Sofia's Pizza - Menu Page</title>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="../css/hsm.css" type="text/css">
+    <link rel="stylesheet" href="../css/hsm_min.css" type="text/css">
     <!--custom css-->
     <link rel="stylesheet" href="../css/pizza.css">
     <link rel="stylesheet" href="../css/search.css">

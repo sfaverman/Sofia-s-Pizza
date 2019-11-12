@@ -1,20 +1,29 @@
+<?php
+session_start();
+//var_dump($_SESSION);
+
+//Connect to database
+
+$dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
+//echo 'connected to sofia_pizza database<br>';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="CSS Framework" content="Easy framework to build responsive website">
-    <title>Sofia's Pizza - Search Products Page</title>
+    <title>Sofia's Pizza - Specials Page</title>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
     <link rel="stylesheet" href="../css/hsm_min.css" type="text/css">
     <!--custom css-->
     <link rel="stylesheet" href="../css/pizza.css">
-    <link rel="stylesheet" href="../css/search.css">
-
+   <!-- <link rel="stylesheet" href="../css/search.css">-->
 
 </head>
-<body id="search">
+<body id="specials">
          <header class="grid asideLeft">
                <div>
                     <img src="../images/pizza-demo-logo.png" class="img-responsive mt" alt="company logo">  </div>
@@ -36,7 +45,7 @@
                     <a href="../index.html" class="nav-title">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="specials.php" class="nav-title">Specials</a>
+                    <a href="specials.php" class="nav-title active">Specials</a>
                 </li>
                 <li class="nav-item">
                     <a href="menu.php" class="nav-title">Menu</a>
@@ -57,16 +66,84 @@
 
 <main class="galWrapper">
 
-<div id="containerSearch">
-		<section id="searchArea">
-		        <label for="search">Live Search</label>
-		        <p>Enter the name or info about a product</p>
-		        <input type="search" name="search" id="search" placeholder="name or info">
-		    </section>
-		    <section>
-		        <article id="update"></article>
-		    </section>
-</div>
+   <section class="menuWeekly">
+    <h2 class="text-alignCenter">Weekly Specials</h2>
+
+    <div class="tab-container">
+
+		<ul class="tabs">
+  			<?php
+				$weekDayArray = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+			    date_default_timezone_set('US/Pacific');
+				$today = date("Y-m-d");
+				$weekDayNum = date('N', strtotime($today));
+				//echo "Today: " . $today . " weekday: " . $weekDayNum . "<br>";
+				$weekDay = date('l', strtotime($today));
+				echo "Today: " . $today . ' - ' .$weekDay . "<br>";
+				for ($i = 0; $i < count($weekDayArray); $i++) {
+				   if ($i == $weekDayNum - 1) {
+					 echo '<li class="current" data-tab="tab-'.$i.'">'.$weekDayArray[$i].'</li>';
+				   } else {
+					 echo '<li data-tab="tab-'.$i.'">'.$weekDayArray[$i].'</li>';
+				   }
+				}
+			?>
+		</ul>
+
+	 <?php
+		    $weekDayArray = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+
+				$i = 0;
+				while ($i < count($weekDayArray)) {
+				   	if ($i == 0) {
+						echo '<div id="tab-'.$i.'" class="tab-content current clearfloat">';
+					} else {
+						echo '<div id="tab-'.$i.'" class="tab-content clearfloat">';
+					}
+					echo '<section class="gallery text-alignCenter">';
+
+					//echo "$weekDayArray[$i]";
+
+					$prod_sql = $dbh->prepare("SELECT * FROM sp19_products WHERE weeklyspecial = '$weekDayArray[$i]';");
+					$prod_sql->execute();
+
+						while ($row = $prod_sql->fetch()){
+						   $prod_name = $row['prodname'];
+						   $prod_desc = $row['proddesc'];
+						   $prod_price = $row['prodprice'];
+						   $prod_img = $row['image'];
+
+						  //echo "$prod_name - $prod_desc - $prod_price - $prod_img <br>";
+
+						 echo '<div class="card-container">';
+						   echo '<div>';
+								  echo '<img src="../images/products/'.$prod_img.'.jpg" alt="'.$prod_img.'" class="img-responsive zoomIn">';
+						   echo '</div>';
+						   echo '<div>';
+								echo '<h3>'.$prod_name.'</h3>';
+							    $disPrice = $prod_price / 100 * 80;
+							    $disPrice = round($disPrice,2);
+								echo '<p> reg $'.$prod_price.', '.$weekDayArray[$i].'<span class="price">$'.$disPrice.'</span></p>';
+								echo '<p>'.$prod_desc.'</p>
+								<a href="#" class="btn button ">Add to Cart!</a>';
+							echo '</div>';
+						echo '</div>';
+						}
+
+   	   				$i++;
+					echo '</section>';
+					echo '</div>';
+				}
+	?>
+
+
+</div> <!-- end div tab-container -->
+
+</section>   <!-- end weekly specials section -->
+
+<a href="customOrder.html" class="btn button">Build your own Custom Pizza</a>
+
+<a id="bttBtn" href="#specials"><img src="../images/back-to-top-arrow.png" alt="back to top arrow"></a>
 
 
 <footer class="footer styleAccord">
@@ -125,10 +202,12 @@
 </footer>
 </main>
 </section>
+
 <!--Scripts-->
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-     <script src="../scripts/hsm.js"></script>
-	 <script src="../scripts/search.js"></script>
+	 <script src="../scripts/hsm.js"></script>
+   <!--  <script src="../scripts/search.js"></script>-->
+   	 <script src="../scripts/backtotop.js"></script>
 
 </body>
 </html>
