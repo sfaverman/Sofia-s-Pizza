@@ -111,6 +111,7 @@ footer {
 }
 footer .btn {
 	min-width: 160px !important;
+	margin: 2% 10%;
 }
 footer ul .btn {
 	background-color: #ffe3bd !important;
@@ -207,7 +208,7 @@ ul.tabs li.current {
 
 
 @media screen and (min-width: 570px) {
-	#contact section {
+	/*#contact section.container {
 		min-height: 750px;
 	}
 	#contact footer {
@@ -215,7 +216,7 @@ ul.tabs li.current {
 		width: 100%;
 		bottom: 0;
 		left: 0;
-	}
+	}*/
 	#bttBtn img {
 		width: 5%;
     }

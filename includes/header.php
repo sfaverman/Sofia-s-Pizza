@@ -65,7 +65,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="<?php echo "$rootPath"; ?>pages/contact.html" class="nav-title <? if ($activePage == 'contact') { echo ' active';} ?>">Contact</a>
+                    <a href="<?php echo "$rootPath"; ?>pages/contact.php" class="nav-title <? if ($activePage == 'contact') { echo ' active';} ?>">Contact</a>
                 </li>
             </ul>
         </div>
