@@ -11,7 +11,7 @@ include '../includes/header.php';
 <button>Search</button>
 </form>	-->
 <?php
-require '../includes/connect.php';
+/*require '../includes/connect.php';*/
 
 if ($_GET['qry']  == ''){
 	$qry = ' ';
@@ -39,7 +39,7 @@ if (!empty($qry) && $qry != ' '){
 
 	$num->execute();
 	$row = $num->fetch();
-		echo " Your search for ".$qry." generated ".$row['numres']." results<br>";
+		echo "<i> Your search for '".$qry."' generated ".$row['numres']." results</i>";
 
 
 
@@ -53,7 +53,7 @@ if (!empty($qry) && $qry != ' '){
 
    $sql->execute();
 
-   echo '<article class="gallery">';
+   echo '<section class="gallery">';
    while ($row = $sql->fetch()){
    	$catid = $row['catid'];
    	$catname = $row['catname'];
@@ -63,15 +63,18 @@ if (!empty($qry) && $qry != ' '){
    	$prodprice = $row['prodprice'];
 	$prodimg = $row['image'];
 	$picname = '../images/products/'.$prodimg.'.jpg';
-	echo '<article class="card-container-plain">';
-		echo '<h3>'.$prodname.'</h3>
-		<p><a class="btn button" href="products.php?prodid='.$prodid.'" title="click to see more"><img src = "'.$picname.'" alt="image" class="img-responsive zoomIn" ></a></p>
-		<p>'.$prodname.'</p>
-		<p><strong>$'.$prodprice.'</strong></p>
-		<br><br>';
-   	echo '</article>';
+	echo '<div class="card-container">';
+		echo '<img src = "'.$picname.'" alt="'.$prodname.'" class="img-responsive zoomIn" >
+		<div>
+			<h4>'.$prodname.'</h4>
+			<p class="price">$'.$prodprice.'</p>
+			<a class="btn button" href="products.php?prodid='.$prodid.'" title="click to see more">View</a>
+			<a class="btn button" href="#" title="order'.$prodname.'">Order</a>
+  		</div>';
+   	echo '</div>';
    }
-    echo '</article">';
+    echo '</section>';
+
 
 include '../includes/footer.php';
 

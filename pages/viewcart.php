@@ -47,7 +47,7 @@ $sql->execute();
 				echo '<div class="card-container">';
 						//echo '<img src = "prodimages/'.$prodid.'.jpg" height="200"><br>';
 
-						 echo '<img src="../images/products/'.$prodimg.'.jpg" alt="'.$prodimg.'" class="img-responsive zoomIn">';
+						 echo '<img src="../images/products/'.$prodimg.'.jpg" alt="'.$prodname.'" class="img-responsive zoomIn">';
 							  /* echo '</div>';*/
 							   echo '<div>';
 									echo '<p>'.$prodname.'</p>';
@@ -61,6 +61,7 @@ $sql->execute();
 				}
 			?>
 		</article>
+		<a href="order.php" class="btn button checkoutBtn">Continue Shopping!</a>
 	</section>
 
 	<section class="orderTotal">
@@ -194,7 +195,7 @@ $sql->execute();
 	</section>
 </section>
 
-
+<a id="bttBtn" href="#viewcart"><img src="../images/back-to-top-arrow.png" alt="back to top arrow"></a>
 <?php
 include '../includes/footer.php';
 ?>

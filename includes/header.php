@@ -31,6 +31,7 @@
 	 <script src="<?php echo "$rootPath"; ?>scripts/hsm.js" defer></script>
      <script src="<?php echo "$rootPath"; ?>scripts/search.js" defer></script>
      <script src="<?php echo "$rootPath"; ?>scripts/backtotop.js" defer></script>
+
 </head>
 <body id="<?php if ($activePage == 'index') {echo 'home';} else {echo $activePage;} ?>">
          <header class="grid asideLeft">
@@ -95,7 +96,7 @@
 
 	      </article>
           <article class="wrapSearch">
-			    <form class="search" action ="<?php echo "$rootPath"; ?>pages/searchSQL.php" method="get">
+			    <form class="search" action ="<?php echo "$rootPath"; ?>pages/searchSql.php" method="get">
 					  <input type="text" class="searchTerm" name="qry" placeholder="Search">
 					  <button type="submit" class="searchButton">
 						<i class="fas fa-search"></i>
@@ -104,6 +105,6 @@
 
 	      </article>
 		  <article>
-              <a href="<?php echo "$rootPath"; ?>pages/viewcart.php"><i class="fas fa-shopping-cart"></i><?php echo ' '.numcartitems($sessid).' ' ?>item(s)</a>
+			  <a href="<?php echo "$rootPath"; ?>pages/viewcart.php"><i class="fas fa-shopping-cart"></i><?php echo ' '.numcartitems($sessid).' '?>item(s)</a>
 		  </article>
 </header>

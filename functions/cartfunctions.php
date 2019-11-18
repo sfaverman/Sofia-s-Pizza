@@ -39,7 +39,7 @@ $dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
 	$sql->bindValue(3,$sessid);
 	$sql->execute();
 	//print_r($sql->errorInfo());
-    echo '<script>alert("Added to Cart!");</script>';
-  }
+    echo '<script>alert("Added to Cart!"); window.location.reload();</script>';
+   }
 }
 ?>

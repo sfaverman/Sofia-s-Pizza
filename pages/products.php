@@ -7,9 +7,9 @@ include '../includes/header.php';
 //require 'search.php';
 
 $prodid = $_GET['prodid'];
-$qty = $_POST['qty'];
 
-if (isset($qty)){
+if (isset($_POST['qty'])){
+	$qty = $_POST['qty'];
 	addtocart($prodid,$qty);
 }
 
