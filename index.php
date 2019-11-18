@@ -1,7 +1,10 @@
 <?php
 	 // Set the page title and include the header file.
     define('TITLE', "Sofia's Pizza - Home Page");
-    include('includes/header.php');
+    include 'includes/connect.php';
+	include 'functions/cartfunctions.php';
+	include 'includes/header.php';
+
 ?>
      	     	<section id="home1" class="grid column4">
  			<article>
