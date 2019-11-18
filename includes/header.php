@@ -47,7 +47,7 @@
            <a href="#" class="navbar-brand">Sofia's Pizza</a>
        </div>-->
        <button id="navbar-toggler">
-             <span class="menu-bar"><i class="fas fa-bars"></i></span>
+            <span class="menu-bar"><i class="fas fa-bars"></i></span>
        </button>
        <div id="menu">
             <ul class="main-nav">
@@ -72,6 +72,17 @@
     </nav>
 
 <section class="bgImage">
-     <p>&nbsp;</p>
 
 <main class="galWrapper">
+<div class="aboveMenu2">&nbsp; </div>
+<header class="grid menu2">
+          <article>
+               Location
+		  </article>
+          <article>
+               Search
+		  </article>
+		  <article>
+              <a href="<?php echo "$rootPath"; ?>pages/viewcart.php"><i class="fas fa-shopping-cart"></i>item(s)</a>
+		  </article>
+</header>

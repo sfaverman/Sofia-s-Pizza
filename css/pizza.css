@@ -205,7 +205,17 @@ ul.tabs li.current {
 .noMin {
 	display: none;
 }
-
+header.menu2 {
+	grid-template-columns: repeat(3, 32%) !important;
+	padding: 5px;
+	margin-top: 5px !important;
+}
+header.menu2 > article:last-child {
+	text-align: right;
+}
+.aboveMenu2 {
+	height: 10px;
+}
 
 @media screen and (min-width: 570px) {
 	/*#contact section.container {
