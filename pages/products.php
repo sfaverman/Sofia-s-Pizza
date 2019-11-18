@@ -1,4 +1,6 @@
 <?php
+ // Set the page title and include the header file.
+    define('TITLE', "Sofia's Pizza - Products");
 include '../includes/connect.php';
 include '../functions/cartfunctions.php';
 include '../includes/header.php';

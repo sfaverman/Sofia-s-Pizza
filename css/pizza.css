@@ -72,9 +72,10 @@ div#menu {
 #home .btn, #order .btn, #specials .btn,
 #menuPage .btn {
 	min-width: 80%;
-	margin: 2% 10%;
+	margin: 2%;
 	background-color: #cc3333;
 }
+
 #home1 h3 {
 	color: #B8860B;
 }
@@ -271,7 +272,37 @@ header.menu2 > article:last-child {
 #resultLoc {
 	color: #fff;
 }
+.promoCode {
+     display: block;
+    }
+.promoCode li {
+	 display: inline-block;
+     margin-right: 10px;
+}
+.orderTotal {
+	border: 5px solid #d2c82a;
+	border-radius: 8px;
+	margin: 10px;
 
+}
+.checkout {
+	border-top: 5px solid #d2c82a;
+	border-bottom: 3px solid #d2c82a;
+	background-color: rgba(255,255,255,.75);
+	padding: 0 15px 8px;
+	margin-bottom: 15px;
+}
+*#viewcart .btn {
+	/*min-width: 80%;*/
+	/*margin: 2%;*/
+	padding: 5px;
+}
+.checkoutBtn {
+	min-width: 80%;
+	margin: 2% 10%;
+	/* padding: 5px;*/
+	background-color: #cc3333;
+}
 @media screen and (min-width: 570px) {
 	header h1 {
 		font-size: 2em;

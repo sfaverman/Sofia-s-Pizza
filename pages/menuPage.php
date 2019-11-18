@@ -1,8 +1,10 @@
 <?php
 	 // Set the page title and include the header file.
     define('TITLE', "Sofia's Pizza - Menu");
-	include('../includes/header.php');
 	include('../includes/connect.php');
+	include '../functions/cartfunctions.php';
+	include('../includes/header.php');
+
 ?>
 	<section class="grid doubleSides">
 		<article class="middleText">

@@ -1,87 +1,141 @@
-<?
-ob_start();
-require '../includes/connect.php';
+<?php
+ // Set the page title and include the header file.
+    define('TITLE', "Sofia's Pizza - View Cart");
+include '../includes/connect.php';
+include '../functions/cartfunctions.php';
+include '../includes/header.php';
+
+//echo 'Sessionid = '.$sessid;
+
+
+
+$sql = $dbh->prepare("select sp19_products.prodid, sp19_products.prodname, sp19_products.prodprice, sp19_products.image, sp19_cartitems.qty
+	from sp19_products, sp19_cartitems
+	where sp19_products.prodid = sp19_cartitems.productid
+	and sp19_cartitems.sessionid = '$sessid'");
+$sql->execute();
+
+
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-<title></title>
-<script type="text/javascript">
-function sameship() {
-	if (document.getElementById("ship").checked == true)
-	   {
-document._xclick.billfirst_name.value = document._xclick.first_name.value ;
-document._xclick.billlast_name.value = document._xclick.last_name.value;
-document._xclick.billaddress1.value = document._xclick.address1.value   ;
-document._xclick.billcity.value = 	document._xclick.city.value ;
-  document._xclick.billstate.value =   document._xclick.state.value;
-  document._xclick.billzip.value =  document._xclick.zip.value;
-	   }
-else {
-document._xclick.billfirst_name.value = '' ;
-document._xclick.billlast_name.value = '';
-document._xclick.billaddress1.value = ''   ;
-document._xclick.billcity.value = 	'' ;
-  document._xclick.billstate.value =  '';
-  document._xclick.billzip.value =  '';
+<script>
+	function sameship(){
+		if (document.getElementById('ship').checked == true){
+	document._xclick.billfirst_name.value = document._xclick.first_name.value;
+	    }
+	    else {
+	document._xclick.billfirst_name.value = '';
+	    }
+
 	}
-}
-
-
 
 </script>
-</head>
-<body>
-<?
-$removeid = $_GET['remove'];
-if ($removeid)
-   {
-$dbh->exec("delete from $cartitems where id = '$removeid'");
-   }
-$qtytoupdate = $_POST['qty'];
-if (isset($qtytoupdate))
-    {
-$prodid = $_POST['prodid'];
-$dbh->exec("update	$cartitems set qty = '$qtytoupdate' where cartitems = '$prodid' and sessid = '$sessid'");
-	}
 
-$sql = "select $cartitems.id,$cartitems.cartitems,$products.name,$products.price ,$cartitems.qty,$products.id,$cartitems.attribute, $products.weight from $cartitems,$products where $cartitems.sessid = '$sessid' and $cartitems.cartitems = $products.id";
-foreach ($dbh->query($sql) as $showrow)
-   {
-$cartitemnum= $showrow[0];
- $name = $showrow[2];
- $price = $showrow[3];
- $qty = $showrow[4];
- $prodid = $showrow[5];
- $attribute = $showrow[6];
-?>
-<img src = "<?= $root;?>thumbnail.php?pic=<?= $prodid.'/1.jpg&ht=100&wd=100';?>"/><br/>
-<? echo $name.$attribute;?> <a href = "<?= $root;?>viewcart.php?remove=<?= $cartitemnum;?>">Remove</a> <br/>
-<br>
-Enter Coupon or Gift Certificate Code
-<input type = "text" id = "coupon" />
-<br/>
-<br>
-<p id = "couponresponse"></p>
-<form action = "<?= $root;?>viewcart.php" method = "post">
-  Quantity:
-  <input type = "text" name = "qty" size = "2"
- value="<?=$qty;?>">
-  <br/>
-  <input type = "hidden" name = "prodid" value = "<?=$prodid;?>" />
-  <br/>
-  <input type="submit" name = "submit" value = "update" />
-  <br/>
-</form>
-<?
-   }
-?>
-    <div id="example1">
-<form action= "https://www.sandbox.paypal.com/us/cgi-bin/webscr"
-method="post"  name="_xclick">
-  Shipping:<br/>
+<section class="grid asideLeft">
+	<section>
+	    <h4>Your Cart</h4>
+		<article class="gallery text-alignCenter">
+			<?php
+			    // display each cart
+			   	$i=1;
+			   // $total=0;
+				while  ($row = $sql->fetch()){
+					$prodid = $row['prodid'];
+					$prodname = $row['prodname'];
+					$prodprice = $row['prodprice'];
+					$prodimg = $row['image'];
+					$qty = $row['qty'];
+				echo '<div class="card-container">';
+						//echo '<img src = "prodimages/'.$prodid.'.jpg" height="200"><br>';
+
+						 echo '<img src="../images/products/'.$prodimg.'.jpg" alt="'.$prodimg.'" class="img-responsive zoomIn">';
+							  /* echo '</div>';*/
+							   echo '<div>';
+									echo '<p>'.$prodname.'</p>';
+								    echo '<p class="price">$'.$prodprice.'  QTY: '.$qty.'</p>';
+								   	echo '<a href="#" class="btn button ">Edit Item</a>';
+								echo '</div>';
+
+				$i++;
+				//$total = $total + $prodprice;
+				echo '</div>';
+				}
+			?>
+		</article>
+	</section>
+
+	<section class="orderTotal">
+		<h4>Your Order</h4>
+
+		<?php
+
+		$sql = $dbh->prepare("select  sp19_products.prodid, sp19_products.prodname, sp19_products.prodprice,  sp19_cartitems.qty
+			from sp19_products, sp19_cartitems
+			where sp19_products.prodid = sp19_cartitems.productid
+			and sp19_cartitems.sessionid = '$sessid'");
+		$sql->execute();
+			    // display each cart
+			   	$i=1;
+			    $total=0;
+			echo '<article class="checkout">';
+				while  ($row = $sql->fetch()){
+					$prodname = $row['prodname'];
+					$prodprice = $row['prodprice'];
+					$qty = $row['qty'];
+
+						//echo '<img src = "prodimages/'.$prodid.'.jpg" height="200"><br>';
+
+				echo '<p>'.$prodname.' ----- $'.$prodprice.' - QTY: '.$qty.'</p>';
+
+
+				echo '<input type = "hidden" name = "item_name_'.$i.'" value = "'.$prodname.'" /><input type = "hidden" name = "amount_'.$i.'" value = "'.$prodprice.'" />
+				<input type = "hidden" name = "quantity_'.$i.'" value = "'.$qty.'" /> ';
+
+				$i++;
+				$total = $total + $prodprice;
+				}
+
+			echo '<p><strong>Subtotal: '.$total.'</strong></p>';
+
+			$delivery = 5;
+		    ?>
+		    <ul class="radioList">
+                           <li>
+                              <label for="r-method-delivery">
+                           	 <input type="radio" name="r_method" value="delivery" id="r-method-delivery">Delivery</label>
+                           </li>
+                           <li>
+                              <label for="r-method-carryout">
+                           	 <input type="radio" name="r_method" value="carryout" id="r-method-carryout">Carryout</label>
+                           </li>
+
+             </ul><br>
+
+             <ul class="promoCode">
+             	<li >
+             		<label for="promo">Enter Promo Code:</label>
+             	</li>
+             	<li>
+             		<input type="text" id="promo" name="promo"><br>
+             	</li>
+             	<li>
+             		<a href="#" class="btn button">Apply!</a>
+             	</li>
+             </ul>
+
+            <?php
+			echo '<p>Delivery: $'.$delivery.'</strong></p>';
+		    $total = $total + $delivery;
+			echo '<p><strong>Total: '.$total.'</strong></p>';
+			echo '<a href="#" class="btn button checkoutBtn">Checkout!</a>';
+		    echo '</article>';
+			?>
+
+	<!--	<form action= "https://www.sandbox.paypal.com/us/cgi-bin/webscr"
+        method="post"  name="_xclick">-->
+
+  <!--Shipping:<br/>
   First Name
-  <input type = "text" name = "first_name" />
+  <input type = "text" id = "firstname" name = "first_name" />
   <br/>
   Last Name
   <input type = "text" name = "last_name" />
@@ -103,7 +157,7 @@ method="post"  name="_xclick">
   <br/>
   Billing:<br/>
   First Name
-  <input type = "text" name = "billfirst_name" />
+  <input type = "text" id = "billfirst_name" name = "billfirst_name" />
   <br/>
   Last Name
   <input type = "text" name = "billlast_name" />
@@ -117,7 +171,8 @@ method="post"  name="_xclick">
   State
   <input type = "text" name = "billstate"/>
   <br/>
-  </span> Zip:
+  </span>
+  Zip:
   <input type = "text" name = "billzip" onblur="makeRequest('state');"/>
   <br/>
   Email:
@@ -126,164 +181,20 @@ method="post"  name="_xclick">
   Phone:
   <input type = "text" name = "night_phone_a" />
   <br/>
-  <!--Service: <select name = "service" onChange="makeRequest('ship')">
-<option value = ''>Choose Service Below</option>
- <option value = "PRIORITYOVERNIGHT" <? if ($service == 'PRIORITYOVERNIGHT') echo "SELECTED";?>>FedEx Priority Overnight</option>
-  <option value = "STANDARDOVERNIGHT" <? if ($service == 'STANDARDOVERNIGHT') echo "SELECTED";?>>FedEx Standard Overnight</option>
-  <option value = "FIRSTOVERNIGHT" <? if ($service == 'FIRSTOVERNIGHT') echo "SELECTED";?>>FedEx First Overnight</option>
-  <option value = "FEDEX2DAY" <? if ($service == 'FEDEX2DAY') echo "SELECTED";?>>FedEx 2 Day</option>
-  <option value = "FEDEXEXPRESSSAVER" <? if ($service == 'FEDEXEXPRESSSAVER') echo "SELECTED";?>>FedEx Express Saver</option>
-  <option value = "INTERNATIONALPRIORITY" <? if ($service == 'INTERNATIONALPRIORITY') echo "SELECTED";?>>FedEx International Priority</option>
-  <option value = "INTERNATIONALECONOMY" <? if ($service == 'INTERNATIONALECONOMY') echo "SELECTED";?>>FedEx International Economy</option>
-    <option value = "INTERNATIONALFIRST" <? if ($service == 'INTERNATIONALFIRST') echo "SELECTED";?>>FedEx International First</option>
-    <option value = "FEDEX1DAYFREIGHT" <? if ($service == 'FEDEX1DAYFREIGHT') echo "SELECTED";?>>FedEx International Freight</option>
-    <option value = "FEDEX2DAYFREIGHT" <? if ($service == 'FEDEX2DAYFREIGHT') echo "SELECTED";?>>FedEx 2 day Freight</option>
-    <option value = "FEDEX3DAYFREIGHT" <? if ($service == 'FEDEX3DAYFREIGHT') echo "SELECTED";?>>FedEx 3 day Freight</option>
-    <option value = "FEDEXGROUND" <? if ($service == 'FEDEXGROUND') echo "SELECTED";?>>FedEx Ground</option>
-    <option value = "GROUNDHOMEDELIVERY" <? if ($service == 'GROUNDHOMEDELIVERY') echo "SELECTED";?>>FedEx Home Delivery</option>
-</select><br/>-->
-347933438
   <input type="hidden" name="cmd" value="_cart">
-  <input type="hidden" name="business" value="ksecor_1326497985_biz@adelphia.net">
+  <input type="hidden" name="business" value="kdsecor+350@gmail.com">
   <input type="hidden" name="upload" value="1">
   <input type="hidden" name="currency_code" value="USD">
-  <?
-$i = 1;
-$newsql = "select $cartitems.cartitems,$products.name,$products.price ,$cartitems.qty,$products.id,$cartitems.attribute from $cartitems,$products where $cartitems.sessid = '$sessid' and $cartitems.cartitems = $products.id";
-foreach ($dbh->query($newsql) as $row)
-  {
- $name = $row[1];
- $price = $row[2];
- $qty = $row[3];
- $prodid = $row[4];
- $attribute = $row[5];
- $weight = $showrow[7];
-?>
-  <input type="hidden" name="item_name_<?= $i;?>" value = "<?= $name;?>" />
-  <input type="hidden" name="item_number_<?= $i;?>" value = "<?=$prodid;?>" />
-  <?
-$each = explode(',',$attribute);
-$y = 0;
-for ($x=0;$x<count($each)-1 ;$x++)
-     {
-//Size:small
- $att = $each[$x];
- $catarr = explode(':',$att);
- $onname = $catarr[0];
- $choice = $catarr[1];
- ?>
-<input type="hidden" name="on<?=$y;?>_<?=$i;?>" value = "<?= $onname;?>" />
-<input type="hidden" name="os<?=$y;?>_<?=$i;?>" value = "<?= $choice;?>" />
+  <input type = "hidden" name = "shipping_1" value = "0.00"/><input type ="hidden" id ="subtotal" name = "subtotal" value = "0.00"><br/>Subtotal:$ <div id = "copy">Shipping is</div>
 
-<?
-$y++;
-	 }
-  	 ?>
-  <input type="hidden" name="amount_<?= $i;?>" value="<?= $price;?>">
-  <input type="hidden" name="quantity_<?= $i;?>" value="<?= $qty;?>">
-  <?
-$i++;
-$total = $price * $qty;
-$total = money_format("%i",$total);
-$cartcontent .= "$name $qty $attribute at $price Total: $total<br/>";
-$subtotal += $total;
-}
-echo '<input type = "hidden" name = "shipping_1" value = "25.00"/>';
-$subtotal = money_format("%i",$subtotal);
-echo $cartcontent;
-echo '<input type ="hidden" id ="subtotal" name = "subtotal" value = "'.$subtotal.'">';
-echo '<br/>Subtotal:$<p id = "discount">'.$subtotal.'</p>';
-$dbh=null;
-
-/*
-$GBP = "http://finance.yahoo.com/d/quotes.csv?s=USDGBP=X&f=sl1d1t1c1ohgv&e=.csv";
-$EUR = "http://finance.yahoo.com/d/quotes.csv?s=USDEUR=X&f=sl1d1t1c1ohgv&e=.csv";
-setcookie("EUR",$EUR);
-setcookie("EUR",$GBP);
-*/
-?>
-    <div class="text-error"></div>
-  <div id = "copy">Shipping is</div>
-  <input type="submit" name = "submit" value = "Check Out">
+  <input class="btn button" type="submit"  name = "submit" value = "Check Out">
 </form>
-    </div>
-    <script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>
 
-The integrity and crossorigin attrib
-    <script>
-    $(function() {
-		// IMPORTANT: Fill in your client key
-		var clientKey = "PiB7Zl5AeO5uR41wKKU43cZdhVCAiJWVnaAM0DbbVhmNnGbYsD2VG41dRO9crbkt";
+	-->
+	</section>
+</section>
 
-		var cache = {};
-		var container = $("#example1");
-		var errorDiv = container.find("div.text-error");
 
-		/** Handle successful response */
-		function handleResp(data)
-		{
-			// Check for error
-			if (data.error_msg)
-				errorDiv.text(data.error_msg);
-			else if ("city" in data)
-			{
-				// Set city and state
-                //make the field display inline
-
-				container.find("input[name='city']").val(data.city);
-				container.find("input[name='state']").val(data.state);
-			}
-		}
-
-		// Set up event handlers
-		container.find("input[name='zip']").on("keyup change", function() {
-			// Get zip code
-			var zipcode = $(this).val().substring(0, 5);
-			if (zipcode.length == 5 && /^[0-9]+$/.test(zipcode))
-			{
-				// Clear error
-				errorDiv.empty();
-
-				// Check cache
-				if (zipcode in cache)
-				{
-					handleResp(cache[zipcode]);
-				}
-				else
-				{
-					// Build url
-					var url = "https://www.zipcodeapi.com/rest/"+clientKey+"/info.json/" + zipcode + "/radians";
-
-					// Make AJAX request
-					$.ajax({
-						"url": url,
-						"dataType": "json"
-					}).done(function(data) {
-						handleResp(data);
-
-						// Store in cache
-						cache[zipcode] = data;
-					}).fail(function(data) {
-						if (data.responseText && (json = $.parseJSON(data.responseText)))
-						{
-							// Store in cache
-							cache[zipcode] = json;
-
-							// Check for error
-							if (json.error_msg)
-								errorDiv.text(json.error_msg);
-						}
-						else
-							errorDiv.text('Request failed.');
-					});
-				}
-			}
-		}).trigger("change");
-	});
-
-    </script>
-</body>
-</html>
+<?php
+include '../includes/footer.php';
+?>

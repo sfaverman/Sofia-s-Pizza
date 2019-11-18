@@ -104,6 +104,6 @@
 
 	      </article>
 		  <article>
-              <a href="<?php echo "$rootPath"; ?>pages/viewcart.php"><i class="fas fa-shopping-cart"></i>item(s)</a>
+              <a href="<?php echo "$rootPath"; ?>pages/viewcart.php"><i class="fas fa-shopping-cart"></i><?php echo ' '.numcartitems($sessid).' ' ?>item(s)</a>
 		  </article>
 </header>

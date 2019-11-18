@@ -1,4 +1,5 @@
 <?php
+
 include '../includes/connect.php';
 include '../functions/cartfunctions.php';
 include '../includes/header.php';

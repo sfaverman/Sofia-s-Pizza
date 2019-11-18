@@ -1,8 +1,11 @@
 <?php
 	 // Set the page title and include the header file.
     define('TITLE', "Sofia's Pizza - Order");
-	include('../includes/header.php');
-    include('../includes/connect.php');
+
+	include '../includes/connect.php';
+	include '../functions/cartfunctions.php';
+	include '../includes/header.php';
+
 
 /* if link from home page section 1 */
 if(isset($_GET['category'])) {
