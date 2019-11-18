@@ -18,8 +18,10 @@ $sql->execute();
 	$prodname = $row['prodname'];
 	$proddesc = $row['proddesc'];
 	$prodprice = $row['prodprice'];
-    echo '<img src = "prodimages/'.$prodid.'.jpg" height="200"><br>';
-	echo $prodname.'<br>'.$proddesc.'<br>'.$prodprice;
+    $prodimg = $row['image'];
+    //echo '<img src = "prodimages/'.$prodid.'.jpg" height="200"><br>';
+    echo '<img src = "../images/products/'.$prodimg.'.jpg" height="200"><br>';
+	echo '<strong>'.$prodname.'</strong><br>'.$proddesc.'<br>'.$prodprice;
 	echo '<form action = "'.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'].'" method="post">
 	<input type="number" name="qty" class="small" size="5" value="1" required="required"/>
 	<input type="submit" value="Add to Cart">

@@ -41,3 +41,12 @@ $('#search').keyup(function(){
     })
 
 })
+/*  Select Location */
+$('#butLoc').click(function(){
+			var location = $('#selLoc option:selected').text();
+     	    var locZip= $('#selLoc').val();
+			//alert ('test' + location + ' ' +locZip);
+
+     	    $('#resultLoc').html("You Selected : " + location + " in zipcode : " + locZip);
+
+})

@@ -10,7 +10,7 @@
                         <option value="MV">Mission Valley</option>
                         <option value="LJ">La Jolla</option>
                         <option value="DM">Del Mar</option>
-                        <option value="Point Loma">Point Loma</option>
+                        <option value="PL">Point Loma</option>
                      </select>
 		</form>
   		<p>We offer so much to love!</p>

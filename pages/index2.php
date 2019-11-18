@@ -49,9 +49,9 @@ while ($row = $sql->fetch()){
         $proddesc = $row['proddesc'];
         $prodprice = $row['prodprice'];
 		$prodimg = $row['image'];
-		$catid = $row['catid'];
+		/*$catid = $row['catid'];*/
         $picname = '../images/products/'.$prodimg.'.jpg';
-		echo  $picname;
+		//echo  $picname;
 
    echo   '<div class="prod'.$i.'">
             <a href="products.php?prodid='.$prodid.'"><img src="'.$picname.'" alt="'.$prodname.'"></a>

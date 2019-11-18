@@ -30,8 +30,7 @@
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" defer></script>
 	 <script src="<?php echo "$rootPath"; ?>scripts/hsm.js" defer></script>
      <script src="<?php echo "$rootPath"; ?>scripts/search.js" defer></script>
-     <script src=".<?php echo "$rootPath"; ?>scripts/backtotop.js" defer></script>
-
+     <script src="<?php echo "$rootPath"; ?>scripts/backtotop.js" defer></script>
 </head>
 <body id="<?php if ($activePage == 'index') {echo 'home';} else {echo $activePage;} ?>">
          <header class="grid asideLeft">
@@ -76,12 +75,34 @@
 <main class="galWrapper">
 <div class="aboveMenu2">&nbsp; </div>
 <header class="grid menu2">
-          <article>
-               Location
-		  </article>
-          <article>
-               Search
-		  </article>
+          <article class="wrapSearch">
+          <!-- <form class="search" action ="<?php echo "$rootPath"; ?>pages/location.php" method="get">-->
+            <form class="search" action ="#" method="get">
+                    <select class="searchLoc" id="selLoc">
+                        <option value="">Location</option>
+                        <option value="92128">Rancho Bernardo</option>
+                        <option value="92108">Mission Valley</option>
+                        <option value="92037">La Jolla</option>
+                        <option value="92014">Del Mar</option>
+                        <option value="92107">Point Loma</option>
+                     </select>
+                     <button type="submit" id="butLoc" value="Seleted location" class="searchButton">
+						<i class="fas fa-map-marker-alt"></i>
+					 </button>
+
+		    </form>
+		  	<div id='resultLoc'></div>
+
+	      </article>
+          <article class="wrapSearch">
+			    <form class="search" action ="<?php echo "$rootPath"; ?>pages/searchSQL.php" method="get">
+					  <input type="text" class="searchTerm" name="qry" placeholder="Search">
+					  <button type="submit" class="searchButton">
+						<i class="fas fa-search"></i>
+					  </button>
+			  </form>
+
+	      </article>
 		  <article>
               <a href="<?php echo "$rootPath"; ?>pages/viewcart.php"><i class="fas fa-shopping-cart"></i>item(s)</a>
 		  </article>
