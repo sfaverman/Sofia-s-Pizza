@@ -54,7 +54,7 @@
  		<section id="home3" class="grid column4">
 
  			<article>
- 				<h4>THIS WEEK</h3>
+ 				<h4>THIS WEEK</h4>
  				<img src="images/pizza-h2.jpg" alt="pancakes image" class="img-responsive">
  				<a href="pages/specials.php" class="btn button ">VIEW SPECIALS</a>
  			</article>
@@ -64,12 +64,12 @@
  				<a href="#" class="btn button ">VIEW REWARDS</a>
  			</article>
  			<article>
- 				<h4>CUSTOM PIZZA</h3>
+ 				<h4>CUSTOM PIZZA</h4>
  				<img src="images/custom-pizza-h2.jpg" alt="pizza plate image" class="img-responsive">
  				<a href="pages/customOrder.html" class="btn button ">BUILD PIZZA</a>
  			</article>
  			<article>
- 				<h4>PARTY SPECIALS</h3>
+ 				<h4>PARTY SPECIALS</h4>
  				<img src="images/party-h2.jpg" alt="pancakes image" class="img-responsive">
  				<a href="pages/order.php" class="btn button ">ORDER NOW!</a>
  			</article>

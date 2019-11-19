@@ -52,20 +52,20 @@
        <div id="menu">
             <ul class="main-nav">
                 <li class="nav-item">
-                    <a href="<?php echo "$rootPath"; ?>index.php" class="nav-title <? if ($activePage == 'index') { echo ' active';} ?>">Home</a>
+                    <a href="<?php echo "$rootPath"; ?>index.php" class="nav-title <?php if ($activePage == 'index') { echo ' active';} ?>">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?php echo "$rootPath"; ?>pages/specials.php" class="nav-title <? if ($activePage == 'specials') { echo ' active';} ?>">Specials</a>
+                    <a href="<?php echo "$rootPath"; ?>pages/specials.php" class="nav-title <?php if ($activePage == 'specials') { echo ' active';} ?>">Specials</a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?php echo "$rootPath"; ?>pages/menuPage.php" class="nav-title<? if ($activePage == 'menuPage') { echo ' active';} ?>">Menu</a>
+                    <a href="<?php echo "$rootPath"; ?>pages/menuPage.php" class="nav-title<?php if ($activePage == 'menuPage') { echo ' active';} ?>">Menu</a>
                 </li>
                <li class="nav-item">
-                    <a href="<?php echo "$rootPath"; ?>pages/order.php" class="nav-title <? if ($activePage == 'order') { echo ' active';} ?>">Order</a>
+                    <a href="<?php echo "$rootPath"; ?>pages/order.php" class="nav-title <?php if ($activePage == 'order') { echo ' active';} ?>">Order</a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="<?php echo "$rootPath"; ?>pages/contact.php" class="nav-title <? if ($activePage == 'contact') { echo ' active';} ?>">Contact</a>
+                    <a href="<?php echo "$rootPath"; ?>pages/contact.php" class="nav-title <?php if ($activePage == 'contact') { echo ' active';} ?>">Contact</a>
                 </li>
             </ul>
         </div>

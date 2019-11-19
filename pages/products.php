@@ -8,10 +8,21 @@ include '../includes/header.php';
 
 $prodid = $_GET['prodid'];
 
-if (isset($_POST['qty'])){
+/*if (isset($_POST['qty'])){
 	$qty = $_POST['qty'];
 	addtocart($prodid,$qty);
-}
+}*/
+if(isset($_POST['submit'])) {
+	$prodid = $_GET['prodid'];
+
+	//$rest = var_dump($_POST);
+	//echo $rest;
+
+ 	$qty = $_POST["qty"];
+
+	addtocart($prodid,$qty);
+};
+
 echo '<section class="grid column2">';
 echo '<section class="gallery">';
 $sql = $dbh->prepare("select * from sp19_products where prodid = '$prodid'");
@@ -35,7 +46,7 @@ $sql->execute();
 		<ul class="formBtn">
 			<li><label for="qty">Qty</label></li>
 			<li><input type="number" class="qty" name="qty" id="qty" size="5" value="1" required="required"/></li>
-			<li><input type="submit" class="button btn-orderForm" value="Add to Cart">
+			<li><input type="submit" name="submit" class="button btn-orderForm" value="Add to Cart">
 			</li>
 		</ul>
 
