@@ -53,7 +53,7 @@ if (!empty($qry) && $qry != ' '){
 
    $sql->execute();
 
-   echo '<section class="gallery">';
+   echo '<section class="gallery text-alignCenter">';
    while ($row = $sql->fetch()){
    	$catid = $row['catid'];
    	$catname = $row['catname'];
@@ -68,14 +68,13 @@ if (!empty($qry) && $qry != ' '){
 		<div>
 			<h4>'.$prodname.'</h4>
 			<p class="price">$'.$prodprice.'</p>
-			<a class="btn button" href="products.php?prodid='.$prodid.'" title="click to see more">View</a>
-			<a class="btn button" href="#" title="order'.$prodname.'">Order</a>
-  		</div>';
+			<a class="btn button" href="products.php?prodid='.$prodid.'" title="click to see more">View and Order</a>
+		</div>';
    	echo '</div>';
    }
     echo '</section>';
 
-
+echo '<a id="bttBtn" href="#searchSql"><img src="../images/back-to-top-arrow.png" alt="back to top arrow"></a>';
 include '../includes/footer.php';
 
 ?>

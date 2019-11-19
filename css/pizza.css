@@ -303,6 +303,20 @@ header.menu2 > article:last-child {
 	/* padding: 5px;*/
 	background-color: #cc3333;
 }
+
+.gallery .formBtn {
+	width: 80%;
+	margin: auto;
+}
+.gallery label {
+	margin-top: 5px;
+}
+
+input[type="number"] {
+	width: 40px;
+	padding: 3px;
+	margin-top: 5px;
+}
 @media screen and (min-width: 570px) {
 	header h1 {
 		font-size: 2em;

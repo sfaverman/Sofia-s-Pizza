@@ -6,6 +6,18 @@ include '../includes/connect.php';
 include '../functions/cartfunctions.php';
 include '../includes/header.php';
 
+if(isset($_POST['submit'])) {
+  	$prodid = $_GET['prodid'];
+
+	//$rest = var_dump($_POST);
+	//echo $rest;
+
+ 	$qty = $_POST["qty$prodid"];
+
+	addtocart($prodid,$qty);
+};
+
+
 ?>
 
    <section class="menuWeekly">
@@ -50,6 +62,7 @@ include '../includes/header.php';
 					$prod_sql->execute();
 
 						while ($row = $prod_sql->fetch()){
+						   $prod_id = $row['prodid'];
 						   $prod_name = $row['prodname'];
 						   $prod_desc = $row['proddesc'];
 						   $prod_price = $row['prodprice'];
@@ -66,8 +79,19 @@ include '../includes/header.php';
 							    $disPrice = $prod_price / 100 * 80;
 							    $disPrice = round($disPrice,2);
 								echo '<p> reg $'.$prod_price.', '.$weekDayArray[$i].'<span class="price">$'.$disPrice.'</span></p>';
-								echo '<p>'.$prod_desc.'</p>
-								<a href="#" class="btn button ">Add to Cart!</a>';
+								echo '<p>'.$prod_desc.'</p>';
+								/*<a href="#" class="btn button ">Add to Cart!</a>';*/
+
+								echo '<form action = "'.$_SERVER['PHP_SELF'].'?prodid='.$prod_id.'" method="post">
+								<ul class="formBtn">
+									<li><label for="qty">Qty</label></li>
+									<li><input type="number" name="qty'.$prod_id.'" id="qty'.$prod_id.'" size="5" value="1" required="required"/></li>
+									<li><input type="submit" name="submit" class="button btn-orderForm" value="Add to Cart">
+									</li>
+								</ul>
+								</form>
+								';
+
 							echo '</div>';
 						echo '</div>';
 						}
