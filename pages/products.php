@@ -12,6 +12,7 @@ if (isset($_POST['qty'])){
 	$qty = $_POST['qty'];
 	addtocart($prodid,$qty);
 }
+echo '<section class="grid column2">';
 echo '<section class="gallery">';
 $sql = $dbh->prepare("select * from sp19_products where prodid = '$prodid'");
 $sql->execute();
@@ -43,6 +44,43 @@ $sql->execute();
 	  echo '</div>';
 	echo '</div>';
 echo '</section>';
+echo '<section class="orderTotal">
+		<h4>Your Order</h4>';
+
+		$sql = $dbh->prepare("select  sp19_products.prodid, sp19_products.prodname,   sp19_products.prodprice,  sp19_cartitems.qty
+			from sp19_products, sp19_cartitems
+			where sp19_products.prodid = sp19_cartitems.productid
+			and sp19_cartitems.sessionid = '$sessid'");
+		$sql->execute();
+			    // display each cart
+			   	$i=1;
+			    $total=0;
+			echo '<article class="checkout">';
+				while  ($row = $sql->fetch()){
+
+					$prodname = $row['prodname'];
+					$prodprice = $row['prodprice'];
+					$qty = $row['qty'];
+
+				//echo '<img src = "prodimages/'.$prodid.'.jpg" height="200"><br>';
+
+				echo '<p>'.$prodname.' ----- $'.$prodprice.' - QTY: '.$qty.'</p>';
+
+
+				$i++;
+				$total = $total + $prodprice;
+				}
+			if ($i==1) {
+			$numItems = $i - 1;
+			echo "<p><i>You have $numItems item in your cart</i></p>";
+			};
+			echo '<p><strong>Subtotal: '.$total.'</strong></p>';
+
+			echo '<a href="#" class="btn button checkoutBtn">Checkout!</a>';
+		    echo '</article>';
+
+	echo '</section>';
+    echo '</section>';
     echo '<a id="bttBtn" href="#products"><img src="../images/back-to-top-arrow.png" alt="back to top arrow"></a>';
 	include '../includes/footer.php';
 

@@ -58,6 +58,7 @@
 					$prod_sql->execute();
 
 						while ($row = $prod_sql->fetch()){
+						   $prod_id = $row['prodid'];
 						   $prod_name = $row['prodname'];
 						   $prod_desc = $row['proddesc'];
 						   $prod_price = $row['prodprice'];
@@ -69,6 +70,7 @@
 							$prod_sql->execute();
 
 						while ($row = $prod_sql->fetch()){
+						   $prod_id = $row['prodid'];
 						   $prod_name = $row['prodname'];
 						   $prod_desc = $row['proddesc'];
 						   $prod_price = $row['prodprice'];
@@ -80,7 +82,8 @@
 						   echo '<div>';
 								echo '<p>'.$prod_name.'</p>';
 							    echo '<p class="price">$'.$prod_price.'</p>';
-							   	echo '<a href="#" class="btn button ">Add to Cart!</a>';
+							   /*	echo '<a href="#" class="btn button ">Add to Cart!</a>';*/
+							    echo '<a class="btn button" href="products.php?prodid='.$prod_id.'" title="click to see more">Order Now!</a>';
 							echo '</div>';
 						echo '</div>';
 						}

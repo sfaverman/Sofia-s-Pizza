@@ -31,7 +31,8 @@ $('#search').keyup(function(){
                 output += '<img src ="../images/products/'+val.image+'.jpg" alt="'+val.prodname+'" />';
                 output += '<p>$'+ val.prodprice + '</p>';
                 output += '<p><em>'+ val.proddesc + '</em></p>';
-				output += '<a href="#" class="btn button ">Add to Cart !</a>';
+				output += '<a class="btn button" href="products.php?prodid='+val.prodid+'" title="click to see more and order">Order Now!</a>';
+				/*output += '<a href="#" class="btn button ">Add to Cart !</a>';*/
                 output += '</li>';
             }
         });

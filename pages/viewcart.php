@@ -95,6 +95,11 @@ $sql->execute();
 				$total = $total + $prodprice;
 				}
 
+			if ($i==1) {
+			$numItems = $i - 1;
+			echo "<p><i>You have $numItems item in your cart</i></p>";
+			};
+
 			echo '<p><strong>Subtotal: '.$total.'</strong></p>';
 
 			$delivery = 5;

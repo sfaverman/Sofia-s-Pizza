@@ -89,6 +89,7 @@ if(isset($_GET['category'])) {
 					$prod_sql->execute();
 
 						while ($row = $prod_sql->fetch()){
+						   $prod_id = $row['prodid'];
 						   $prod_name = $row['prodname'];
 						   $prod_desc = $row['proddesc'];
 						   $prod_price = $row['prodprice'];
@@ -103,8 +104,9 @@ if(isset($_GET['category'])) {
 						   echo '<div>';
 								echo '<h3>'.$prod_name.'</h3>';
 								echo '<h3 class="price">$'.$prod_price.'</h3>';
-								echo '<p>'.$prod_desc.'</p>
-								<a href="#" class="btn button ">Add to Cart!</a>';
+								echo '<p>'.$prod_desc.'</p>';
+								/*<a href="#" class="btn button ">Add to Cart!</a>';*/
+							    echo '<a class="btn button" href="products.php?prodid='.$prod_id.'" title="click to see more">Order Now!</a>';
 							echo '</div>';
 						echo '</div>';
 						}
