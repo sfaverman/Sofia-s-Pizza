@@ -30,7 +30,11 @@ $dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
 		$sql->bindValue(1,$qty);
 		$sql->execute();
 		//echo '<script>alert("Quantity updated!");</script>';
-
+		echo '<script>
+				document.getElementById("popUp").style.display = "block";
+				document.getElementById("popUp2").style.display = "block";
+				document.getElementById("popUpItem2").innerHTML = " '.$pid.' ";
+			  </script>';
 	}
 	else {
 	$sql = $dbh->prepare("insert into sp19_cartitems (productid,qty,sessionid) values (?,?,?)");
@@ -43,7 +47,9 @@ $dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
 	//echo "pid $pid";
 	echo '<script>
 				document.getElementById("popUp").style.display = "block";
-				document.getElementById("popUpItem").innerHTML = " '.$pid.' ";
+				document.getElementById("popUp1").style.display = "block";
+				document.getElementById("popUpItem1").innerHTML = " '.$pid.' ";
+				document.getElementById("numcartitems").innerHTML = " '.numcartitems($sessid).' ";
 	     </script>';
    }
 }

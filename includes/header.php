@@ -105,16 +105,22 @@
 
 	      </article>
 		  <article>
-			  <a href="<?php echo "$rootPath"; ?>pages/viewcart.php"><i class="fas fa-shopping-cart"></i><?php echo ' '.numcartitems($sessid).' '?>item(s)</a>
+			  <a href="<?php echo "$rootPath"; ?>pages/viewcart.php"><i class="fas fa-shopping-cart"></i><?php echo ' <span id="numcartitems"> '.numcartitems($sessid).' </span>'; ?>item(s)</a>
 		  </article>
 </header>
 <article id="popUp">
   <ul>
 	<li>
-		<p> New item id=<span id="popUpItem"></span>added to cart! </p>
+		<p id="popUp1"> New item product id=<span id="popUpItem1"></span>added to cart! </p>
+		<p id="popUp2"> Quantities updated for product id=<span id="popUpItem2"></span>! </p>
 	</li>
 	<li>
-		<a href="viewcart.php" title="view cart button" class="button btnCall">View Cart</a>
+	     <?php if ($activePage == 'viewcart') {
+	         	echo '<a href="viewcart.php#checkout" title="view cart button" class="button btnCall">Checkout!</a>';
+         	} else {
+				echo '<a href="viewcart.php" title="view cart button" class="button btnCall">View Cart</a>';
+			}
+		?>
 	</li>
   </ul>
 </article>

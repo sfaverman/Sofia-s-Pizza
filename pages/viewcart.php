@@ -7,6 +7,30 @@ include '../includes/header.php';
 
 //echo 'Sessionid = '.$sessid;
 
+//$prodid = $_GET['prodid'];
+
+if(isset($_POST['submit'])) {
+	$prodid = $_POST['prodid'];
+
+	//$rest = var_dump($_POST);
+	//echo $rest;
+
+ 	/*$qty = $_POST["qty"];*/
+	$qty = $_POST["qty$prodid"];
+
+	addtocart($prodid,$qty);
+};
+if(isset($_POST['delete'])) {
+	echo 'Hello 2';
+	$prodid = $_POST['prodid'];
+
+	//$rest = var_dump($_POST);
+	//echo $rest;
+	echo '<script>alert("Confirm Delete item");</script>';
+ 	/*$qty = $_POST["qty"];
+
+	addtocart($prodid,$qty);*/
+};
 
 
 $sql = $dbh->prepare("select sp19_products.prodid, sp19_products.prodname, sp19_products.prodprice, sp19_products.image, sp19_cartitems.qty
@@ -25,9 +49,7 @@ $sql->execute();
 	    else {
 	document._xclick.billfirst_name.value = '';
 	    }
-
 	}
-
 </script>
 
 <section class="grid asideLeft">
@@ -51,9 +73,20 @@ $sql->execute();
 							  /* echo '</div>';*/
 							   echo '<div>';
 									echo '<p>'.$prodname.'</p>';
-								    echo '<p class="price">$'.$prodprice.'  QTY: '.$qty.'</p>';
-								   	echo '<a href="#" class="btn button ">Edit Item</a>';
-								echo '</div>';
+								    /*echo '<p class="price">$'.$prodprice.'  QTY: '.$qty.'</p>';*/
+							echo '<form action = "'.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'].'" method="post">';
+
+							  echo '<ul class="formBtn">
+										<li><label for="qty">Qty</label></li>
+										<li><input type="number" name="qty'.$prodid.'" id="qty'.$prodid.'" size="5" value="'.$qty.'" required="required"/></li>
+										<input type="hidden" name="prodid" value="'.$prodid.'">
+										<li><input type="submit" name="submit" class="button btn-orderForm" value="Update">
+										<li><input type="submit" name="delete" class="button btn-orderForm" value="Delete">
+										</li>
+									</ul>';
+								   /*	echo '<a href="#" class="btn button ">Delete Item</a>';*/
+							echo '</form>';
+				echo '</div>';
 
 				$i++;
 				//$total = $total + $prodprice;
@@ -61,7 +94,7 @@ $sql->execute();
 				}
 			?>
 		</article>
-		<a href="order.php" class="btn button checkoutBtn">Continue Shopping!</a>
+		<a href="order.php" id="checkout" class="btn button checkoutBtn">Continue Shopping!</a>
 	</section>
 
 	<section class="orderTotal">
