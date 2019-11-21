@@ -317,6 +317,30 @@ input[type="number"] {
 	padding: 3px;
 	margin-top: 5px;
 }
+#popUp {
+  display: none;
+  color: red;
+  text-align: center;
+  /*position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;*/
+  margin-top: 10px;
+}
+
+#popUp ul li{
+	display: inline-block;
+}
+
+.btnCall {
+    text-decoration: none;
+    text-align: center;
+    padding: 8px 16px;
+    border-radius: 4px;
+	background-color: #cc3333;
+	margin-left: 20px;
+}
 @media screen and (min-width: 570px) {
 	header h1 {
 		font-size: 2em;

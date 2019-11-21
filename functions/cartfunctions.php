@@ -29,7 +29,7 @@ $dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
 		$sql = $dbh->prepare(" update sp19_cartitems set qty = ? where productid = '$pid' and sessionid = '$sessid'");
 		$sql->bindValue(1,$qty);
 		$sql->execute();
-		    echo '<script>alert("Quantity updated!");</script>';
+		//echo '<script>alert("Quantity updated!");</script>';
 
 	}
 	else {
@@ -39,7 +39,12 @@ $dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
 	$sql->bindValue(3,$sessid);
 	$sql->execute();
 	//print_r($sql->errorInfo());
-    echo '<script>alert("Added to Cart!"); window.location.reload();</script>';
+    //echo '<script>alert("New Item Added to Cart!"); window.location.reload();</script>';
+	//echo "pid $pid";
+	echo '<script>
+				document.getElementById("popUp").style.display = "block";
+				document.getElementById("popUpItem").innerHTML = " '.$pid.' ";
+	     </script>';
    }
 }
 ?>

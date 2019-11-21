@@ -108,3 +108,13 @@
 			  <a href="<?php echo "$rootPath"; ?>pages/viewcart.php"><i class="fas fa-shopping-cart"></i><?php echo ' '.numcartitems($sessid).' '?>item(s)</a>
 		  </article>
 </header>
+<article id="popUp">
+  <ul>
+	<li>
+		<p> New item id=<span id="popUpItem"></span>added to cart! </p>
+	</li>
+	<li>
+		<a href="viewcart.php" title="view cart button" class="button btnCall">View Cart</a>
+	</li>
+  </ul>
+</article>
