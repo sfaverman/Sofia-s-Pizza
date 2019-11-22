@@ -170,7 +170,9 @@ $sql->execute();
             <?php
 
 		    echo
-		    '<ul class="radioList">
+		    ' <fieldset class="fieldsetStyle">
+                    <legend class="formSubHeader legendStyle">Delivery Method</legend>
+			<ul class="radioList">
                            <li>
                               <label for="r-method-delivery">
                            	 <input type="radio" name="r_method" value="delivery" id="r-method-delivery" onClick="disDelMethod();">Delivery</label>
@@ -180,10 +182,10 @@ $sql->execute();
                            	 <input type="radio" name="r_method" value="carryout" id="r-method-carryout" onClick="disDelMethod();">Carryout</label>
                            </li>
 
-             </ul><br>';
+             </ul></fieldset>';
 			?>
 
-            <article id="delivery">
+            <article id="delivery" class="fullWidthForm" >
                 <fieldset class="fieldsetStyle">
                     <legend class="formSubHeader legendStyle">Delivery Location</legend>
                 <p>Please enter your name and address:</p>
@@ -233,7 +235,7 @@ $sql->execute();
 
 
                 <label for="phone">Phone*:</label>
-                <input type="tel" id="phone" name="phone" placeholder="000-000-0000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                <input type="tel" id="phone" name="phone" placeholder="000-000-0000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Please enter as 999-999-9999">
 
                 <p class="formNote">* indicated required field</p>
                 </fieldset>

@@ -116,7 +116,7 @@ var phoneResult = phoneRGEX.test(phone);
 
 if (phoneResult == false) {
         window.console.log('invalid phone');
-        $ID('phoneVal').innerHTML = 'Please enter a valid phone';
+        $ID('phoneVal').innerHTML = 'Please enter a valid phone 999-999-9999';
         $ID('phone').focus();
         return false;
 } else {

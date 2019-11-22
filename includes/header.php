@@ -30,6 +30,7 @@
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" defer></script>
 	 <script src="<?php echo "$rootPath"; ?>scripts/hsm.js" defer></script>
      <script src="<?php echo "$rootPath"; ?>scripts/search.js" defer></script>
+     <script src="<?php echo "$rootPath"; ?>scripts/pizza-order.js" defer></script>
      <script src="<?php echo "$rootPath"; ?>scripts/backtotop.js" defer></script>
 
 </head>
