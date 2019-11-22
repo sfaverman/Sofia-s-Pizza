@@ -113,6 +113,7 @@
 	<li>
 		<p id="popUp1"> New item product id=<span id="popUpItem1"></span>added to cart! </p>
 		<p id="popUp2"> Quantities updated for product id=<span id="popUpItem2"></span>! </p>
+		<p id="popUp3"> Deleted product id=<span id="popUpItem3"></span>! </p>
 	</li>
 	<li>
 	     <?php if ($activePage == 'viewcart') {

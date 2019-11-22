@@ -10,9 +10,21 @@ function numcartitems($sessid){
    return $num;
 }
 
-
-
-
+function delCartItem($pid) {
+	$sessid = session_id();
+	$dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
+	$delsql = $dbh->prepare("delete from sp19_cartitems where productid = '$pid' and sessionid = '$sessid'");
+	$delsql->execute();
+	echo '<script>
+		 var r = confirm("Please confirm delete item id='.$pid.'");
+		 if (r == true) {
+		 		document.getElementById("popUp").style.display = "block";
+				document.getElementById("popUp3").style.display = "block";
+				document.getElementById("popUpItem3").innerHTML = " '.$pid.' ";
+				document.getElementById("numcartitems").innerHTML = " '.numcartitems($sessid).' ";
+		 }
+		</script>';
+}
 
 
 function addtocart($pid,$qty){

@@ -21,7 +21,6 @@ if(isset($_POST['submit'])) {
 	addtocart($prodid,$qty);
 };
 if(isset($_POST['delete'])) {
-	echo 'Hello 2';
 	$prodid = $_POST['prodid'];
 
 	//$rest = var_dump($_POST);
@@ -30,6 +29,7 @@ if(isset($_POST['delete'])) {
  	/*$qty = $_POST["qty"];
 
 	addtocart($prodid,$qty);*/
+	delCartItem($prodid);
 };
 
 
@@ -116,7 +116,7 @@ $sql->execute();
 					$prodprice = $row['prodprice'];
 					$qty = $row['qty'];
 
-						//echo '<img src = "prodimages/'.$prodid.'.jpg" height="200"><br>';
+					//echo '<img src = "prodimages/'.$prodid.'.jpg" height="200"><br>';
 
 				echo '<p>'.$prodname.' ----- $'.$prodprice.' - QTY: '.$qty.'</p>';
 
