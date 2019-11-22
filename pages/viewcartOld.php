@@ -113,12 +113,12 @@ $sql->execute();
 				}
 			?>
 		</article>
-		<a href="order.php" class="btn button checkoutBtn">Continue Shopping!</a>
+		<a href="order.php" id="checkout" class="btn button checkoutBtn">Continue Shopping!</a>
 	</section>
 
-	<section id="orderTotal" class="orderTotal">
+	<section class="orderTotal">
 		<h4>Your Order</h4>
-		<form action = "https://www.sandbox.paypal.com/cgi-bin/webscr" method = "post" target = "paypal" name="_xclick">
+
 		<?php
 
 		$sql = $dbh->prepare("select  sp19_products.prodid, sp19_products.prodname, sp19_products.prodprice,  sp19_cartitems.qty
@@ -139,11 +139,12 @@ $sql->execute();
 
 				echo '<p>'.$prodname.' ----- $'.$prodprice.' - QTY: '.$qty.'</p>';
 
+
 				echo '<input type = "hidden" name = "item_name_'.$i.'" value = "'.$prodname.'" /><input type = "hidden" name = "amount_'.$i.'" value = "'.$prodprice.'" />
 				<input type = "hidden" name = "quantity_'.$i.'" value = "'.$qty.'" /> ';
 
 				$i++;
-				$total = $total + ($prodprice * $qty);
+				$total = $total + $prodprice;
 				}
 
 			if ($i==1) {
@@ -153,6 +154,7 @@ $sql->execute();
 
 			echo '<p><strong>Subtotal: '.$total.'</strong></p>';
 
+			$delivery = 5;
 		    ?>
 
              <ul class="promoCode">
@@ -168,7 +170,9 @@ $sql->execute();
              </ul>
 
             <?php
-
+			echo '<p>Delivery: $'.$delivery.'</strong></p>';
+		    $total = $total + $delivery;
+			echo '<p><strong>Total: '.$total.'</strong></p>';
 		    echo
 		    '<ul class="radioList">
                            <li>
@@ -181,8 +185,12 @@ $sql->execute();
                            </li>
 
              </ul><br>';
-			?>
 
+		    //<form action="" id="pizza-form">
+            echo '<form id="pizza-form" action = "'.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'].'" method="post">';
+		    ?>
+
+           <!-- <article id="delivery" class="fullWidthForm">-->
             <article id="delivery">
                 <fieldset class="fieldsetStyle">
                     <legend class="formSubHeader legendStyle">Delivery Location</legend>
@@ -237,38 +245,96 @@ $sql->execute();
 
                 <p class="formNote">* indicated required field</p>
                 </fieldset>
-            <?php
-				/*$delivery = 5;
-				echo '<p>Delivery: $'.$delivery.'</strong></p>';
-				$total = $total + $delivery;*/
-			?>
+
             </article>
             <article id="carryout" >
-            	   <select class="searchLoc" id="selLoc">
-						<option value="">Location</option>
-						<option value="92128">Rancho Bernardo</option>
-						<option value="92108">Mission Valley</option>
-						<option value="92037">La Jolla</option>
-						<option value="92014">Del Mar</option>
-						<option value="92107">Point Loma</option>
-            	  </select>
-            	  <button id="butLoc2" value="Seleted location" class="searchButton"><i class="fas fa-map-marker-alt"></i>
-            	  </button>
+            	<!--<form class="search" action ="#" method="get">-->
+            	        <select class="searchLoc" id="selLoc">
+            	            <option value="">Location</option>
+            	            <option value="92128">Rancho Bernardo</option>
+            	            <option value="92108">Mission Valley</option>
+            	            <option value="92037">La Jolla</option>
+            	            <option value="92014">Del Mar</option>
+            	            <option value="92107">Point Loma</option>
+            	         </select>
+            	         <button type="submit" id="butLoc2" value="Seleted location" class="searchButton">
+            							<i class="fas fa-map-marker-alt"></i>
+            						 </button>
 
+               <!--</form>-->
             </article>
+            <input type="submit" name="checkout" class="btn button checkoutBtn" value="Checkout!">
+            <!--<a href="#" class="btn button checkoutBtn">Checkout!</a>';-->
+
+		    <?php
+		    echo '</form>';
+			/*echo '<a href="#" class="btn button checkoutBtn">Checkout!</a>';*/
+		    echo '</article>';
+			?>
+
+
+
+	<!--	<form action= "https://www.sandbox.paypal.com/us/cgi-bin/webscr"
+        method="post"  name="_xclick">-->
+
+  <!--Shipping:<br/>
+  First Name
+  <input type = "text" id = "firstname" name = "first_name" />
+  <br/>
+  Last Name
+  <input type = "text" name = "last_name" />
+  <br/>
+  Address
+  <textarea name = "address1" cols="10" rows="5"></textarea>
+  <br/>
+  City
+  <input type = "text" name = "city"  id = "city"/>
+  <br/>
+  State
+  <input type = "text" name = "state"  id = "state" />
+  <br/>
+  Zip:
+  <input type = "text" name = "zip" id = "zip"/>
+  <br/>
+  Same as Shipping?
+  <input type = "checkbox" id = "ship" onClick="sameship();"/>
+  <br/>
+  Billing:<br/>
+  First Name
+  <input type = "text" id = "billfirst_name" name = "billfirst_name" />
+  <br/>
+  Last Name
+  <input type = "text" name = "billlast_name" />
+  <br/>
+  Address
+  <textarea name = "billaddress1"></textarea>
+  <br/>
+  <span id = "citystate" style="display:none"> City
+  <input type = "text" name = "billcity"/>
+  <br/>
+  State
+  <input type = "text" name = "billstate"/>
+  <br/>
+  </span>
+  Zip:
+  <input type = "text" name = "billzip" onblur="makeRequest('state');"/>
+  <br/>
+  Email:
+  <input type = "text" name = "email" />
+  <br/>
+  Phone:
+  <input type = "text" name = "night_phone_a" />
+  <br/>
   <input type="hidden" name="cmd" value="_cart">
-  <input type="hidden" name="business" value="sb-0lxwj140581@business.example.com">
+  <input type="hidden" name="business" value="kdsecor+350@gmail.com">
   <input type="hidden" name="upload" value="1">
- <!-- <input type = "hidden" name = "no_shipping" value = "2"> -->
   <input type="hidden" name="currency_code" value="USD">
-  <p><strong>Total: <?php echo "$total"; ?></strong></p>
-  <input type ="hidden" id ="subtotal" name = "subtotal" value = "<?php echo "$total"; ?>">
+  <input type = "hidden" name = "shipping_1" value = "0.00"/><input type ="hidden" id ="subtotal" name = "subtotal" value = "0.00"><br/>Subtotal:$ <div id = "copy">Shipping is</div>
 
-  <input type="submit" name="submit" class="btn button checkoutBtn" value="Checkout!">
-
+  <input class="btn button" type="submit"  name = "submit" value = "Check Out">
 </form>
 
-
+	-->
 	</section>
 </section>
 

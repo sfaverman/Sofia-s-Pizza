@@ -79,7 +79,7 @@ echo '<section class="orderTotal">
 
 
 				$i++;
-				$total = $total + $prodprice;
+				$total = $total + ($prodprice * $qty);
 				}
 			if ($i==1) {
 			$numItems = $i - 1;
@@ -87,7 +87,7 @@ echo '<section class="orderTotal">
 			};
 			echo '<p><strong>Subtotal: '.$total.'</strong></p>';
 
-			echo '<a href="#" class="btn button checkoutBtn">Checkout!</a>';
+			echo '<a href="viewcart.php#orderTotal" class="btn button checkoutBtn">Buy Now!</a>';
 		    echo '</article>';
 
 	echo '</section>';

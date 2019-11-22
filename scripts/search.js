@@ -51,3 +51,7 @@ $('#butLoc').click(function(){
      	    $('#resultLoc').html("You Selected : " + location + " in zipcode : " + locZip);
 
 })
+
+$("#butLoc2").click(function(event){
+  event.preventDefault();
+});
