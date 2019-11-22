@@ -341,6 +341,9 @@ input[type="number"] {
 	background-color: #cc3333;
 	margin-left: 20px;
 }
+#delivery,#carryout {
+	display: none;
+}
 @media screen and (min-width: 570px) {
 	header h1 {
 		font-size: 2em;

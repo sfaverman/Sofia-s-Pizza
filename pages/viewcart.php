@@ -32,6 +32,10 @@ if(isset($_POST['delete'])) {
 	delCartItem($prodid);
 };
 
+/*if(isset($_POST['checkout'])) {
+
+	}
+}*/
 
 $sql = $dbh->prepare("select sp19_products.prodid, sp19_products.prodname, sp19_products.prodprice, sp19_products.image, sp19_cartitems.qty
 	from sp19_products, sp19_cartitems
@@ -42,14 +46,29 @@ $sql->execute();
 
 ?>
 <script>
-	function sameship(){
+	/*function sameship(){
 		if (document.getElementById('ship').checked == true){
 	document._xclick.billfirst_name.value = document._xclick.first_name.value;
 	    }
 	    else {
 	document._xclick.billfirst_name.value = '';
 	    }
+	}*/
+
+	function disDelMethod() {
+		if (document.getElementById('r-method-delivery').checked == true){
+		 //alert ("2 delivery button is checked");
+		 document.getElementById("carryout").style.display = "none";
+	     document.getElementById("delivery").style.display = "block";
+
+
+	    } else if (document.getElementById('r-method-carryout').checked == true) {
+		  //alert ("3 carryout button is checked");
+		  document.getElementById("delivery").style.display = "none";
+		  document.getElementById("carryout").style.display = "block";
+		}
 	}
+
 </script>
 
 <section class="grid asideLeft">
@@ -137,17 +156,6 @@ $sql->execute();
 
 			$delivery = 5;
 		    ?>
-		    <ul class="radioList">
-                           <li>
-                              <label for="r-method-delivery">
-                           	 <input type="radio" name="r_method" value="delivery" id="r-method-delivery">Delivery</label>
-                           </li>
-                           <li>
-                              <label for="r-method-carryout">
-                           	 <input type="radio" name="r_method" value="carryout" id="r-method-carryout">Carryout</label>
-                           </li>
-
-             </ul><br>
 
              <ul class="promoCode">
              	<li >
@@ -157,7 +165,7 @@ $sql->execute();
              		<input type="text" id="promo" name="promo"><br>
              	</li>
              	<li>
-             		<a href="#" class="btn button">Apply!</a>
+             		<a href="#" class="btn btn-orderForm">Apply!</a>
              	</li>
              </ul>
 
@@ -165,9 +173,106 @@ $sql->execute();
 			echo '<p>Delivery: $'.$delivery.'</strong></p>';
 		    $total = $total + $delivery;
 			echo '<p><strong>Total: '.$total.'</strong></p>';
-			echo '<a href="#" class="btn button checkoutBtn">Checkout!</a>';
+		    echo
+		    '<ul class="radioList">
+                           <li>
+                              <label for="r-method-delivery">
+                           	 <input type="radio" name="r_method" value="delivery" id="r-method-delivery" onClick="disDelMethod();">Delivery</label>
+                           </li>
+                           <li>
+                              <label for="r-method-carryout">
+                           	 <input type="radio" name="r_method" value="carryout" id="r-method-carryout" onClick="disDelMethod();">Carryout</label>
+                           </li>
+
+             </ul><br>';
+
+		    //<form action="" id="pizza-form">
+            echo '<form id="pizza-form" action = "'.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'].'" method="post">';
+		    ?>
+
+           <!-- <article id="delivery" class="fullWidthForm">-->
+            <article id="delivery">
+                <fieldset class="fieldsetStyle">
+                    <legend class="formSubHeader legendStyle">Delivery Location</legend>
+                <p>Please enter your name and address:</p>
+
+                <label for="name">Name*:</label><span id="nameVal"></span>
+                <input type="text" id="name" name="name" autofocus>
+                <label for="a-type">Address Type:</label>
+                    <select name="a-type" id="a-type">
+                        <option value="">- Please select -</option>
+                        <option value="H">House</option>
+                        <option value="A">Apartment</option>
+                        <option value="B">Business</option>
+                        <option value="C">Campus</option>
+                        <option value="H">Hotel</option>
+                        <option value="D">Dorm</option>
+                        <option value="O">Other</option>
+                    </select>
+                <div id="otherOpt" style="display:none">
+                    <label for="other">Other Address Type:</label>
+                    <input type="text" id="other" name="other">
+                </div>
+                <label for="street">Street name*:</label><span id="streetVal"></span>
+                <input type="text" id="street" name="street" >
+                <ul>
+                    <li>
+                        <label for="city">City*:</label><span id="cityVal"></span>
+                        <input type="text" id="city" name="city">
+                    </li>
+                    <li>
+                        <label for="s-state">State:</label>
+                        <select name="s-state" id="s-state">
+                            <option value="">- Please select -</option>
+                            <option value="CA">California</option>
+                            <option value="WA">Washington</option>
+                            <option value="OR">Oregon</option>
+                            <option value="AZ">Arizona</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="zip">ZipCode*:</label><span id="zipVal"></span>
+                        <input type="text" id="zip" name="zip">
+                    </li>
+                </ul>
+
+                <label for="email">Email*:</label>
+                <input type="email" id="email" name="email" placeholder="name@url.com">
+
+
+                <label for="phone">Phone*:</label>
+                <input type="tel" id="phone" name="phone" placeholder="000-000-0000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+
+                <p class="formNote">* indicated required field</p>
+                </fieldset>
+
+            </article>
+            <article id="carryout" >
+            	<form class="search" action ="#" method="get">
+            	        <select class="searchLoc" id="selLoc">
+            	            <option value="">Location</option>
+            	            <option value="92128">Rancho Bernardo</option>
+            	            <option value="92108">Mission Valley</option>
+            	            <option value="92037">La Jolla</option>
+            	            <option value="92014">Del Mar</option>
+            	            <option value="92107">Point Loma</option>
+            	         </select>
+            	         <button type="submit" id="butLoc" value="Seleted location" class="searchButton">
+            							<i class="fas fa-map-marker-alt"></i>
+            						 </button>
+
+            			    </form>
+            </article>
+            <input type="submit" name="checkout" class="btn button checkoutBtn" value="Checkout!">
+            <!--<a href="#" class="btn button checkoutBtn">Checkout!</a>';-->
+
+		    <?php
+		    echo '</form>';
+			/*echo '<a href="#" class="btn button checkoutBtn">Checkout!</a>';*/
 		    echo '</article>';
 			?>
+
+
 
 	<!--	<form action= "https://www.sandbox.paypal.com/us/cgi-bin/webscr"
         method="post"  name="_xclick">-->

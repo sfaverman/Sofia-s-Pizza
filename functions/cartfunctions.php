@@ -26,7 +26,6 @@ function delCartItem($pid) {
 		</script>';
 }
 
-
 function addtocart($pid,$qty){
 	$sessid = session_id();
 $dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
@@ -65,4 +64,22 @@ $dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
 	     </script>';
    }
 }
+
+/*function disDeliveryAddr() {
+	echo 'You selected Delivery';
+	echo '<script>
+		document.getElementById("delivery").style.display = "block";
+	</script>';
+}*/
+/*function disDelMethod() {
+	echo '<script>
+		if (document.getElementById("r-method-delivery").checked == true){
+		    document.getElementById("delivery").style.display = "block";
+
+	    } else if (document.getElementById("r-method-carryout").checked == true) {
+		   document.getElementById("delivery").style.display = "none";
+		}
+	}
+	 </script>';
+}*/
 ?>
