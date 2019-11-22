@@ -25,7 +25,7 @@ if(isset($_POST['delete'])) {
 
 	//$rest = var_dump($_POST);
 	//echo $rest;
-	echo '<script>alert("Confirm Delete item");</script>';
+	//echo '<script>alert("Confirm Delete item");</script>';
  	/*$qty = $_POST["qty"];
 
 	addtocart($prodid,$qty);*/

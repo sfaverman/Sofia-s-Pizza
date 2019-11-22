@@ -317,7 +317,7 @@ input[type="number"] {
 	padding: 3px;
 	margin-top: 5px;
 }
-#popUp,#popUp1,#popUp2 {
+#popUp,#popUp1,#popUp2,#popUp3 {
   display: none;
   color: red;
   text-align: center;

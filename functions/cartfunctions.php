@@ -16,7 +16,7 @@ function delCartItem($pid) {
 	$delsql = $dbh->prepare("delete from sp19_cartitems where productid = '$pid' and sessionid = '$sessid'");
 	$delsql->execute();
 	echo '<script>
-		 var r = confirm("Please confirm delete item id='.$pid.'");
+		 var r = confirm("Confirm delete item id='.$pid.'");
 		 if (r == true) {
 		 		document.getElementById("popUp").style.display = "block";
 				document.getElementById("popUp3").style.display = "block";
