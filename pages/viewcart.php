@@ -175,7 +175,7 @@ $sql->execute();
 			<ul class="radioList">
                            <li>
                               <label for="r-method-delivery">
-                           	 <input type="radio" name="r_method" value="delivery" id="r-method-delivery" onClick="disDelMethod();">Delivery</label>
+                           	 <input type="radio" name="r_method" value="delivery" id="r-method-delivery" onClick="disDelMethod();" required>Delivery</label>
                            </li>
                            <li>
                               <label for="r-method-carryout">
@@ -191,7 +191,7 @@ $sql->execute();
                 <p>Please enter your name and address:</p>
 
                 <label for="name">Name*:</label><span id="nameVal"></span>
-                <input type="text" id="name" name="name" autofocus>
+                <input type="text" id="name" name="name" required pattern="^([a-zA-Z ]){2,30}$" title="Please enter a valid name" autofocus>
                 <label for="a-type">Address Type:</label>
                     <select name="a-type" id="a-type">
                         <option value="">- Please select -</option>
@@ -208,11 +208,11 @@ $sql->execute();
                     <input type="text" id="other" name="other">
                 </div>
                 <label for="street">Street name*:</label><span id="streetVal"></span>
-                <input type="text" id="street" name="street" >
+                <input type="text" id="street" name="street" placeholder="123 Your St" pattern="^\d+[ ](?:[A-Za-z0-9.-]+[ ]?)+(?:Avenue|Lane|Road|Boulevard|Drive|Street|Ave|Dr|Rd|Blvd|Ln|St|Way)\.?" title="Please enter a street name like: 123 Your St" required>
                 <ul>
                     <li>
                         <label for="city">City*:</label><span id="cityVal"></span>
-                        <input type="text" id="city" name="city">
+                        <input type="text" id="city" name="city" pattern="^[a-zA-Z',.\s-]{1,25}$" title="Please enter a valid city name" required>
                     </li>
                     <li>
                         <label for="s-state">State:</label>
@@ -226,16 +226,16 @@ $sql->execute();
                     </li>
                     <li>
                         <label for="zip">ZipCode*:</label><span id="zipVal"></span>
-                        <input type="text" id="zip" name="zip">
+                        <input type="text" id="zip" name="zip" placeholder="999-999-9999" pattern="^[0-9]{5}(?:-[0-9]{4})?$" title="Please enter a valid zipcode" required>
                     </li>
                 </ul>
 
                 <label for="email">Email*:</label>
-                <input type="email" id="email" name="email" placeholder="name@url.com">
+                <input type="email" id="email" name="email" placeholder="name@url.com" required>
 
 
                 <label for="phone">Phone*:</label>
-                <input type="tel" id="phone" name="phone" placeholder="000-000-0000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Please enter as 999-999-9999">
+                <input type="tel" id="phone" name="phone" placeholder="000-000-0000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Please enter phone number as 999-999-9999" required>
 
                 <p class="formNote">* indicated required field</p>
                 </fieldset>
