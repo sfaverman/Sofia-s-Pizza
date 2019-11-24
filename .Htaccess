@@ -1,0 +1,9 @@
+ErrorDocument 404 /index.php
+Options +FollowSymLinks
+RewriteEngine on
+RewriteRule ^pizzas$ pages/order.php?category=Pizzas [L]
+RewriteRule ^sandwiches$ pages/order.php?category=Sandwiches [L]
+RewriteRule ^salads$ pages/order.php?category=Salads [L]
+RewriteRule ^desserts$ pages/order.php?category=Desserts [L]
+RewriteRule ^beverages$ pages/order.php?category=Beverages [L]
+RewriteRule ^parties$ pages/order.php?category=Parties [L]
