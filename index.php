@@ -44,7 +44,7 @@
       			<a href="pages/menu.php" class="btn button">Our Menu</a>
       		</article>
  			<article class="gallery">
- 				<h3>ORDER ONLINE FOR PICKUP OR DELIVERY</h3>
+ 				<h5>ORDER ONLINE FOR PICKUP OR DELIVERY</h4>
  			</article >
  			<article class="middleText">
       			<a href="pages/order.php" class="btn button">Start Order</a>
@@ -56,22 +56,22 @@
  			<article>
  				<h4>THIS WEEK</h4>
  				<img src="images/pizza-h2.jpg" alt="pancakes image" class="img-responsive">
- 				<a href="pages/specials.php" class="btn button ">VIEW SPECIALS</a>
+ 				<a href="pages/specials.php" class="btn button ">View Specials</a>
  			</article>
  			<article>
- 				<h4>REWARDS</h3>
+ 				<h4>REWARDS</h4>
  				<img src="images/rewards-h2.jpg" alt="rewards image" class="img-responsive" >
- 				<a href="#" class="btn button ">VIEW REWARDS</a>
+ 				<a href="#" class="btn button ">View Rewards</a>
  			</article>
  			<article>
  				<h4>CUSTOM PIZZA</h4>
  				<img src="images/custom-pizza-h2.jpg" alt="pizza plate image" class="img-responsive">
- 				<a href="pages/customOrder.html" class="btn button ">BUILD PIZZA</a>
+ 				<a href="pages/customOrder.html" class="btn button ">Build Pizza!</a>
  			</article>
  			<article>
- 				<h4>PARTY SPECIALS</h4>
+ 				<h4>PARTY DEALS</h4>
  				<img src="images/party-h2.jpg" alt="pancakes image" class="img-responsive">
- 				<a href="pages/order.php" class="btn button ">ORDER NOW!</a>
+ 				<a href="pages/order.php" class="btn button ">Order Now!</a>
  			</article>
 
  		</section>
@@ -81,6 +81,7 @@
  				<p> The Sofia's Pizza Inc., founded in 1988, is a Midwestern fast casual restaurant chain. Sofia's Pizza offers pizza, chicken,  salads, appetizers, beverages and desserts.</p>
 
 				<p>Quality is at our core. It’s the foundation we started with, from the first Sofia's Pizza that was made in San Diego, CA and now more than 100 locations in the California.. </p>
+				<p>&nbsp;</p>
 				<a href="#" class="btn button ">Learn More</a>
  			</article>
  			<article>
@@ -94,12 +95,14 @@
 				<blockquote>
 					<p><i>…”Absolutely delicious pizza. Great work team!”<br>  - September 2018</i></p>
 				</blockquote>
+				<p>&nbsp;</p>
 				<a href="#" class="btn button ">Show More</a>
  			</article>
  			<article>
  				<h3>Best Italian Parties</h3>
  				<img src="images/bistro-498504_640.jpg" alt="restaurant room image" class="img-responsive">
  				<p>Are you ready to host your event or birthday party at Sofia's Pizza?</p>
+ 				<p>&nbsp;</p>
  				<a href="pages/order.html" class="btn button ">Book now!
  				</a>
 

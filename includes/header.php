@@ -72,14 +72,14 @@
         </div>
     </nav>
 
-<section class="bgImage">
+<div class="bgImage">
 
 <main class="galWrapper">
 <div class="aboveMenu2">&nbsp; </div>
 <header class="grid menu2">
-          <article class="wrapSearch">
+          <article>
           <!-- <form class="search" action ="<?php echo "$rootPath"; ?>pages/location.php" method="get">-->
-            <form class="search" action ="#" method="get">
+            <form  class="search" action ="#" method="get">
                     <select class="searchLoc" id="selLoc">
                         <option value="">Location</option>
                         <option value="92128">Rancho Bernardo</option>
@@ -88,7 +88,7 @@
                         <option value="92014">Del Mar</option>
                         <option value="92107">Point Loma</option>
                      </select>
-                     <button type="submit" id="butLoc" value="Seleted location" class="searchButton">
+                     <button type="submit" id="butLoc" class="searchButton">
 						<i class="fas fa-map-marker-alt"></i>
 					 </button>
 
@@ -96,7 +96,7 @@
 		  	<div id='resultLoc'></div>
 
 	      </article>
-          <article class="wrapSearch">
+          <article>
 			    <form class="search" action ="<?php echo "$rootPath"; ?>pages/searchSql.php" method="get">
 					  <input type="text" class="searchTerm" name="qry" placeholder="Search">
 					  <button type="submit" class="searchButton">

@@ -2,7 +2,7 @@
    <section class="grid column4">
    	<article>
 		<p>VISIT US</p>
-  		<form action="" id="location">
+  		<form action="#" id="locFooter">
              <label for="location">Find a Restaurant:</label>
                     <select name="location" id="location">
                         <option value="">- Please select -</option>
@@ -97,6 +97,6 @@
 
 </footer>
  </main>
-</section>
+</div>
 </body>
 </html>
