@@ -6,7 +6,29 @@
 	include('../includes/header.php');
 
 ?>
+	<h1 class="text-alignCenter">What We Offer</h1>
 	<section class="grid doubleSides">
+		<article class="middleText noMin">
+			<a href="specials.php" class="btn button">Weekly Specials</a>
+		</article>
+		<!--<article class="gallery">
+			<h2 class="text-alignCenter">Order Online for Pickup or Delivery</h2>
+		</article>-->
+		<article id="containerSearch" class="withinPage noMin">
+			<section id="searchArea">
+					<label for="search">Live Search</label>
+					<p>Enter the name or info about a product</p>
+					<input type="search" name="search" id="search" placeholder="name or info">
+			 </section>
+			 <section>
+					<article id="update"></article>
+			 </section>
+   		</article>
+		<article class="middleText noMin">
+			<a href="order.php" class="btn button">Order By Category</a>
+		</article>
+	</section>
+	<!--<section class="grid doubleSides">
 		<article class="middleText">
 			<a href="specials.php" class="btn button">Weekly Specials</a>
 		</article>
@@ -29,7 +51,7 @@
 					<article id="update"></article>
 			 </section>
       </div>
-	</section>
+	</section>-->
 
     <div class="tab-container">
 		<ul class="tabs">

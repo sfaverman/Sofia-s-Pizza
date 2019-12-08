@@ -14,11 +14,19 @@ footer {
 header img {
 	padding: 5%;
 }
+h2, h3, h4, h5, h6 {
+    margin: .5em 0;
+}
 h1 {
   color: #B8860B;
+  font-size: 1.4em;
 }
 h2 {
 	color: #B8860B; /* #cc3333; */
+}
+h3 {
+	/*text-align: center;*/
+	font-size: 1.2em;
 }
 header h1 {
 	font-family: Harrington, sans-serif;
@@ -131,7 +139,7 @@ footer ul .btn {
 	 background-color: rgba(255,255,255,.85);
 	 /*background-color: white;*/
      border-radius: 25%;
-     border: 0.5px solid green;
+     /*border: 0.5px solid green;*/
      padding: 4px;
 	 color: green;
 }
@@ -212,8 +220,11 @@ header.asideLeft {
 }
 header.menu2 {
 	/*grid-template-columns: repeat(3, 32%) !important;*/
-	padding: 5px;
-	margin-top: 5px !important;
+	/*padding: 5px; */
+	margin-top: 3px !important;*/
+}
+header.menu2 > article {
+	padding: 10px 10px 0;
 }
 header.menu2 > article:last-child {
 	text-align: right;
@@ -345,7 +356,13 @@ input[type="number"] {
 #delivery,#carryout {
 	display: none;
 }
+.tab-content {
+	padding: 0em;
+}
 @media screen and (min-width: 570px) {
+	h1 {
+		font-size: 1.8em;
+	}
 	header h1 {
 		font-size: 2em;
     }
@@ -355,12 +372,23 @@ input[type="number"] {
 	header.menu2 {
 		grid-template-columns: repeat(3, 32%) !important;
 	}
+
 	/*#home4 article p:last-of-type {
 		display: block;
 	}*/
 
 }
+@media screen and (min-width: 620px) {
+	.card-container {
+    	margin-top: 0;
+    	width: 15rem;
+	}
+}
 @media screen and (min-width: 750px) {
+	/*.card-container {
+    	margin-top: 0;
+    	width: 18rem;
+	}	*/
     header img {
         padding: 5px;
 	}

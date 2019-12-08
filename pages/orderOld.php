@@ -16,33 +16,21 @@ if(isset($_GET['category'])) {
 }
 
 ?>
-<!--<main class="galWrapper">-->
+<main class="galWrapper">
 
-	<h2 class="text-alignCenter">Order Online for Pickup or Delivery</h2>
-
-	<section class="grid doubleSides mt">
-		<article class="middleText noMin">
+	<section class="grid doubleSides">
+		<article class="middleText">
 			<a href="customOrder.html" class="btn button">Build Your Own Pizza</a>
 		</article>
-		<!--<article class="gallery">
+		<article class="gallery">
 			<h2 class="text-alignCenter">Order Online for Pickup or Delivery</h2>
-		</article>-->
-		<article id="containerSearch" class="withinPage noMin">
-			<section id="searchArea">
-					<label for="search">Live Search</label>
-					<p>Enter the name or info about a product</p>
-					<input type="search" name="search" id="search" placeholder="name or info">
-			 </section>
-			 <section>
-					<article id="update"></article>
-			 </section>
-   		</article>
+		</article>
 		<article class="middleText noMin">
 			<a href="pizza-cost.html" class="btn button">Pizza Cost Calculator</a>
 		</article>
 	</section>
 
-   <!--<div id="containerSearch" class="withinPage">
+   <div id="containerSearch" class="withinPage">
 		<section id="searchArea">
 		        <label for="search">Live Search</label>
 		        <p>Enter the name or info about a product</p>
@@ -51,7 +39,7 @@ if(isset($_GET['category'])) {
 		 <section>
 		        <article id="update"></article>
 		 </section>
-   </div>-->
+   </div>
 
   <!---    TABS BY CATEGORIES   ----------------------------->
 

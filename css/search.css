@@ -8,13 +8,19 @@
 }
 #containerSearch {
 	min-height: 500px;
-	padding-top: 10px;
+	/*padding-top: 10px;*/
+	width: 100%;
 }
 .withinPage {
 	min-height: 0px !important;
 	margin: 0 auto !important;
 	padding: 0 !important;
 }
+/*article #searchArea {
+	margin:0 !important;
+	padding:0 !important;
+}*/
+
 #searchArea {
     margin: 10px auto 30px;
 	/*margin: 0 auto;*/
@@ -23,8 +29,12 @@
     padding: 10px;
 	border: solid 2px #cc3333;
     border-radius: 10px 10px 0 0;
-    width: 50%; /* 30% */
+    width: 80% /* 50% 30% */
 }
+#search #searchArea {  /*search page only */
+	width: 50%;
+}
+
 #searchArea label {
     font: bold 1.3em Arial;
     text-transform: uppercase;
