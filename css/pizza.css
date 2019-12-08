@@ -12,7 +12,9 @@ footer {
 }
 
 header img {
-	padding: 5%;
+	min-width: 50px;
+	max-width: 100px;
+	padding: 5px;
 }
 h2, h3, h4, h5, h6 {
     margin: .5em 0;
@@ -28,11 +30,14 @@ h3 {
 	/*text-align: center;*/
 	font-size: 1.2em;
 }
-header h1 {
+header p {
+	/*display: block;*/
 	font-family: Harrington, sans-serif;
-    font-size: 1.5em; /*48px;*/
+    font-size: 1.4em; /*48px;*/
     color: #000; /*#ffe3bd; */
     letter-spacing: 0.2em;
+	padding: 5% 0;
+	margin-bottom: 0;
 }
 .galWrapper {
 	margin-top: 60px;
@@ -363,8 +368,8 @@ input[type="number"] {
 	h1 {
 		font-size: 1.8em;
 	}
-	header h1 {
-		font-size: 2em;
+	header p {
+		font-size: 2.4em;
     }
 	#bttBtn img {
 		width: 5%;
@@ -372,7 +377,9 @@ input[type="number"] {
 	header.menu2 {
 		grid-template-columns: repeat(3, 32%) !important;
 	}
-
+	#menu {
+		width: 100%;
+	}
 	/*#home4 article p:last-of-type {
 		display: block;
 	}*/
@@ -389,12 +396,12 @@ input[type="number"] {
     	margin-top: 0;
     	width: 18rem;
 	}	*/
-    header img {
+    /*header img {
         padding: 5px;
-	}
-	header h1 {
+	}*/
+	header p {
 	  font-size: 48px;
-      letter-spacing: 0.2em;
+      /*letter-spacing: 0.2em;*/
     }
 	header.menu2 {
 		margin-top: 10px !important;
@@ -406,26 +413,7 @@ input[type="number"] {
 	.noMin {
 		display: flex;
 	}
-	.navbar-container{
-		background-color: #000;
-		opacity: .7;
-		display: flex;
-		justify-content: space-between;
-		min-height: 70px;
-		padding-right: .5em;
-		position: static;
-    }
 
-    #navbar-toggler{
-        display: none;
-    }
-	#menu {
-		background-color: #000;
-		display: block;
-		border-top: none;
-		position: static;
-		width: 100%;
-	}
 	li.nav-item{
 		display: inline-block;
 	}
@@ -433,7 +421,7 @@ input[type="number"] {
 		position: absolute;
 		top: 76px;
 		padding: 1em 0 0;
-	}
+	}*/
 }
 
 @media screen and (min-width: 960px) {

@@ -36,10 +36,10 @@
 </head>
 <body id="<?php if ($activePage == 'index') {echo 'home';} else {echo $activePage;} ?>">
          <header class="grid asideLeft">
-               <div>
+               <div class="middleText">
                     <img src="<?php echo "$rootPath"; ?>images/pizza-demo-logo.png" class="img-responsive mt" alt="company logo">  </div>
                <div class="middleText">
-                   <h1>Sofia's Pizza</h1>
+                   <p>Sofia's Pizza</p>
                </div>
            </header>
 
