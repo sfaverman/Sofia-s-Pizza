@@ -3,7 +3,7 @@ $(function(){
     $('#navbar-toggler').click(function(){
         $('#menu').toggle();
         });
-	$('.menu-bar').click(function(){
+	/*$('.menu-bar').click(function(){
            $('.sidebar').slideToggle();
            });
     $('.menu-bar-close').click(function(){
@@ -11,7 +11,7 @@ $(function(){
 	        });
     $('document').scroll(function(){
             $('.sidebar-menu').hide();
-            });
+            });*/
 });
 
 
@@ -135,13 +135,14 @@ $(document).ready(function(){
 
 /*FOOTER - STICKY FOOTER*/
 
-$(function(){
+ /* $(function(){
             $(".sticky-footer").prev("main").css({
                 height: '80vh',
             });
 
 
         });
+*/
 
 /*Sticky nav on scroll*/ /* removed not working SXF 11/7/19 */
     /*   window.onscroll = function() {myFunction()};

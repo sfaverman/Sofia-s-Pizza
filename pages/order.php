@@ -22,7 +22,7 @@ if(isset($_GET['category'])) {
 
 	<section class="grid doubleSides mt">
 		<article class="middleText noMin">
-			<a href="customOrder.html" class="btn button">Build Your Own Pizza</a>
+			<a href="custom-pizza.php" class="btn button">Build Your Own Pizza</a>
 		</article>
 		<!--<article class="gallery">
 			<h2 class="text-alignCenter">Order Online for Pickup or Delivery</h2>
@@ -134,7 +134,7 @@ if(isset($_GET['category'])) {
 
 
 
- <a href="<?php echo "$rootPath"; ?>customOrder.html" class="btn button">Build your own Custom Pizza</a>
+ <a href="<?php echo "$rootPath"; ?>pages/custom-pizza.php" class="btn button">Build your own Custom Pizza</a>
 
  <a id="bttBtn" href="#order"><img src="../images/back-to-top-arrow.png" alt="back to top arrow"></a>
 <?php

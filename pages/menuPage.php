@@ -137,7 +137,7 @@
 </div> <!-- end div tab-container -->
 
 
-<a href="customOrder.html" class="btn button">Build your own Custom Pizza</a>
+<a href="custom-pizza.php" class="btn button">Build your own Custom Pizza</a>
 
 <a id="bttBtn" href="#menuPage"><img src="../images/back-to-top-arrow.png" alt="back to top arrow"></a>
 

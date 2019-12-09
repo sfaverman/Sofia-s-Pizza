@@ -1,69 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="CSS Framework" content="Easy framework to build responsive website">
-    <title>Sofia's Pizza - Custom Order Page</title>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/hsm_min.css" type="text/css">
-    <!--custom css-->
-    <link rel="stylesheet" href="../css/pizza.css">
-    <!--Scripts-->
-        <!--Scripts-->
-         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-     <script src="../scripts/hsm.js"></script>
-        <!-- pizza order validation/calculation -->
-     <script src="../scripts/pizza-order.js"></script>
+<?php
+	 // Set the page title and include the header file.
+    define('TITLE', "Sofia's Pizza - Custom Pizza Order");
 
+	include '../includes/connect.php';
+	include '../functions/cartfunctions.php';
+	include '../includes/header.php';
 
-
-</head>
-<body>
-         <header class="grid asideLeft">
-               <div>
-                    <img src="../images/pizza-demo-logo.png" class="img-responsive mt" alt="company logo">  </div>
-               <div class="middleText">
-                   <h1>Sofia's Pizza</h1>
-               </div>
-           </header>
-
-       <nav class="navbar-container opacityNone">
-        <!--<div class="logo">
-           <a href="#" class="navbar-brand">Sofia's Pizza</a>
-       </div>-->
-       <button id="navbar-toggler">
-             <span class="menu-bar"><i class="fas fa-bars"></i></span>
-       </button>
-       <div id="menu">
-            <ul class="main-nav">
-                <li class="nav-item">
-                    <a href="../index.html" class="nav-title">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="specials.php" class="nav-title">Specials</a>
-                </li>
-                <li class="nav-item">
-                    <a href="menu.php" class="nav-title">Menu</a>
-                </li>
-               <li class="nav-item">
-                    <a href="order.php" class="nav-title active">Order</a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-title">Contact</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+?>
 
   <section class="bgImage">
      <p>&nbsp;</p>
-      <main id="formWrapper">
+      <section id="formWrapper">
 
          <h1 class="formHeader">Order pizza</h1>
       <p>Build a pizza you'd like to order. Start with the personal information that the delivery man will use to deliver your pizza, choose from variety options and we wil provide you with an estimated total.</p>
-            <form action="" id="pizza-form">
+            <form action="#" id="pizza-form">
             <article class="fullWidthForm">
                 <fieldset class="fieldsetStyle">
                     <legend class="formSubHeader legendStyle">Delivery Location</legend>
@@ -114,47 +65,44 @@
 
 
                 <label for="phone">Phone*:</label>
-                <input type="tel" id="phone" name="phone" placeholder="000-000-0000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                <input type="tel" id="phone" name="phone" placeholder="999-999-9999" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Please enter phone in a format as 999-999-9999">
 
                 <p class="formNote">* indicated required field</p>
                 </fieldset>
 
             </article>
 
-                <fieldset class="fieldsetStyle">
-                    <legend class="formSubHeader legendStyle">Build your order</legend>
+             <article>
+               	    <fieldset class="fieldsetStyle">
+                	<legend class="formSubHeader legendStyle">Build your order</legend>
 
-                <p>You Make It - We Bake It. The Best custom built pizza restaurant all over San Diego Area.</p>
-
-
-
-                <p class="formSubHeader text-bold text-underline">Choose your crust</p><span id="crustVal"></span>
+                	<p>You Make It - We Bake It. The Best custom built pizza restaurant all over San Diego Area.</p>
 
 
-                        <ul class="radioList">
-                           <li>
-                              <label for="r-dough-hand">
-                            <input type="radio" name="r_dough" value="hand" id="r-dough-hand">Hand Tossed</label>
-                           </li>
-                           <li>
-                              <label for="r-dough-thin">
-                        <input type="radio" name="r_dough" value="thin" id="r-dough-thin">Thin Crust</label>
-                           </li>
-                           <li>
-                               <label for="r-dough-nys">
-                        <input type="radio" name="r_dough" value="nys" id="r-dough-nys">New York Style</label>
-                           </li>
-                           <li>
-                               <label for="r-dough-gluten">
-                        <input type="radio" name="r_dough" value="gluten" id="r-dough-gluten">Gluten Free</label>
-                           </li>
-                       </ul>
+                	<p class="formSubHeader text-bold text-underline">Choose your crust</p><span id="crustVal"></span>
 
 
+                	        <ul class="radioList">
+                	           <li>
+                	              <label for="r-dough-hand">
+                	            <input type="radio" name="r_dough" value="hand" id="r-dough-hand">Hand Tossed</label>
+                	           </li>
+                	           <li>
+                	              <label for="r-dough-thin">
+                	        <input type="radio" name="r_dough" value="thin" id="r-dough-thin">Thin Crust</label>
+                	           </li>
+                	           <li>
+                	               <label for="r-dough-nys">
+                	        <input type="radio" name="r_dough" value="nys" id="r-dough-nys">New York Style</label>
+                	           </li>
+                	           <li>
+                	               <label for="r-dough-gluten">
+                	        <input type="radio" name="r_dough" value="gluten" id="r-dough-gluten">Gluten Free</label>
+                	           </li>
+                	       </ul>
 
 
-
-            <article>
+            <article class="fullWidthForm">
                 <p class="formSubHeader text-bold text-underline">Choose pizza size, cheese and sauce</p>
                 <p>Please enter the size of pizza:</p>
 
@@ -195,7 +143,7 @@
 
 
             </article>
-            <article >
+           <!-- <article class="fullWidthForm">-->
                 <p class="formSubHeader text-bold text-underline">Toppings</p>
                 <p>Select the toppings. Each topping is $.99 extra. </p>
 
@@ -259,9 +207,9 @@
 
 
 
-            </article>
+          <!--  </article>-->
 
-            <article class="fullWidthForm">
+            <article>
                 <p class="formSubHeader text-bold text-underline">Special notes</p>
                  <label for="msg"></label>
                  <textarea name="message" id="msg" placeholder="Please write your message here"></textarea>
@@ -274,18 +222,19 @@
                         <input type="submit" class="btn btn-orderForm" value="Total">
                         <input type="text" placeholder="$0.00" id="txt-estimate">
                     </p>
-                    <div id="est-result" class="results"></div>
+                    <div id="est-results" class="results"></div>
             </div>
              </fieldset>
+			</article>
         </form>
-         <!-- Billing form -->
-        <form action="#" id="billing-form">
-         <article >
-              <fieldset class="fieldsetStyle">
+        <!-- Billing form -->
+         <form action="#" id="billing-form">
+         <article>
+                <fieldset class="fieldsetStyle">
                   <legend class="formSubHeader legendStyle">Billing Information</legend>
                 <p class="formText">Please select the method of payment</p>
-
-               <ul class="radioList grid column3">
+                <span id="ccRadioVal"></span>
+                 <ul class="radioList grid column3">
                    <label for="r-card-visa">
                       <li>
                         <input type="radio" name="r_card" value="visa" id="r-card-visa" checked>Visa
@@ -306,10 +255,11 @@
                    </li>
                    </label>
                </ul>
-               <div>
-               	<label for="acctNum">Please enter your account number:</label><span id="acctVal"></span>
-               	<input type="text" id="acctNum" name="acctNum" placeholder="1234 5678 9012 3456">
-               </div>
+
+
+               <label for="acctNum">Please enter your credit  card account number:</label><span id="acctNumVal"></span>
+               <input type="text" id="acctNum" name="acctNum" placeholder="1234 5678 9012 3456">
+
                <article class="grid column2">
 					 <div>
 						<label for="expDate">Expiration Date:</label><span id="expVal"></span>
@@ -324,30 +274,19 @@
               </article>
               </fieldset>
 
-            </article>
 
-            <article class="formBtn clearIt">
+
+            </article>
+			 <article class="formBtn clearIt">
                 <input type="submit" class="btn btn-orderForm" value="Order!">
                 <input type="reset" class="btn btn-orderForm">
             </article>
-             <div id="order-result" class="results"></div>
-        </form> <!-- end billing form -->
-    </main>
+             <div id="order-results" class="results"></div>
+        </form> <!-- end billing f0rm -->
 
+     </section>
 
-
-<footer class="footer styleAccord">
-   <p>&copy; 2019 Sofia's Pizza</p>
-   <div class="social">
-       <a href="#"><i class="fab fa-twitter-square"></i></a>
-       <a href="#"><i class="fab fa-facebook-square"></i></a>
-       <a href="#"><i class="fab fa-github-square"></i></a>
-       <a href="#"><i class="fab fa-google-plus-square"></i></a>
-   </div>
-</footer>
-</section>
-
-
-
-</body>
-</html>
+  <a id="bttBtn" href="#customOrder"><img src="../images/back-to-top-arrow.png" alt="back to top arrow"></a>
+<?php
+	include('../includes/footer.php');
+?>

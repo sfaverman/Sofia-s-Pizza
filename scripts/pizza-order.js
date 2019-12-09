@@ -116,7 +116,7 @@ var phoneResult = phoneRGEX.test(phone);
 
 if (phoneResult == false) {
         window.console.log('invalid phone');
-        $ID('phoneVal').innerHTML = 'Please enter a valid phone 999-999-9999';
+        $ID('phoneVal').innerHTML = 'Please enter a valid phone';
         $ID('phone').focus();
         return false;
 } else {
@@ -130,6 +130,7 @@ if (phoneResult == false) {
 
 /* show 'Other Address Type' input field only if 'Other' selected on a drop-down menu */
 function checkAddrTypeValue() {
+		//window.console.log('You selected Appartment!');
         var val = $ID("a-type").value;
         if(val==="O") {
            $ID('otherOpt').style.display='block';
@@ -191,40 +192,130 @@ function estimateOrder(event) {                                      "use strict
      window.console.log("Cheeze option: " + $ID("o-cheeze").text);
      window.console.log("Toppings: " + checkedToppings);
      window.console.log("Number of Toppings:" + numToppings);
-  */
+*/
     totalEstimate = Number($ID("p-size").value) + Number($ID("o-cheeze").value) + Number($ID("o-sauce").value) + (numToppings * 0.99);
 
     $ID('txt-estimate').value = '$' + totalEstimate.toFixed(2);
 
-   	 $ID('est-result').innerHTML = 'You selected:<br> Pizza: ' +
+    $ID('est-results').innerHTML = 'You selected:<br> Pizza: ' +
         crust + ' crust, '
         + $ID("p-size").options[$ID("p-size").selectedIndex].text
         + ' size, ' + $ID("o-cheeze").options[$ID("o-cheeze").selectedIndex].text + ' cheeze, with ' + numToppings + ' toppings: ' + checkedToppings ;
 
 
-
  } // end function estimateOrder
+
+ function checkAccountNumValue() {
+     "use strict";
+     window.console.log('You entered account number' + $ID('acctNum').value);
+
+     /* Remove white spaces */
+     var acctNum = $ID('acctNum').value.replace(/\s+/g, '');
+     window.console.log('Your account number is ' + acctNum);
+
+     /* Validate credit card number by length */
+
+     window.console.log('Your account number has ' + acctNum.length + ' digits');
+     /* get a value of credit card radio button selected */
+     let ccTypeChecked = document.querySelector('input[name="r_card"]:checked');
+    if (ccTypeChecked != null) {
+         $ID('ccRadioVal').innerHTML = "";
+    }
+    else {
+         window.console.log('credit card type not selected');
+         $ID('ccRadioVal').innerHTML = 'Please select a credit card type';
+         $ID('r-card-visa').focus();
+        return;
+    }
+
+     var selCreditCard = document.querySelector('input[name="r_card"]:checked').value;
+
+     window.console.log('You selected ' + selCreditCard + ' credit card');
+
+     if(isNaN(acctNum)){
+         window.console.log('credit card not a numeric value : ' + acctNum);
+         $ID('acctNumVal').innerHTML = 'Invalid account number';
+         $ID('acctNum').focus();
+         return false;
+     } else {
+	     switch(selCreditCard) {
+               case "ax":
+                 if (acctNum.length !== 15 ||   acctNum.substring(0, 2) !== '37') {
+                      $ID('acctNumVal').innerHTML = 'Please enter a valid AX account number';
+                      $ID('acctNum').focus();
+                     return false;
+                 } else {
+                     $ID('acctNumVal').innerHTML = "";
+                 };
+                 break;
+               case "master":
+                  if (acctNum.length !== 16 ||   Number(acctNum.substring(0, 2)) < 51 ||
+                  Number(acctNum.substring(0, 2)) > 55) {
+                      $ID('acctNumVal').innerHTML = 'Please enter a valid Master card number';
+                      $ID('acctNum').focus();
+                     return false;
+                  } else {
+                     $ID('acctNumVal').innerHTML = "";
+                 }
+                 break;
+              case "visa":
+                 if ( (acctNum.length !== 13 &&                         acctNum.length !== 16)
+                    || acctNum.substring(0, 1) !== '4') {
+                   $ID('acctNumVal').innerHTML = 'Please enter a valid VISA credit card number';
+                      $ID('acctNum').focus();
+                     return false;
+                 } else {
+                     $ID('acctNumVal').innerHTML = "";
+                 };
+                 break;
+              default:
+                 window.console.log('unknown value of selCreditCard: ' + selCreditCard);
+         }
+     } // end if -else isNan(acctNum)
+      window.console.log('Checking Luhn Algorithm!');
+
+     // Validate according to Luhn Algorithm.
+ 	 var nCheck = 0, nDigit = 0, bEven = false;
+
+ 	 for (var n = acctNum.length - 1; n >= 0; n--) {
+ 	 var cDigit = acctNum.charAt(n),
+ 			  nDigit = parseInt(cDigit, 10);
+
+ 		if (bEven) {
+ 			if ((nDigit *= 2) > 9) nDigit -= 9;
+ 		}
+
+ 		nCheck += nDigit;
+ 		bEven = !bEven;
+ 	 }
+
+ 	 if ((nCheck % 10) !== 0) {
+         $ID('acctNumVal').innerHTML = 'Please enter a valid credit card number';
+         $ID('acctNum').focus();
+                     return false;
+         } else {
+             $ID('acctNumVal').innerHTML = "";
+             $ID('expDate').focus();
+         };
+ } // end checkAccountNumValue()
 
  function submitOrder(event) {
 	 "use strict";
 
     event.preventDefault(); //when you refresh, does not take you to the top of the page
 
-
-   /* window.console.log('Dear '+ $ID("name").value +',');
-	window.console.log('Thank you for your ORDER!\n')
-    window.console.log("It will be delivered to you at");
-    window.console.log($ID("street").value + ', ' + $ID("city").value + ', ' + $ID("s-state").value + ' ' + $ID("zip").value);*/
-
-
-	 $ID('order-result').innerHTML = 'Thank you for your ORDER!<br> It will be delivered to you at <br>' +
+	 $ID('order-results').innerHTML = 'Thank you for your ORDER!<br> Your order will be delivered to you at <br>' +
 		$ID("street").value + ', ' + $ID("city").value + ', ' + $ID("s-state").value + ' ' + $ID("zip").value;
  }
+
  /* EVENT LISTENERS */
 
  $ID("a-type").addEventListener("change", checkAddrTypeValue, false);
  $ID("pizza-form").addEventListener("submit", estimateOrder, false);
+
+ $ID("acctNum").addEventListener("change", checkAccountNumValue, false);
  $ID("billing-form").addEventListener("submit", submitOrder, false);
+
 
 /* add event listener to choose your crust radio buttons */
   var radioOption = [
@@ -254,5 +345,3 @@ function estimateOrder(event) {                                      "use strict
  /* END EVENT LISTENERS */
 
 }); // end "load" event listener
-
-
