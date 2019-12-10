@@ -191,7 +191,7 @@ if(isset($_POST['submit'])) {
                 	<div>
                 		<h3 class="text-alignCenter">Your Custom Pizza</h3>
 						<p id="cp-price" class="price text-alignCenter"></p>
-   						<p id="est-results2">Description bla-bla-bla</p>
+   						<p id="est-results2">Description ...</p>
 
 						<ul class="formBtn">
 							<li><label for="qty">Qty</label></li>

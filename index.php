@@ -103,7 +103,7 @@
  				<img src="images/bistro-498504_640.jpg" alt="restaurant room image" class="img-responsive">
  				<p>Are you ready to host your event or birthday party at Sofia's Pizza?</p>
  				<p>&nbsp;</p>
- 				<a href="pages/order.html" class="btn button ">Book now!
+ 				<a href="pages/booking.php" class="btn button ">Book now!
  				</a>
 
  			</article>

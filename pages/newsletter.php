@@ -40,7 +40,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Unsubscribe'){
 
 
  		<article class="contactForm fullWidthForm outlineStyle mt">
-            <form action="" method="post" id="formReg">
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" id="formReg">
                    <fieldset class="fieldsetStyle">
                        <legend class="legendStyle">Sign up!</legend>
                                <ul class="formInput">
