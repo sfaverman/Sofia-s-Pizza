@@ -52,7 +52,7 @@
    		<p>Get Pizza Emails!</p>
 		<p>We'll keep you in the loop on the latest deals!
 		</p>
-  	<a href="#" class="btnCall button">Sign Me Up!</a>
+  	<a href="<?php echo "$rootPath"; ?>pages/newsletter.php" class="btnCall button" title="sign up for newsletter">Sign Me Up!</a>
    	</article>
 
    <!-- <article>

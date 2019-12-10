@@ -66,7 +66,7 @@
  			<article>
  				<h4>CUSTOM PIZZA</h4>
  				<img src="images/custom-pizza-h2.jpg" alt="pizza plate image" class="img-responsive">
- 				<a href="pages/customOrder.html" class="btn button ">Build Pizza!</a>
+ 				<a href="pages/custom-pizza.php" class="btn button ">Build Pizza!</a>
  			</article>
  			<article>
  				<h4>PARTY DEALS</h4>
