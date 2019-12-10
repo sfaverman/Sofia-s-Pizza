@@ -10,7 +10,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Book it!'){
 	$email = trim($_POST['email']);
 	$fname = trim($_POST['fname']);
 	$lname = trim($_POST['lname']);
-	echo "<strong><em>Dear $fname, Thank you for sreservation!</em></strong>";
+	echo "<strong><em>Dear $fname, Thank you for reservation!</em></strong>";
 }
 
 ?>
@@ -31,7 +31,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Book it!'){
                    <fieldset class="fieldsetStyle">
                        <legend class="legendStyle">Book a table!</legend>
                            <div class="grid column2">
-                           	  <ul class="formInput mr">
+                           	  <ul class="formInput ml mr">
 								<li>
 									<label for="fname">First Name*:</label>
 									<input type="text" id="fname" name="fname" required>
@@ -53,7 +53,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Book it!'){
 									<input type="tel" id="phone" name="phone" placeholder="000-000-0000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Please enter the valid phone number. Example: 555-555-5555">
 								 </li>
 								</ul>
-								<ul class="formInput ml">
+								<ul class="formInput ml mr">
 								   <li>
 									  <label>Location*</label>
 									  <select required>
@@ -66,7 +66,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Book it!'){
 									 </select>
 								   </li>
 								   <li>
-										<ul class="grid column2">
+										<ul class="grid col2-all">
 											<li>
 												<label for="date_res">Date*:</label>
 												<input type="date" id="date_res" name="date_res" required >
@@ -83,7 +83,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Book it!'){
 				 					</li>
 				 					<li>
 										<label for="preferred">Preferred way to contact you:*</label>
-										<ul id="radioList" name="preferred" class="grid column3 text-alignCenter">
+										<ul id="radioList" name="preferred" class="grid col3-all text-alignCenter">
 											<li>
 												<label for="emailYes">
 													<input type="radio" name="contMethod" id="emailYes" value="email" required checked>E-mail</label>
@@ -115,6 +115,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Book it!'){
            </form>
         </article>
 	 </section>
+<a id="bttBtn" href="#booking"><img src="../images/back-to-top-arrow.png" alt="back to top arrow"></a>
 <?php
 	include('../includes/footer.php');
 ?>
