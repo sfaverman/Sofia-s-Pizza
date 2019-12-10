@@ -20,9 +20,9 @@
    	<article>
    		<ul>
    		<!--	<li><a href="#" class="btn button">Download our app</a></li>-->
-   			<li><a href="#" class="btn button">Buy a gift card</a></li>
-   			<li><a href="#" class="btn button">Order Online</a></li>
-   			<li><a href="#" class="btn button">Reservation</a></li>
+   			<li><a href="<?php echo "$rootPath"; ?>pages/search.php" class="btn button" title="search by name or product info">Site Search</a></li>
+   			<li><a href="<?php echo "$rootPath"; ?>pages/order.php" class="btn button" title="order for delivery or carryout">Order Online</a></li>
+   			<li><a href="<?php echo "$rootPath"; ?>pages/booking.php" class="btn button" title="reserve your table">Reservation</a></li>
    		</ul>
    		<p class="callMsg mt">Call Now to order<br>
    		888-999-9999</p>
@@ -37,14 +37,14 @@
    				<li>Sat - Sun 10AM til 9PM</li>
    		</ul>
    		<ul class="displayInline mt">
-   				<li><a href="#">Deals</a></li>
-   				<li><a href="#">Parties</a></li>
-   				<li><a href="#">Careers</a></li>
+  				<li> <a href="<?php echo "$rootPath"; ?>pages/order.php" title="order by category">Order</a></li>
+  				<li> <a href="<?php echo "$rootPath"; ?>pages/custom-pizza.php" title="build your own pizza">Build</a></li>
+  				<li> <a href="<?php echo "$rootPath"; ?>pages/booking.php" title="book a reservation for your party">Parties</a></li>
    		</ul>
    		<ul class="displayInline">
-   				<li><a href="#">Menu</a></li>
-   				<li><a href="#">About</a></li>
-   				<li><a href="#">Contact</a></li>
+   				<li> <a href="<?php echo "$rootPath"; ?>pages/menuPage.php" title="our menu">Menu</a></li>
+   				<li> <a href="<?php echo "$rootPath"; ?>pages/specials.php" title="weekly specials">Specials</a></li>
+   				<li> <a href="<?php echo "$rootPath"; ?>pages/contact.php" title="contact us">Contact</a></li>
    		</ul>
 
    	</article>
@@ -81,11 +81,11 @@
    <article>
    		<p>Follow Us on Social Media</p>
    		<div class="social mb">
-   			<a href="#"><i class="fab fa-facebook"></i></a>
-   			<a href="#"><i class="fab fa-instagram"></i></a>
-		   	<a href="#"><i class="fab fa-twitter"></i></a>
-		    <a href="#"><i class="fab fa-yelp"></i></a>
-		   	<a href="#"><i class="fab fa-google-plus"></i></a>
+   			<a href="https:www.facebook.com" target="_blank" title="facebook"><i class="fab fa-facebook"></i></a>
+   			<a href="https:www.instagram.com" target="_blank" title="instagram"><i class="fab fa-instagram"></i></a>
+			<a href="https:www.twitter.com" target="_blank" title="twitter"><i class="fab fa-twitter"></i></a>
+		    <a href="https:www.yelp.com" target="_blank" title="yelp"><i class="fab fa-yelp"></i></a>
+		   <!--	<a href="#"><i class="fab fa-google-plus"></i></a>-->
    		</div>
    		<p>&copy; <?php echo '  ' . date("Y") . ' '?>Sofia's Pizza</p>
    		<!--<?php date_default_timezone_set('America/Los_Angeles');

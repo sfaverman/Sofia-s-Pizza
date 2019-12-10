@@ -138,5 +138,5 @@ if(isset($_GET['category'])) {
 
  <a id="bttBtn" href="#order"><img src="../images/back-to-top-arrow.png" alt="back to top arrow"></a>
 <?php
-	include('../includes/footer2.php');
+	include('../includes/footer.php');
 ?>

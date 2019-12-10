@@ -11,9 +11,9 @@
      <section class="grid column2-md container">
 
 	    <article>
-			<h1>Contact</h1>
+			<h1>Contact Us</h1>
 			<p class="text-bold">Please give us your feedback!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+			<p> We sincerely appreciate your insight because it helps us build a better customer experience. If you have any questions, comments, or concerns or compliments, please send us your message. We would be happy to help!</p>
 
 	    </article>
  		<article class="contactForm fullWidthForm outlineStyle mt">
