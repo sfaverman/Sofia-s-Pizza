@@ -54,6 +54,8 @@ $sql->execute();
 		';
 	  echo '</div>';
 	echo '</div>';
+    echo '<a href="order.php" class="btn button checkoutBtn">Continue Shopping!</a>';
+
 echo '</section>';
 echo '<section class="orderTotal">
 		<h4>Your Order</h4>';

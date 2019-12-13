@@ -263,7 +263,8 @@ $sql->execute();
   <input type="hidden" name="upload" value="1">
  <!-- <input type = "hidden" name = "no_shipping" value = "2"> -->
   <input type="hidden" name="currency_code" value="USD">
-  <p><strong>Total: <?php echo "$total"; ?></strong></p>
+  <input type="hidden" name="invoice" value="<?php echo $sessid; ?>">
+    <p><strong>Total: <?php echo "$total"; ?></strong></p>
   <input type ="hidden" id ="subtotal" name = "subtotal" value = "<?php echo "$total"; ?>">
 
   <input type="submit" name="submit" class="btn button checkoutBtn" value="Checkout!">

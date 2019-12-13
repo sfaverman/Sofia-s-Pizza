@@ -291,7 +291,7 @@ header.menu2 > article:last-child {
 
 .searchButton {
   width: 15%;
-  height: 15%;
+  height: 24px;
   border: 2px solid #ffe3bd;
   background: #ffe3bd;
   text-align: center;

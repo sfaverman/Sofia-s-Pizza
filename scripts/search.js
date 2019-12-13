@@ -14,6 +14,7 @@ $('#search').keyup(function(){
 
 /* keyup = when user typing and releasing key */
     var searchField = $('#search').val();
+	//window.console.log(searchField);
     var myExp = new RegExp(searchField, 'i');
     /* i stands for case insensitive */
 

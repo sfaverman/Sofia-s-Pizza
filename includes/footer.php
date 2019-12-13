@@ -20,7 +20,7 @@
    	<article>
    		<ul>
    		<!--	<li><a href="#" class="btn button">Download our app</a></li>-->
-   			<li><a href="<?php echo "$rootPath"; ?>pages/search.php" class="btn button" title="search by name or product info">Site Search</a></li>
+   			<li><a href="<?php echo "$rootPath"; ?>pages/liveSearch.php" class="btn button" title="search by name or product info">Site Search</a></li>
    			<li><a href="<?php echo "$rootPath"; ?>pages/order.php" class="btn button" title="order for delivery or carryout">Order Online</a></li>
    			<li><a href="<?php echo "$rootPath"; ?>pages/booking.php" class="btn button" title="reserve your table">Reservation</a></li>
    		</ul>
