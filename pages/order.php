@@ -111,7 +111,7 @@ if(isset($_GET['category'])) {
 
 						 echo '<div class="card-container">';
 						   echo '<div>';
-								  echo '<img src="../images/products/'.$prod_img.'.jpg" alt="'.$prod_img.'" class="img-responsive zoomIn">';
+								  echo '<img src="'.$rootPath.'/images/products/'.$prod_img.'.jpg" alt="'.$prod_img.'" class="img-responsive zoomIn">';
 						   echo '</div>';
 						   echo '<div>';
 								echo '<h3>'.$prod_name.'</h3>';

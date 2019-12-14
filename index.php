@@ -81,22 +81,22 @@
  				<p> The Sofia's Pizza Inc., founded in 1988, is a Midwestern fast casual restaurant chain. Sofia's Pizza offers pizza, chicken,  salads, appetizers, beverages and desserts.</p>
 
 				<p>Quality is at our core. It’s the foundation we started with, from the first Sofia's Pizza that was made in San Diego, CA and now more than 100 locations in the California.. </p>
-				<p>&nbsp;</p>
-				<a href="#" class="btn button ">Learn More</a>
+				<!--<p>&nbsp;</p>
+				<a href="#" class="btn button ">Learn More</a>-->
  			</article>
  			<article>
  				<h3>Our Customers Say</h3>
-				<blockquote><p><i>…”Fantastic freshly prepared pizzas cooked in the sweet tear drop caravan – the new Brockham start up.  Delicious!” - May 2018</i></p> </blockquote>
+				<blockquote><p><i>…”Fantastic freshly prepared pizzas cooked in the sweet tear drop caravan – the new Brockham start up.  Delicious!”<br> - May 2019</i></p> </blockquote>
 
 				<blockquote>
-					<p><i>…”Best pizzas we have ever tasted - well done guys!!” - September 2018</i></p>
+					<p><i>…”Best pizzas we have ever tasted - well done guys!!”<br> - March 2018</i></p>
 				</blockquote>
 
 				<blockquote>
 					<p><i>…”Absolutely delicious pizza. Great work team!”<br>  - September 2018</i></p>
 				</blockquote>
-				<p>&nbsp;</p>
-				<a href="#" class="btn button ">Show More</a>
+				<!--<p>&nbsp;</p>
+				<a href="#" class="btn button ">Show More</a>-->
  			</article>
  			<article>
  				<h3>Best Italian Parties</h3>
