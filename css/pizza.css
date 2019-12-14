@@ -4,8 +4,8 @@
     width: 100%;
 }
 header, footer, footer label {
-	 background-color: #dd8256 !important;
-	 color: #ffe3bd !important;
+	 background-color: #f3bea5 !important;/* #dd8256 */
+	 color: #000  !important; /* #ffe3bd */
 }
 footer {
 	border-top: solid 2px #ffe3bd;
