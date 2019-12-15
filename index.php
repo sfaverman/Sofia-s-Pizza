@@ -9,7 +9,8 @@
      	     	<section id="home1" class="grid column4">
  			<article>
  				<h3>Pizzas</h3>
-				<a href="pages/order.php?category=Pizzas">
+				<!--<a href="pages/order.php?category=Pizzas">-->
+				  <a href="pizzas" title="click to view pizzas">
  				  <img src="images/pizza-h1.jpg" alt="pizza image" class="img-responsive">
  				</a>
  				<p> We make the most Delious Pizzas!
@@ -17,7 +18,8 @@
  			</article>
  			<article>
  				<h3>Sandwiches</h3>
- 				<a href="pages/order.php?category=Sandwiches">
+ 				<!--<a href="pages/order.php?category=Sandwiches">-->
+				<a href="sandwiches" title="click to view sandwiches">
  				  <img src="images/sandwich-h1.jpg" alt="sandwich image" class="img-responsive">
 				</a>
  				<p> We take the time and effort to make your sandwich the best you'll ever have. Try our most popular sandwiches.</p>
@@ -25,14 +27,16 @@
  			</article>
  			<article>
  				<h3>Salads</h3>
- 				<a href="pages/order.php?category=Salads">
+ 				<!--<a href="pages/order.php?category=Salads">-->
+				<a href="salads" title="click to view salads">
  				   <img src="images/salad-h1.jpg" alt="salad image" class="img-responsive">
 				</a>
  				<p> Straight from the garden, fresh, delicious, made just for you. Our salads make eating greens more fun. </p>
  			</article>
  			<article>
  				<h3>Desserts</h3>
- 				<a href="pages/order.php?category=Desserts">
+ 				<!--<a href="pages/order.php?category=Desserts">-->
+				<a href="desserts" title="click to view desserts">
  				   <img src="images/pancake-h1.jpg" alt="pancakes image" class="img-responsive">
 				</a>
  				<p> Treat yourself with Sofia's Pizza  desserts and beverages. Whether in the mood for ... Come by Today!</p>
