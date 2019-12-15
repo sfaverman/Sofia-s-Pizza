@@ -45,7 +45,7 @@
 
       	<section id="home2" class="grid doubleSides">
       		<article class="middleText">
-      			<a href="pages/menu.php" class="btn button">Our Menu</a>
+      			<a href="pages/menuPage.php" class="btn button">Our Menu</a>
       		</article>
  			<article class="gallery">
  				<h5>ORDER ONLINE FOR PICKUP OR DELIVERY</h4>
