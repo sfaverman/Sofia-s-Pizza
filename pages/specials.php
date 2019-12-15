@@ -82,8 +82,7 @@ if(isset($_POST['submit'])) {
 								echo '<p>'.$prod_desc.'</p>';
 								/*<a href="#" class="btn button ">Add to Cart!</a>';*/
 
-								echo '<form action = "'.$_SERVER['PHP_SELF'].'?prodid='.$prod_id.'" method="post">
-								<ul class="formBtn">
+								echo '<form action = "'.$_SERVER['PHP_SELF'].'?prodid='.$prod_id.'" method="post">								<ul class="formBtn">
 									<li><label for="qty">Qty</label></li>
 									<li><input type="number" name="qty'.$prod_id.'" id="qty'.$prod_id.'" size="5" value="1" required="required"/></li>
 									<li><input type="submit" name="submit" class="button btn-orderForm" value="Add to Cart">

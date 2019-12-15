@@ -106,6 +106,7 @@ if(isset($_GET['category'])) {
 						   $prod_desc = $row['proddesc'];
 						   $prod_price = $row['prodprice'];
 						   $prod_img = $row['image'];
+						   $prod_link = $row['link'];
 
 						  //echo "$prod_name - $prod_desc - $prod_price - $prod_img <br>";
 
@@ -118,7 +119,8 @@ if(isset($_GET['category'])) {
 								echo '<h3 class="price">$'.$prod_price.'</h3>';
 								echo '<p>'.$prod_desc.'</p>';
 								/*<a href="#" class="btn button ">Add to Cart!</a>';*/
-							    echo '<a class="btn button" href="products.php?prodid='.$prod_id.'" title="click to see more">Order Now!</a>';
+							    /*echo '<a class="btn button" href="products.php?prodid='.$prod_id.'" title="click to see more">Order Now!</a>';*/
+							    echo '<a class="btn button" href="'.$rootPath.$prod_link.'" title="click to see more">Order Now!</a>';
 							echo '</div>';
 						echo '</div>';
 						}

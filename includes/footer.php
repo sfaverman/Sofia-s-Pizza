@@ -81,10 +81,10 @@
    <article>
    		<p>Follow Us on Social Media</p>
    		<div class="social mb">
-   			<a href="https:www.facebook.com" target="_blank" title="facebook"><i class="fab fa-facebook"></i></a>
-   			<a href="https:www.instagram.com" target="_blank" title="instagram"><i class="fab fa-instagram"></i></a>
-			<a href="https:www.twitter.com" target="_blank" title="twitter"><i class="fab fa-twitter"></i></a>
-		    <a href="https:www.yelp.com" target="_blank" title="yelp"><i class="fab fa-yelp"></i></a>
+   			<a href="https://www.facebook.com" target="_blank" title="facebook"><i class="fab fa-facebook"></i></a>
+   			<a href="https://www.instagram.com" target="_blank" title="instagram"><i class="fab fa-instagram"></i></a>
+			<a href="https://www.twitter.com" target="_blank" title="twitter"><i class="fab fa-twitter"></i></a>
+		    <a href="https://www.yelp.com" target="_blank" title="yelp"><i class="fab fa-yelp"></i></a>
 		   <!--	<a href="#"><i class="fab fa-google-plus"></i></a>-->
    		</div>
    		<p>&copy; <?php echo '  ' . date("Y") . ' '?>Sofia's Pizza</p>

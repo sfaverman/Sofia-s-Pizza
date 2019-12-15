@@ -34,7 +34,6 @@
     <!--custom css-->
     <link rel="stylesheet" href="<?php echo "$rootPath"; ?>css/pizza.css">
     <link rel="stylesheet" href="<?php echo "$rootPath"; ?>css/search.css">
-
     <!--Scripts-->
 
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" defer></script>
@@ -44,7 +43,6 @@
      '<script src="'.$rootPath.'scripts/custom-pizza.js" defer></script>'; } ?>
     <!-- <script src="<?php echo "$rootPath"; ?>scripts/pizza-order.js" defer></script>-->
      <script src="<?php echo "$rootPath"; ?>scripts/backtotop.js" defer></script>
-
 </head>
 <body id="<?php if ($activePage == 'index') {echo 'home';} else {echo $activePage;} ?>">
          <header class="grid asideLeft">
@@ -130,9 +128,9 @@
 	</li>
 	<li>
 	     <?php if ($activePage == 'viewcart') {
-	         	echo '<a href="viewcart.php#checkout" title="view cart button" class="button btnCall">Checkout!</a>';
+	         	echo '<a href="'.$rootPath.'pages/viewcart.php#checkout" title="view cart button" class="button btnCall">Checkout!</a>';
          	} else {
-				echo '<a href="viewcart.php" title="view cart button" class="button btnCall">View Cart</a>';
+				echo '<a href="'.$rootPath.'pages/viewcart.php" title="view cart button" class="button btnCall">View Cart</a>';
 			}
 		?>
 	</li>

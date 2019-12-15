@@ -33,16 +33,18 @@ $sql->execute();
 	$proddesc = $row['proddesc'];
 	$prodprice = $row['prodprice'];
     $prodimg = $row['image'];
+    $prodlink = $row['link'];
     //echo '<img src = "prodimages/'.$prodid.'.jpg" height="200"><br>';
 	 echo '<div class="card-container">';
-	   echo '<div>';
-			  echo '<img src="../images/products/'.$prodimg.'.jpg" alt="'.$prodname.'" class="img-responsive zoomIn">';
-	   echo '</div>';
-	   echo '<div>';
+	    echo '<div>';
+		  echo '<img src="'.$rootPath.'/images/products/'.$prodimg.'.jpg" alt="'.$prodname.'" class="img-responsive zoomIn">';
+	    echo '</div>';
+	    echo '<div>';
 		echo '<h3 class="text-alignCenter">'.$prodname.'</h3>';
 		echo '<p class="price text-alignCenter">'.$prodprice.'</p>';
    		echo '<p>'.$proddesc.'</p>';
-		echo '<form action = "'.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'].'" method="post">
+		/*echo '<form action = "'.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'].'" method="post">*/
+		echo '<form action = "'.$rootPath.$prodlink.'" method="post">
 		<ul class="formBtn">
 			<li><label for="qty">Qty</label></li>
 			<li><input type="number" class="qty" name="qty" id="qty" size="5" value="1" required="required"/></li>
@@ -54,6 +56,7 @@ $sql->execute();
 		';
 	  echo '</div>';
 	echo '</div>';
+
     echo '<a href="order.php" class="btn button checkoutBtn">Continue Shopping!</a>';
 
 echo '</section>';
