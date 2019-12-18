@@ -15,7 +15,7 @@ while ($row = $sql->fetch()){
 	while ($innerrow = $innersql ->fetch()){
 		$value = $innerrow[0];
 		$price = $innerrow[1];
-		echo '<option value = "'.$value.'">'.$value.'-'.$price.'</option>'."\n";
+		echo '<option value = "'.$value.'">'.$value.' - $'.$price.'</option>'."\n";
 
 	}
 	echo '</select><br>';

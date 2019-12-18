@@ -30,6 +30,8 @@ print '<section class="feedback"><p> Thank you for your order. </p>
 <p>If any questions regarding the order, please call our customer support at 999-999-9999</p></section>';
 
 
+/*
 echo '<a id="bttBtn" href="#confirmation"><img src="../images/back-to-top-arrow.png" alt="back to top arrow"></a>';
+*/
 include('../includes/footer.php');
 ?>

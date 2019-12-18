@@ -41,10 +41,34 @@ $sql->execute();
 	    echo '</div>';
 	    echo '<div>';
 		echo '<h3 class="text-alignCenter">'.$prodname.'</h3>';
-		echo '<p class="price text-alignCenter">'.$prodprice.'</p>';
+		echo '<p class="price text-alignCenter">$'.$prodprice.'</p>';
    		echo '<p>'.$proddesc.'</p>';
 		/*echo '<form action = "'.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'].'" method="post">*/
-		echo '<form action = "'.$rootPath.$prodlink.'" method="post">
+		echo '<form action = "'.$rootPath.$prodlink.'" method="post">';
+
+		/* creating dropdown option for sizes */
+
+		$sqlOpt = $dbh->prepare("select distinct sp19_labels.labelid,sp19_labels.labelname
+			from sp19_labels, sp19_attributes
+			where sp19_labels.labelid = sp19_attributes.labelid
+			and sp19_attributes.prodid = '$prodid'");
+
+		$sqlOpt->execute();
+		while ($rowOpt = $sqlOpt->fetch()){
+			$labelid = $rowOpt[0];
+			$labelname = $rowOpt[1];
+			echo $labelname.': <select name="'.$labelname.'" value="'.$labelname.'">'."\n";
+			$innersql = $dbh->prepare("select value,price from sp19_attributes where prodid = '$prodid' and labelid = '$labelid'");
+			$innersql->execute();
+			while ($innerrow = $innersql ->fetch()){
+				$value = $innerrow[0];
+				$price = $innerrow[1];
+				echo '<option value = "'.$value.'">'.$value.' - $'.$price.'</option>'."\n";
+
+			}
+			echo '</select><br>';
+		}
+		echo '
 		<ul class="formBtn">
 			<li><label for="qty">Qty</label></li>
 			<li><input type="number" class="qty" name="qty" id="qty" size="5" value="1" required="required"/></li>
@@ -57,9 +81,9 @@ $sql->execute();
 	  echo '</div>';
 	echo '</div>';
 
-    echo '<a href="order.php" class="btn button checkoutBtn">Continue Shopping!</a>';
+	 echo '<a id="bttBtn" href="#products"><img src="../images/back-to-top-arrow.png" alt="back to top arrow"></a>';
 
-echo '</section>';
+    echo '</section>';
 echo '<section class="orderTotal">
 		<h4>Your Order</h4>';
 
@@ -97,7 +121,7 @@ echo '<section class="orderTotal">
 
 	echo '</section>';
     echo '</section>';
-    echo '<a id="bttBtn" href="#products"><img src="../images/back-to-top-arrow.png" alt="back to top arrow"></a>';
+   /* echo '<a id="bttBtn" href="#products"><img src="../images/back-to-top-arrow.png" alt="back to top arrow"></a>';*/
 	include '../includes/footer.php';
 
 ?>
