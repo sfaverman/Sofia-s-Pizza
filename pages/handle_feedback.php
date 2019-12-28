@@ -142,6 +142,6 @@ print '<section class="feedback"><p> Thank you, <strong>'.$fName.' '.$lName.'</s
 
 }
 
-echo '<a id="bttBtn" href="#handle_feedback"><img src="../images/back-to-top-arrow.png" alt="back to top arrow"></a>';
+/*echo '<a id="bttBtn" href="#handle_feedback"><img src="../images/back-to-top-arrow.png" alt="back to top arrow"></a>';*/
 include('../includes/footer.php');
 ?>

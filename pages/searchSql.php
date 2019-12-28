@@ -74,7 +74,7 @@ if (!empty($qry) && $qry != ' '){
    }
     echo '</section>';
 
-echo '<a id="bttBtn" href="#searchSql"><img src="../images/back-to-top-arrow.png" alt="back to top arrow"></a>';
+/*echo '<a id="bttBtn" href="#searchSql"><img src="../images/back-to-top-arrow.png" alt="back to top arrow"></a>';*/
 include '../includes/footer.php';
 
 ?>

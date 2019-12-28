@@ -108,7 +108,9 @@ if(isset($_POST['submit'])) {
 
 <a href="custom-pizza.php" class="btn button">Build your own Custom Pizza</a>
 
+<!--
 <a id="bttBtn" href="#search"><img src="../images/back-to-top-arrow.png" alt="back to top arrow"></a>
+-->
 
 <?php
 	include('../includes/footer.php');

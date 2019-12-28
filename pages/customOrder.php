@@ -286,7 +286,7 @@
 
      </section>
 
-  <a id="bttBtn" href="#customOrder"><img src="../images/back-to-top-arrow.png" alt="back to top arrow"></a>
+ <!-- <a id="bttBtn" href="#customOrder"><img src="../images/back-to-top-arrow.png" alt="back to top arrow"></a>-->
 <?php
 	include('../includes/footer.php');
 ?>

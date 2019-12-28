@@ -115,7 +115,9 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Book it!'){
            </form>
         </article>
 	 </section>
+<!--
 <a id="bttBtn" href="#booking"><img src="../images/back-to-top-arrow.png" alt="back to top arrow"></a>
+-->
 <?php
 	include('../includes/footer.php');
 ?>
