@@ -116,7 +116,7 @@ echo '<section class="orderTotal">
 			};
 			echo '<p><strong>Subtotal: '.$total.'</strong></p>';
 
-			echo '<a href="viewcart.php#orderTotal" class="btn button checkoutBtn">Buy Now!</a>';
+			echo '<a href="'.$rootPath.'/pages/viewcart.php#orderTotal" class="btn button checkoutBtn">Buy Now!</a>';
 		    echo '</article>';
 
 	echo '</section>';
