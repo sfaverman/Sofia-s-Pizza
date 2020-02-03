@@ -241,7 +241,7 @@ header.asideLeft {
 header.menu2 {
 	/*grid-template-columns: repeat(3, 32%) !important;*/
 	/*padding: 5px; */
-	margin-top: 3px !important;*/
+	margin-top: 3px !important;
 }
 header.menu2 > article {
 	padding: 10px 10px 0;
@@ -292,7 +292,7 @@ header.menu2 > article:last-child {
 .searchButton {
   width: 15%;
   height: 24px;
-  border: 2px solid #ffe3bd;
+  /*border: 2px solid #ffe3bd;*/
   background: #ffe3bd;
   text-align: center;
   color: #000;
@@ -436,7 +436,7 @@ input[type="number"] {
 		position: absolute;
 		top: 76px;
 		padding: 1em 0 0;
-	}*/
+	}
 }
 
 @media screen and (min-width: 960px) {

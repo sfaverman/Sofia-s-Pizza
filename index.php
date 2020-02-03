@@ -48,7 +48,7 @@
       			<a href="pages/menuPage.php" class="btn button">Our Menu</a>
       		</article>
  			<article class="gallery">
- 				<h5>ORDER ONLINE FOR PICKUP OR DELIVERY</h4>
+ 				<h5>ORDER ONLINE FOR PICKUP OR DELIVERY</h5>
  			</article >
  			<article class="middleText">
       			<a href="pages/order.php" class="btn button">Start Order</a>
@@ -113,7 +113,7 @@
  			</article>
  		</section>
 
- 	 <a id="bttBtn" href="#home"><img src="images/back-to-top-arrow.png" alt="back to top arrow"></a>
+ 	<!-- <a id="bttBtn" href="#home"><img src="images/back-to-top-arrow.png" alt="back to top arrow"></a>-->
 <?php
 	 include('includes/footer.php');
 ?>
