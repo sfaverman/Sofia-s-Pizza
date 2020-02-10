@@ -18,7 +18,7 @@ if(isset($_GET['category'])) {
 ?>
 <!--<main class="galWrapper">-->
 
-	<h2 class="text-alignCenter">Order Online for Pickup or Delivery</h2>
+	<h1 class="text-alignCenter">Order Online for Pickup or Delivery</h1>
 
 	<section class="grid doubleSides mt">
 		<article class="middleText noMin">
@@ -33,14 +33,15 @@ if(isset($_GET['category'])) {
 					<p>Enter the name or info about a product</p>
 					<input type="search" name="search" id="search" placeholder="name or info">
 			 </section>
-			 <section>
-					<article id="update"></article>
-			 </section>
+
    		</article>
 		<article class="middleText noMin">
 			<a href="pizza-cost.html" class="btn button">Pizza Cost Calculator</a>
 		</article>
 	</section>
+   <section>
+					<article id="update"></article>
+			 </section>
 
    <!--<div id="containerSearch" class="withinPage">
 		<section id="searchArea">

@@ -11,29 +11,28 @@
 		<article class="middleText noMin">
 			<a href="specials.php" class="btn button">Weekly Specials</a>
 		</article>
-		<!--<article class="gallery">
-			<h2 class="text-alignCenter">Order Online for Pickup or Delivery</h2>
-		</article>-->
+
 		<article id="containerSearch" class="withinPage noMin">
 			<section id="searchArea">
 					<label for="search">Live Search</label>
 					<p>Enter the name or info about a product</p>
 					<input type="search" name="search" id="search" placeholder="name or info">
 			 </section>
-			 <section>
-					<article id="update"></article>
-			 </section>
+
    		</article>
 		<article class="middleText noMin">
 			<a href="order.php" class="btn button">Order By Category</a>
 		</article>
+	</section>
+	<section>
+			<article id="update"></article>
 	</section>
 	<!--<section class="grid doubleSides">
 		<article class="middleText">
 			<a href="specials.php" class="btn button">Weekly Specials</a>
 		</article>
 		<article class="gallery noMin">
-			<h2 class="text-alignCenter">What We Offer</h2>
+			<h1 class="text-alignCenter">What We Offer</h1>
 		</article>
 		<article class="middleText">
 			<a href="order.php" class="btn button">Order by Category</a>
