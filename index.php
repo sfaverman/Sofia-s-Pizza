@@ -11,7 +11,7 @@
  				<h3>Pizzas</h3>
 				<!--<a href="pages/order.php?category=Pizzas">-->
 				  <a href="pizzas" title="click to view pizzas">
- 				  <img src="images/pizza-h1.jpg" alt="pizza image" class="img-responsive">
+ 				  <img src="<?php echo "$rootPath"; ?>images/pizza-h1.jpg" alt="pizza image" class="img-responsive">
  				</a>
  				<p> We make the most Delious Pizzas!
 					You will try once - You will come many more times! </p>
@@ -20,7 +20,7 @@
  				<h3>Sandwiches</h3>
  				<!--<a href="pages/order.php?category=Sandwiches">-->
 				<a href="sandwiches" title="click to view sandwiches">
- 				  <img src="images/sandwich-h1.jpg" alt="sandwich image" class="img-responsive">
+ 				  <img src="<?php echo "$rootPath"; ?>images/sandwich-h1.jpg" alt="sandwich image" class="img-responsive">
 				</a>
  				<p> We take the time and effort to make your sandwich the best you'll ever have. Try our most popular sandwiches.</p>
 
@@ -29,7 +29,7 @@
  				<h3>Salads</h3>
  				<!--<a href="pages/order.php?category=Salads">-->
 				<a href="salads" title="click to view salads">
- 				   <img src="images/salad-h1.jpg" alt="salad image" class="img-responsive">
+ 				   <img src="<?php echo "$rootPath"; ?>images/salad-h1.jpg" alt="salad image" class="img-responsive">
 				</a>
  				<p> Straight from the garden, fresh, delicious, made just for you. Our salads make eating greens more fun. </p>
  			</article>
@@ -37,7 +37,7 @@
  				<h3>Desserts</h3>
  				<!--<a href="pages/order.php?category=Desserts">-->
 				<a href="desserts" title="click to view desserts">
- 				   <img src="images/pancake-h1.jpg" alt="pancakes image" class="img-responsive">
+ 				   <img src="<?php echo "$rootPath"; ?>images/pancake-h1.jpg" alt="pancakes image" class="img-responsive">
 				</a>
  				<p> Treat yourself with Sofia's Pizza  desserts and beverages. Whether in the mood for ... Come by Today!</p>
  			</article>
@@ -59,22 +59,22 @@
 
  			<article>
  				<h4>THIS WEEK</h4>
- 				<img src="images/pizza-h2.jpg" alt="pancakes image" class="img-responsive">
+ 				<img src="<?php echo "$rootPath"; ?>images/pizza-h2.jpg" alt="pancakes image" class="img-responsive">
  				<a href="pages/specials.php" class="btn button ">View Specials</a>
  			</article>
  			<article>
  				<h4>REWARDS</h4>
- 				<img src="images/rewards-h2.jpg" alt="rewards image" class="img-responsive" >
+ 				<img src="<?php echo "$rootPath"; ?>images/rewards-h2.jpg" alt="rewards image" class="img-responsive" >
  				<a href="#" class="btn button ">View Rewards</a>
  			</article>
  			<article>
  				<h4>CUSTOM PIZZA</h4>
- 				<img src="images/custom-pizza-h2.jpg" alt="pizza plate image" class="img-responsive">
+ 				<img src="<?php echo "$rootPath"; ?>images/custom-pizza-h2.jpg" alt="pizza plate image" class="img-responsive">
  				<a href="pages/custom-pizza.php" class="btn button ">Build Pizza!</a>
  			</article>
  			<article>
  				<h4>PARTY DEALS</h4>
- 				<img src="images/party-h2.jpg" alt="pancakes image" class="img-responsive">
+ 				<img src="<?php echo "$rootPath"; ?>images/party-h2.jpg" alt="pancakes image" class="img-responsive">
  				<a href="pages/order.php" class="btn button ">Order Now!</a>
  			</article>
 
@@ -104,7 +104,7 @@
  			</article>
  			<article>
  				<h3>Best Italian Parties</h3>
- 				<img src="images/bistro-498504_640.jpg" alt="restaurant room image" class="img-responsive">
+ 				<img src="<?php echo "$rootPath"; ?>images/bistro-498504_640.jpg" alt="restaurant room image" class="img-responsive">
  				<p>Are you ready to host your event or birthday party at Sofia's Pizza?</p>
  				<p>&nbsp;</p>
  				<a href="pages/booking.php" class="btn button ">Book now!
