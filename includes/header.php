@@ -89,7 +89,8 @@
 <header class="grid menu2">
           <article>
           <!-- <form class="search" action ="<?php echo "$rootPath"; ?>pages/location.php" method="get">-->
-            <form  class="search" action ="#" method="get">
+
+			<!--<form  class="search" action ="#" method="get">
                     <select class="searchLoc" id="selLoc">
                         <option value="">Location</option>
                         <option value="92128">Rancho Bernardo</option>
@@ -103,7 +104,7 @@
 					 </button>
 
 		    </form>
-		  	<div id='resultLoc'></div>
+		  	<div id='resultLoc'></div> -->
 
 	      </article>
           <article>
