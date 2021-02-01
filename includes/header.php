@@ -1,5 +1,6 @@
 <?php
-    $rootPath = '/E-COMMERCE/Sofia_Pizza/';
+    //$rootPath = '/E-COMMERCE/Sofia_Pizza/';
+     $rootPath = '/pizza/';
     $activePage = basename($_SERVER['PHP_SELF'], ".php");
 ?>
 <!DOCTYPE html>
