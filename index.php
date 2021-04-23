@@ -75,7 +75,8 @@
  			<article>
  				<h4>PARTY DEALS</h4>
  				<img src="<?php echo "$rootPath"; ?>images/party-h2.jpg" alt="pancakes image" class="img-responsive">
- 				<a href="<?php echo "$rootPath"; ?>pages/order.php" class="btn button ">Order Now!</a>
+ 				<a href="<?php echo "$rootPath"; ?>parties" title="click to order party platters" class="btn button ">Order Now!</a>
+ 				<!--<a href="<?php echo "$rootPath"; ?>pages/order.php" class="btn button ">Order Now!</a>-->
  			</article>
 
  		</section>

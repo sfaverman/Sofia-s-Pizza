@@ -1,4 +1,8 @@
-ErrorDocument 404 /index.php
+
+# HTID:9450856: DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES BELOW
+php_value display_errors 1
+# DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES ABOVE HTID:9450856:
+ErrorDocument 404 /pages/404.html
 Options +FollowSymLinks
 RewriteEngine on
 RewriteRule ^pizzas$ pages/order.php?category=Pizzas [L]
@@ -51,3 +55,12 @@ RewriteRule ^chocolate-caramel-cake$ pages/products.php?prodid=42 [L]
 RewriteRule ^orange-slice-pie$ pages/products.php?prodid=43 [L]
 RewriteRule ^triple-chocolate-muffin$ pages/products.php?prodid=44 [L]
 RewriteRule ^black-forest-cake$ pages/products.php?prodid=45 [L]
+RewriteRule ^american-lager-beer$ pages/products.php?prodid=46 [L]
+RewriteRule ^tropical-margaritas$ pages/products.php?prodid=47 [L]
+RewriteRule ^red-wine-cocktail$ pages/products.php?prodid=48 [L]
+RewriteRule ^strawberry-smoothie$ pages/products.php?prodid=49 [L]
+RewriteRule ^orange-lemon-juice$ pages/products.php?prodid=50 [L]
+RewriteRule ^hot-tea$ pages/products.php?prodid=51 [L]
+RewriteRule ^party-platter-subs$ pages/products.php?prodid=52 [L]
+RewriteRule ^party-platter-trio$ pages/products.php?prodid=53 [L]
+RewriteRule ^party-platter-deluxe$ pages/products.php?prodid=54 [L]
