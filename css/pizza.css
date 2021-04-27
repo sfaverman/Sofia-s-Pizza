@@ -421,6 +421,12 @@ a.sides {
   margin: 5px;
   border-radius: 3px;
 }
+#legcustinfo {
+    padding: 0 .2em;
+    font-style: italic;
+    color: #951837;
+    margin: .5em 0 .25em;
+}
 
 @media screen and (min-width: 570px) {
 	h1 {

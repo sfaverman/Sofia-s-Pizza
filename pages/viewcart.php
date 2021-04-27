@@ -60,12 +60,16 @@ $sql->execute();
 		 //alert ("2 delivery button is checked");
 		 document.getElementById("carryout").style.display = "none";
 	     document.getElementById("delivery").style.display = "block";
+         /*document.getElementById("custaddr").style.display = "block";*/
+         document.getElementById("legcustinfo").innerHTML = "Delivery location";
 
 
 	    } else if (document.getElementById('r-method-carryout').checked == true) {
 		  //alert ("3 carryout button is checked");
-		  document.getElementById("delivery").style.display = "none";
+		  document.getElementById("delivery").style.display = "block";
 		  document.getElementById("carryout").style.display = "block";
+          /*document.getElementById("custaddr").style.display = "none";    */
+          document.getElementById("legcustinfo").innerHTML = "Billing information";
 		}
 	}
 
@@ -154,8 +158,7 @@ $sql->execute();
 			$numItems = $i - 1;
 			echo "<p><i>You have $numItems item in your cart</i></p>";
 			};
-
-			echo '<p><strong>Subtotal: $'.$total.'</strong></p>';
+           	echo '<p><strong>Subtotal: $'.number_format($total, 2).'</strong></p>';
 
 		    ?>
 
@@ -190,8 +193,23 @@ $sql->execute();
 			?>
 
             <article id="delivery" class="fullWidthForm" >
-                <fieldset class="fieldsetStyle">
-                    <legend class="formSubHeader legendStyle">Delivery Location</legend>
+                <fieldset id="carryout" class="fieldsetStyle" >
+                   <legend class="formSubHeader legendStyle">Carryout Location</legend>
+                   <p>Please select restaurant location:</p>
+            	   <select name="location" id="location">
+						<option value="">Location</option>
+						<option value="92128">Rancho Bernardo</option>
+						<option value="92108">Mission Valley</option>
+						<option value="92037">La Jolla</option>
+						<option value="92014">Del Mar</option>
+						<option value="92107">Point Loma</option>
+            	  </select>
+            	 <!-- <button id="butLoc2" value="Seleted location" class="searchButton"><i class="fas fa-map-marker-alt"></i>
+            	  </button>-->
+
+                </fieldset>
+                <fieldset id='custaddr' class="fieldsetStyle">
+                    <legend id="legcustinfo" infoclass="formSubHeader legendStyle">Delivery Location</legend>
                 <p>Please enter your name and address:</p>
 
                 <label for="name">Name*:</label><span id="nameVal"></span>
@@ -233,6 +251,10 @@ $sql->execute();
                         <input type="text" id="zip" name="zip" placeholder="999-999-9999" pattern="^[0-9]{5}(?:-[0-9]{4})?$" title="Please enter a valid zipcode" required>
                     </li>
                 </ul>
+                </fieldset>
+                <fieldset id="contactinfo" class="fieldsetStyle" >
+                   <legend class="formSubHeader legendStyle">Contact Info</legend>
+                   <p>Please enter your contact information:</p>
 
                 <label for="email">Email*:</label>
                 <input type="email" id="email" name="email" placeholder="name@url.com" required>
@@ -249,7 +271,7 @@ $sql->execute();
 				$total = $total + $delivery;*/
 			?>
             </article>
-            <article id="carryout" >
+            <!--<article id="carryout" >
             	   <select class="searchLoc" id="selLoc">
 						<option value="">Location</option>
 						<option value="92128">Rancho Bernardo</option>
@@ -261,15 +283,17 @@ $sql->execute();
             	  <button id="butLoc2" value="Seleted location" class="searchButton"><i class="fas fa-map-marker-alt"></i>
             	  </button>
 
-            </article>
+            </article>-->
   <input type="hidden" name="cmd" value="_cart">
   <input type="hidden" name="business" value="sb-0lxwj140581@business.example.com">
   <input type="hidden" name="upload" value="1">
- <!-- <input type = "hidden" name = "no_shipping" value = "2"> -->
+  <!-- no_shipping: 0 - displays, 1 - reducts, 2 - get shipping address from customer account -->
+  <input type ="hidden" name = "no_shipping" value = "1">
   <input type="hidden" name="currency_code" value="USD">
   <input type="hidden" name="invoice" value="<?php echo $sessid; ?>">
-    <p><strong>Total: $<?php echo "$total"; ?></strong></p>
-  <input type ="hidden" id ="subtotal" name = "subtotal" value = "<?php echo "$total"; ?>">
+   <!--echo '<p><strong>Subtotal: $'.number_format($total, 2).'</strong></p>';-->
+     <p><strong>Total: $<?php echo number_format($total, 2); ?></strong></p>
+  <input type ="hidden" id ="subtotal" name = "subtotal" value = "<?php echo number_format($total, 2); ?>">
 
   <input type="submit" name="submit" class="btn button checkoutBtn" value="Checkout!">
 
