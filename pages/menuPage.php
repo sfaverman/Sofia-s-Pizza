@@ -9,7 +9,7 @@
 	<h1 class="text-alignCenter">What We Offer</h1>
 	<section class="grid doubleSides">
 		<article class="middleText noMin">
-			<a href="specials.php" class="btn button">Weekly Specials</a>
+			<a href="specials.php" class="button sides" title="click to view weekly specials"><img src="<?php echo "$rootPath"; ?>images/pizza-demo-bg.jpg" alt="pizza image" class="img-responsive">Weekly Specials</a>
 		</article>
 
 		<article id="containerSearch" class="withinPage noMin">
@@ -21,7 +21,7 @@
 
    		</article>
 		<article class="middleText noMin">
-			<a href="order.php" class="btn button">Order By Category</a>
+			<a href="order.php" class="button sides" title="click to order by category"><img src="<?php echo "$rootPath"; ?>images/sandwich-h1.jpg" alt="sandwich image" class="img-responsive">Order By Category</a>
 		</article>
 	</section>
 	<section>
@@ -63,6 +63,8 @@
 
 	 <?php
 		    $menuType = ['Breakfast','Lunch','Dinner','All'];
+            /* day of the week 3 letters: echo date("D"); */
+            $weekday = date("D");
 
 				$i = 0;
 				while ($i < 4) {
@@ -72,8 +74,6 @@
 						echo '<div id="tab-'.$i.'" class="tab-content clearfloat">';
 					}
 					echo '<section class="gallery text-alignCenter">';
-
-					//echo "$weekDayArray[$i]";
 
 					$prod_sql = $dbh->prepare("SELECT * FROM sp19_products WHERE menutype = '$menuType[$i]';");
 					$prod_sql->execute();
@@ -85,6 +85,7 @@
 						   $prod_price = $row['prodprice'];
 						   $prod_img = $row['image'];
 						   $prod_link = $row['link'];
+                           $prod_wsale = $row['weeklyspecial'];
 
 						  //echo "$prod_name - $prod_desc - $prod_price - $prod_img <br>";
 						If ($i == 3) {
@@ -98,13 +99,24 @@
 						   $prod_price = $row['prodprice'];
 						   $prod_img = $row['image'];
 						   $prod_link = $row['link'];
-						   echo '<div class="card-container">';
-						   /*echo '<div>';*/
-						   echo '<img src="../images/products/'.$prod_img.'.jpg" alt="'.$prod_img.'" class="img-responsive zoomIn">';
-						  /* echo '</div>';*/
+                           $prod_wsale = $row['weeklyspecial'];
+
+                           echo '<div class="card-container">';
+
+                           if ($prod_wsale == $weekday) { echo '<div class="ribbon">Sale</div>';
+                               echo '<img src="../images/products/'.$prod_img.'.jpg" alt="'.$prod_img.'" class="img-responsive zoomIn topcut">';}
+                           else {
+                           	   echo '<img src="../images/products/'.$prod_img.'.jpg" alt="'.$prod_img.'" class="img-responsive zoomIn">';}
+
 						   echo '<div>';
 								echo '<p>'.$prod_name.'</p>';
-							    echo '<p class="price">$'.$prod_price.'</p>';
+
+                                if ($prod_wsale == $weekday) {
+                                       echo '<p> reg $'.$prod_price.', sale<span class="price">$'.discount20($prod_price).'</span></p>';}
+                                else {
+                                       echo '<p class="price">$'.$prod_price.'</p>';};
+							    /*echo '<p class="price">$'.$prod_price.'</p>';*/
+
 							   /*	echo '<a href="#" class="btn button ">Add to Cart!</a>';*/
 							   /* echo '<a class="btn button" href="products.php?prodid='.$prod_id.'" title="click to see more">Order Now!</a>';*/
 							   echo '<a class="btn button" href="'.$rootPath.$prod_link.'" title="click to see more">Order Now!</a>';
@@ -117,11 +129,22 @@
 
 						 echo '<div class="card-container">';
 						   echo '<div>';
-								  echo '<img src="../images/products/'.$prod_img.'.jpg" alt="'.$prod_img.'" class="img-responsive zoomIn">';
+                            if ($prod_wsale == $weekday) { echo '<div class="ribbon">Sale</div>';
+                               echo '<img src="../images/products/'.$prod_img.'.jpg" alt="'.$prod_img.'" class="img-responsive zoomIn topcut">';}
+                           else {
+                           	   echo '<img src="../images/products/'.$prod_img.'.jpg" alt="'.$prod_img.'" class="img-responsive zoomIn">';}
+				           /*echo '<img src="../images/products/'.$prod_img.'.jpg" alt="'.$prod_img.'" class="img-responsive zoomIn">';*/
 						   echo '</div>';
 						   echo '<div>';
 								echo '<h3>'.$prod_name.'</h3>';
-							    echo '<h3 class="price">$'.$prod_price.'</h3>';
+
+                                 if ($prod_wsale == $weekday) {
+                                       echo '<p> reg $'.$prod_price.', sale<span class="price">$'.discount20($prod_price).'</span></p>';}
+                                else {
+                                       echo '<p class="price">$'.$prod_price.'</p>';};
+
+							    /*echo '<h3 class="price">$'.$prod_price.'</h3>';*/
+
 							   	/*echo '<p>'.$prod_desc.'</p>
 								<a href="#" class="btn button ">Add to Cart!</a>';*/
 							    echo '<a class="btn button" href="'.$rootPath.$prod_link.'" title="click to see more">Order Now!</a>';

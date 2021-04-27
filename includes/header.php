@@ -1,11 +1,19 @@
 <?php
     //$rootPath = '/E-COMMERCE/Sofia_Pizza/';
-     $rootPath = '/pizza/';
+    //HostRocket hosting
+    //$rootPath = '/pizza/';
+    //localhost:
+    $rootPath = '/Sofia-Pizza-20210131/';
     $activePage = basename($_SERVER['PHP_SELF'], ".php");
+    ini_set ('date.timezone', 'America/Los_Angeles');
+    $weekday = date("D");
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="Sofia's Pizza" content="Sofia's Pizza restaurant website">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154576724-1"></script>
 <script>
@@ -16,9 +24,6 @@
   gtag('config', 'UA-154576724-1');
 </script>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Sofia's Pizza" content="Sofia's Pizza restaurant website">
     <title>
     	<?php
             if (defined('TITLE')) {
@@ -124,9 +129,14 @@
 <article id="popUp">
   <ul>
 	<li>
+		<!--
 		<p id="popUp1"> New item product id=<span id="popUpItem1"></span>added to cart! </p>
 		<p id="popUp2"> Quantities updated for product id=<span id="popUpItem2"></span>! </p>
-		<p id="popUp3"> Deleted product id=<span id="popUpItem3"></span>! </p>
+		<p id="popUp3"> Deleted product id=<span id="popUpItem3"></span>! </p>-->
+
+		<p id="popUp1"> New item added to your cart! </p>
+		<p id="popUp2"> Updated item quantities! </p>
+		<p id="popUp3"> Deleted item from your cart! </p>
 	</li>
 	<li>
 	     <?php if ($activePage == 'viewcart') {

@@ -59,8 +59,8 @@
 
  			<article>
  				<h4>THIS WEEK</h4>
- 				<img src="<?php echo "$rootPath"; ?>images/pizza-h2.jpg" alt="pancakes image" class="img-responsive">
- 				<a href="<?php echo "$rootPath"; ?>pages/specials.php" class="btn button ">View Specials</a>
+ 				<img src="<?php echo "$rootPath"; ?>images/pizza-h2.jpg" alt="pizza image" class="img-responsive">
+ 				<a href="<?php echo "$rootPath"; ?>pages/specials.php" class="btn button" title="click to view this week specials">View Specials</a>
  			</article>
  			<article>
  				<h4>REWARDS</h4>

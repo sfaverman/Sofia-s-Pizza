@@ -1,9 +1,10 @@
 <?php
 function numcartitems($sessid){
-    $dbh = new PDO("mysql:host=localhost;dbname=sofia_pizza", 'root', '');
+   //localhost:
+   $dbh = new PDO("mysql:host=localhost;dbname=sofia_pizza", 'root', '');
+   //000webhost:
    //$dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
-    //$dbh = new PDO("mysql:host=localhost;dbname=id9575535_sofia_pizza", 'id9575535_admin', 'admin');
-    //hostrocket
+   //HostRocket hosting:
    //$dbh = new PDO("mysql:host=localhost;dbname=sfaverma_sofiapizza", 'sfaverma_sofiapizza', 'SPadmin1');
    //echo 'connected to sofia_pizza database<br>';
 
@@ -16,12 +17,11 @@ function numcartitems($sessid){
 
 function delCartItem($pid) {
 	$sessid = session_id();
-    $dbh = new PDO("mysql:host=localhost;dbname=sofia_pizza", 'root', '');
+    //localhost:
+   $dbh = new PDO("mysql:host=localhost;dbname=sofia_pizza", 'root', '');
 	//$dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
-    //$dbh = new PDO("mysql:host=localhost;dbname=id9575535_sofia_pizza", 'id9575535_admin', 'admin');
-    //hostrocket
-	//$dbh = new PDO("mysql:host=localhost;dbname=sfaverma_sofiapizza", 'sfaverma_sofiapizza', 'SPadmin1');
-
+    // hostrocket
+    //$dbh = new PDO("mysql:host=localhost;dbname=sfaverma_sofiapizza", 'sfaverma_sofiapizza', 'SPadmin1');
 	$delsql = $dbh->prepare("delete from sp19_cartitems where productid = '$pid' and sessionid = '$sessid'");
 	$delsql->execute();
 	echo '<script>
@@ -35,30 +35,24 @@ function delCartItem($pid) {
 		</script>';
 }
 
-
 function addtocart($pid,$qty){
 	$sessid = session_id();
-    $dbh = new PDO("mysql:host=localhost;dbname=sofia_pizza", 'root', '');
-   //$dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
-   //$dbh = new PDO("mysql:host=localhost;dbname=id9575535_sofia_pizza", 'id9575535_admin', 'admin');
-   //hostrocket
-   //$dbh = new PDO("mysql:host=localhost;dbname=sfaverma_sofiapizza", 'sfaverma_sofiapizza', 'SPadmin1');
-   //echo 'connected to sofia_pizza database<br>';
+//localhost:
+   $dbh = new PDO("mysql:host=localhost;dbname=sofia_pizza", 'root', '');
+//Hosting 000webhost:
+//$dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
+//HostRocket hosting:
+//   $dbh = new PDO("mysql:host=localhost;dbname=sfaverma_sofiapizza", 'sfaverma_sofiapizza', 'SPadmin1');
+//echo 'connected to sofia_pizza database<br>';
 
-	$checksql = $dbh->prepare("select productid, qty from sp19_cartitems where productid = ? and sessionid = '$sessid'");
+	$checksql = $dbh->prepare("select productid from sp19_cartitems where productid = ? and sessionid = '$sessid'");
 	$checksql->bindValue(1,$pid);
 	$checksql->execute();
-    $checkpid = $checksql->fetch();
-    /*echo "<pre>";
-	   print_r($checkpid);
-    echo "</pre>";*/
-    if($checkpid) {
-	    $existingpid = $checkpid[0];
-        $existingqty = $checkpid[1];
-        $newqty = $existingqty + $qty;
-        if (is_numeric($existingpid)){
+	$checkpid = $checksql->fetch();
+	$existingpid = $checkpid[0];
+	if (is_numeric($existingpid)){
 		$sql = $dbh->prepare(" update sp19_cartitems set qty = ? where productid = '$pid' and sessionid = '$sessid'");
-		$sql->bindValue(1,$newqty);
+		$sql->bindValue(1,$qty);
 		$sql->execute();
 		//echo '<script>alert("Quantity updated!");</script>';
 		echo '<script>
@@ -66,8 +60,6 @@ function addtocart($pid,$qty){
 				document.getElementById("popUp2").style.display = "block";
 				document.getElementById("popUpItem2").innerHTML = " '.$pid.' ";
 			  </script>';
-
-        }
 	}
 	else {
 	$sql = $dbh->prepare("insert into sp19_cartitems (productid,qty,sessionid) values (?,?,?)");
@@ -87,26 +79,23 @@ function addtocart($pid,$qty){
    }
 }
 
-function updqty($pid,$qty){
-	$sessid = session_id();
-    $dbh = new PDO("mysql:host=localhost;dbname=sofia_pizza", 'root', '');
-   //$dbh = new PDO("mysql:host=localhost:8889;dbname=sofia_pizza", 'root', 'root');
-   //$dbh = new PDO("mysql:host=localhost;dbname=id9575535_sofia_pizza", 'id9575535_admin', 'admin');
-   //hostrocket
-   //$dbh = new PDO("mysql:host=localhost;dbname=sfaverma_sofiapizza", 'sfaverma_sofiapizza', 'SPadmin1');
-   //echo 'connected to sofia_pizza database<br>';
+/*function disDeliveryAddr() {
+	echo 'You selected Delivery';
+	echo '<script>
+		document.getElementById("delivery").style.display = "block";
+	</script>';
+}*/
+/*function disDelMethod() {
+	echo '<script>
+		if (document.getElementById("r-method-delivery").checked == true){
+		    document.getElementById("delivery").style.display = "block";
 
-	$sql = $dbh->prepare(" update sp19_cartitems set qty = ? where productid = '$pid' and sessionid = '$sessid'");
-	$sql->bindValue(1,$qty);
-	$sql->execute();
-	//echo '<script>alert("Quantity updated!");</script>';
-		echo '<script>
-				document.getElementById("popUp").style.display = "block";
-				document.getElementById("popUp2").style.display = "block";
-				document.getElementById("popUpItem2").innerHTML = " '.$pid.' ";
-			  </script>';
-
-}
+	    } else if (document.getElementById("r-method-carryout").checked == true) {
+		   document.getElementById("delivery").style.display = "none";
+		}
+	}
+	 </script>';
+}*/
 
 /* WEEKLY 20% discount */
 
@@ -116,4 +105,5 @@ function discount20($prod_price) {
     /*echo "$disPrice $prod_price";*/
     return $disPrice;
 }
+
 ?>

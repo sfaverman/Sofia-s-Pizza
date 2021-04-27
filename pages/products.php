@@ -34,15 +34,24 @@ $sql->execute();
 	$prodprice = $row['prodprice'];
     $prodimg = $row['image'];
     $prodlink = $row['link'];
+    $prod_wsale = $row['weeklyspecial'];
+
     //echo '<img src = "prodimages/'.$prodid.'.jpg" height="200"><br>';
 	 echo '<div class="card-container">';
+     if ($prod_wsale == $weekday) { echo '<div class="ribbon">Sale</div>'; };
 	    echo '<div>';
-		  echo '<img src="'.$rootPath.'/images/products/'.$prodimg.'.jpg" alt="'.$prodname.'" class="img-responsive zoomIn">';
+         if ($prod_wsale == $weekday) {
+             echo '<img src="'.$rootPath.'/images/products/'.$prodimg.'.jpg" alt="'.$prodname.'" class="img-responsive zoomIn topcut">';}
+         else {
+             echo '<img src="'.$rootPath.'/images/products/'.$prodimg.'.jpg" alt="'.$prodname.'" class="img-responsive zoomIn">';}
 	    echo '</div>';
 	    echo '<div>';
 		echo '<h3 class="text-alignCenter">'.$prodname.'</h3>';
-		echo '<p class="price text-alignCenter">$'.$prodprice.'</p>';
-   		echo '<p>'.$proddesc.'</p>';
+        if ($prod_wsale == $weekday) {
+             echo '<p text-alignCenter> reg $'.$prodprice.', sale<span class="price">$'.discount20($prodprice).'</span></p>';}
+        else {
+             echo '<p class="price text-alignCenter">$'.$prodprice.'</p>';}
+		echo '<p>'.$proddesc.'</p>';
 		/*echo '<form action = "'.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'].'" method="post">*/
 		echo '<form action = "'.$rootPath.$prodlink.'" method="post">';
 
@@ -87,7 +96,7 @@ $sql->execute();
 echo '<section class="orderTotal">
 		<h4>Your Order</h4>';
 
-		$sql = $dbh->prepare("select  sp19_products.prodid, sp19_products.prodname,   sp19_products.prodprice,  sp19_cartitems.qty
+		$sql = $dbh->prepare("select  sp19_products.prodid, sp19_products.prodname,   sp19_products.prodprice,  sp19_products.weeklyspecial, sp19_cartitems.qty
 			from sp19_products, sp19_cartitems
 			where sp19_products.prodid = sp19_cartitems.productid
 			and sp19_cartitems.sessionid = '$sessid'");
@@ -101,11 +110,14 @@ echo '<section class="orderTotal">
 					$prodname = $row['prodname'];
 					$prodprice = $row['prodprice'];
 					$qty = $row['qty'];
+                    $prod_wsale = $row['weeklyspecial'];
 
 				//echo '<img src = "prodimages/'.$prodid.'.jpg" height="200"><br>';
+                   /*echo "$prod_wsale $weekday";*/
+
+                if ($prod_wsale == $weekday) { $prodprice = discount20($prodprice); }
 
 				echo '<p>'.$prodname.' ----- $'.$prodprice.' - QTY: '.$qty.'</p>';
-
 
 				$i++;
 				$total = $total + ($prodprice * $qty);
@@ -114,7 +126,7 @@ echo '<section class="orderTotal">
 			$numItems = $i - 1;
 			echo "<p><i>You have $numItems item in your cart</i></p>";
 			};
-			echo '<p><strong>Subtotal: '.$total.'</strong></p>';
+			echo '<p><strong>Subtotal: $'.$total.'</strong></p>';
 
 			echo '<a href="'.$rootPath.'/pages/viewcart.php#orderTotal" class="btn button checkoutBtn">Buy Now!</a>';
 		    echo '</article>';

@@ -1,5 +1,5 @@
   <a id="bttBtn" href="<?php $_SERVER['PHP_SELF'] ?>"><img src="<?php echo "$rootPath"; ?>images/back-to-top-arrow.png" alt="back to top arrow"></a>
-  <footer class="footer styleAccord">
+ <footer class="footer styleAccord">
    <section class="grid column4">
    	<article>
 		<p>VISIT US</p>

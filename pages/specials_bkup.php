@@ -33,8 +33,7 @@ if(isset($_POST['submit'])) {
 				$weekDayNum = date('N', strtotime($today));
 				//echo "Today: " . $today . " weekday: " . $weekDayNum . "<br>";
 				$weekDay = date('l', strtotime($today));
-				/*echo "Today: " . $today . ' - ' .$weekDay . "<br>";*/
-
+				echo "Today: " . $today . ' - ' .$weekDay . "<br>";
 				for ($i = 0; $i < count($weekDayArray); $i++) {
 				   if ($i == $weekDayNum - 1) {
 					 echo '<li class="current" data-tab="tab-'.$i.'">'.$weekDayArray[$i].'</li>';
@@ -42,14 +41,15 @@ if(isset($_POST['submit'])) {
 					 echo '<li data-tab="tab-'.$i.'">'.$weekDayArray[$i].'</li>';
 				   }
 				}
+			?>
+		</ul>
 
-		echo '</ul>';
-
-	 		    //$weekDayArray = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+	 <?php
+		    $weekDayArray = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
 
 				$i = 0;
 				while ($i < count($weekDayArray)) {
-				   	if ($i == $weekDayNum - 1) {
+				   	if ($i == 0) {
 						echo '<div id="tab-'.$i.'" class="tab-content current clearfloat">';
 					} else {
 						echo '<div id="tab-'.$i.'" class="tab-content clearfloat">';
@@ -76,9 +76,9 @@ if(isset($_POST['submit'])) {
 						   echo '</div>';
 						   echo '<div>';
 								echo '<h3>'.$prod_name.'</h3>';
-							  /*  $disPrice = $prod_price / 100 * 80;
-							    $disPrice = round($disPrice,2);*/
-								echo '<p> reg $'.$prod_price.', '.$weekDayArray[$i].'<span class="price">$'.discount20($prod_price).'</span></p>';
+							    $disPrice = $prod_price / 100 * 80;
+							    $disPrice = round($disPrice,2);
+								echo '<p> reg $'.$prod_price.', '.$weekDayArray[$i].'<span class="price">$'.$disPrice.'</span></p>';
 								echo '<p>'.$prod_desc.'</p>';
 								/*<a href="#" class="btn button ">Add to Cart!</a>';*/
 

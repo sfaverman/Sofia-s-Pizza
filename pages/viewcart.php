@@ -9,7 +9,7 @@ include '../includes/header.php';
 
 //$prodid = $_GET['prodid'];
 
-if(isset($_POST['submit'])) {
+if(isset($_POST['update'])) {
 	$prodid = $_POST['prodid'];
 
 	//$rest = var_dump($_POST);
@@ -18,7 +18,7 @@ if(isset($_POST['submit'])) {
  	/*$qty = $_POST["qty"];*/
 	$qty = $_POST["qty$prodid"];
 
-	addtocart($prodid,$qty);
+	updqty($prodid,$qty);
 };
 if(isset($_POST['delete'])) {
 	$prodid = $_POST['prodid'];
@@ -37,7 +37,7 @@ if(isset($_POST['delete'])) {
 	}
 }*/
 
-$sql = $dbh->prepare("select sp19_products.prodid, sp19_products.prodname, sp19_products.prodprice, sp19_products.image, sp19_cartitems.qty
+$sql = $dbh->prepare("select sp19_products.prodid, sp19_products.prodname, sp19_products.prodprice,  sp19_products.image, sp19_cartitems.qty
 	from sp19_products, sp19_cartitems
 	where sp19_products.prodid = sp19_cartitems.productid
 	and sp19_cartitems.sessionid = '$sessid'");
@@ -85,6 +85,7 @@ $sql->execute();
 					$prodprice = $row['prodprice'];
 					$prodimg = $row['image'];
 					$qty = $row['qty'];
+
 				echo '<div class="card-container">';
 						//echo '<img src = "prodimages/'.$prodid.'.jpg" height="200"><br>';
 
@@ -99,7 +100,7 @@ $sql->execute();
 										<li><label for="qty">Qty</label></li>
 										<li><input type="number" name="qty'.$prodid.'" id="qty'.$prodid.'" size="5" value="'.$qty.'" required="required"/></li>
 										<input type="hidden" name="prodid" value="'.$prodid.'">
-										<li><input type="submit" name="submit" class="button btn-orderForm" value="Update">
+										<li><input type="submit" name="update" class="button btn-orderForm" value="Update">
 										<li><input type="submit" name="delete" class="button btn-orderForm" value="Delete">
 										</li>
 									</ul>';
@@ -121,7 +122,7 @@ $sql->execute();
 		<form action = "https://www.sandbox.paypal.com/cgi-bin/webscr" method = "post" target = "paypal" name="_xclick">
 		<?php
 
-		$sql = $dbh->prepare("select  sp19_products.prodid, sp19_products.prodname, sp19_products.prodprice,  sp19_cartitems.qty
+		$sql = $dbh->prepare("select  sp19_products.prodid, sp19_products.prodname, sp19_products.prodprice,  sp19_products.weeklyspecial, sp19_cartitems.qty
 			from sp19_products, sp19_cartitems
 			where sp19_products.prodid = sp19_cartitems.productid
 			and sp19_cartitems.sessionid = '$sessid'");
@@ -134,8 +135,11 @@ $sql->execute();
 					$prodname = $row['prodname'];
 					$prodprice = $row['prodprice'];
 					$qty = $row['qty'];
+                    $prod_wsale = $row['weeklyspecial'];
 
 					//echo '<img src = "prodimages/'.$prodid.'.jpg" height="200"><br>';
+
+                if ($prod_wsale == $weekday) { $prodprice = discount20($prodprice); };
 
 				echo '<p>'.$prodname.' ----- $'.$prodprice.' - QTY: '.$qty.'</p>';
 
@@ -151,7 +155,7 @@ $sql->execute();
 			echo "<p><i>You have $numItems item in your cart</i></p>";
 			};
 
-			echo '<p><strong>Subtotal: '.$total.'</strong></p>';
+			echo '<p><strong>Subtotal: $'.$total.'</strong></p>';
 
 		    ?>
 
@@ -264,7 +268,7 @@ $sql->execute();
  <!-- <input type = "hidden" name = "no_shipping" value = "2"> -->
   <input type="hidden" name="currency_code" value="USD">
   <input type="hidden" name="invoice" value="<?php echo $sessid; ?>">
-    <p><strong>Total: <?php echo "$total"; ?></strong></p>
+    <p><strong>Total: $<?php echo "$total"; ?></strong></p>
   <input type ="hidden" id ="subtotal" name = "subtotal" value = "<?php echo "$total"; ?>">
 
   <input type="submit" name="submit" class="btn button checkoutBtn" value="Checkout!">
