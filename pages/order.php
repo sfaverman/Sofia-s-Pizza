@@ -39,7 +39,7 @@ if(isset($_GET['category'])) {
    		</article>
 		<article class="middleText noMin">
 		      <!-- <p>Are you getting the best deal?</p>-->
-		     <a href="pizza-cost.html" title="click to access pizza cost calculator" class="button sides"><img src="<?php echo "$rootPath"; ?>images/pizza-demo-bg.jpg" alt="pizza image" class="img-responsive">Pizza Cost Calculator</a>
+		     <a href="<?php echo "$rootPath"; ?>/pages/pizza-cost.html" title="click to access pizza cost calculator" class="button sides"><img src="<?php echo "$rootPath"; ?>images/pizza-demo-bg.jpg" alt="pizza image" class="img-responsive">Pizza Cost Calculator</a>
         </article>
 	</section>
    <section>
