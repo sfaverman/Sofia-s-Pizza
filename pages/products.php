@@ -90,7 +90,7 @@ $sql->execute();
 	  echo '</div>';
 	echo '</div>';
 
-	 echo '<a id="bttBtn" href="#products"><img src="../images/back-to-top-arrow.png" alt="back to top arrow"></a>';
+	/* echo '<a id="bttBtn" href="#products"><img src="../images/back-to-top-arrow.png" alt="back to top arrow"></a>';*/
 
     echo '</section>';
 echo '<section class="orderTotal">
